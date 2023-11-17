@@ -22,6 +22,9 @@ Torry Insight Hub is our internal knowledge-sharing platform, aiming to facilita
 
    ```bash
    git clone https://github.com/SureshRoshi/tih_frontend.git
+   ```
+
+   ```bash
    cd tih_frontend
    ```
 
