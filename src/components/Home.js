@@ -1,7 +1,7 @@
 function Home() {
   return (
     <>
-      <div>Welcome to TORRY INSIGHT HUB</div>
+      <div>Welcome to Torry Insight Hub</div>
     </>
   );
 }
