@@ -62,4 +62,8 @@ npm run build
 
 This command will generate an optimized production build in the `build` directory.
 
+---
+
 Facilitate collaboration and knowledge sharing within Torry Harris with Torry Insight Hub! 🌐🧠
+
+---
