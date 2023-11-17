@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Torry Insight Hub - Internal Knowledge Sharing Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Torry Insight Hub is our internal knowledge-sharing platform, aiming to facilitate seamless exchange of insights, experiences, and knowledge among our employees through blogs and articles. This platform is designed to foster collaboration within the organization, providing a dedicated space for internal blogging and information exchange.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Internal Blogging:** Empower our team to share insights, experiences, and knowledge through a user-friendly blogging interface.
 
-### `npm start`
+- **Collaborative Environment:** Cultivate a collaborative culture by encouraging team members to actively contribute and engage with each other's content.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Simplified Platform:** Torry Insight Hub is a straightforward, internal blogging platform tailored specifically for our organizational use.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js and npm installed on your machine.
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   git clone https://github.com/SureshRoshi/tih_frontend.git
+   cd tih_frontend
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Start the development server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Open your browser and navigate to http://localhost:3000 to access Torry Insight Hub.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Usage
 
-## Learn More
+1. **Internal Blogging:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   - Team members can create and publish blogs and articles directly on the platform.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Collaborative Environment:**
 
-### Code Splitting
+   - Encourage team members to engage with each other's content through comments and discussions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Build for Production
 
-### Analyzing the Bundle Size
+To build the production version of Torry Insight Hub, run the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    ```bash
+    npm run build
+    ```
 
-### Making a Progressive Web App
+This command will generate an optimized production build in the `build` directory.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Facilitate collaboration and knowledge sharing within Torry Harris with Torry Insight Hub! 🌐🧠
