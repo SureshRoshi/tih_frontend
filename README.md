@@ -20,25 +20,25 @@ Torry Insight Hub is our internal knowledge-sharing platform, aiming to facilita
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/SureshRoshi/tih_frontend.git
-   ```
+```bash
+git clone https://github.com/SureshRoshi/tih_frontend.git
+```
 
-   ```bash
-   cd tih_frontend
-   ```
+```bash
+cd tih_frontend
+```
 
 2. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 3. Start the development server:
 
-   ```bash
-   npm start
-   ```
+```bash
+npm start
+```
 
 4. Open your browser and navigate to http://localhost:3000 to access Torry Insight Hub.
 
@@ -56,9 +56,9 @@ Torry Insight Hub is our internal knowledge-sharing platform, aiming to facilita
 
 To build the production version of Torry Insight Hub, run the following command:
 
-    ```bash
-    npm run build
-    ```
+```bash
+npm run build
+```
 
 This command will generate an optimized production build in the `build` directory.
 
