@@ -1,5 +1,13 @@
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <LoginPage />
+      {/* <SignupPage /> */}
+    </>
+  );
 }
 
 export default App;
