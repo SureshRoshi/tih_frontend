@@ -133,7 +133,7 @@ function Navbar() {
                   </span>
                 </button>
                 <div className="dark-light-mode-cover">
-                  <a className="dark-light-mode" href="/">
+                  <a className="dark-light-mode" href="#">
                     <span />
                   </a>
                 </div>

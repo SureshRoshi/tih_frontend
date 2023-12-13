@@ -1868,6 +1868,7 @@ pre {
   background: #fff;
   border-radius: 15px;
 }
+
 @keyframes shadow-pulse {
   0% {
     box-shadow: 0 0 0 0px rgba(88, 108, 218, 0.8);
@@ -1917,11 +1918,11 @@ pre {
 }
 
 .upvote-btn:hover {
-  color:#0000ff;
+  color: #0000ff;
 }
 
-{% comment %} .upvote-btn:disabled,
+/* {% comment %} .upvote-btn:disabled,
 .downvote-btn:disabled {
   color: #999;
   cursor: not-allowed;
-} {% endcomment %}
+} {% endcomment %} */
