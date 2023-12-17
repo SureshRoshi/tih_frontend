@@ -1,4 +1,4 @@
-import SignupForm from "../components/UI/SignupForm";
+import SignupForm from "../../components/UI/SignupForm";
 
 function SignupPage() {
   return (
