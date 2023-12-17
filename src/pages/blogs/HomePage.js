@@ -3,11 +3,11 @@ import React from "react";
 function HomePage() {
   return (
     <>
-      {/* <div className="text-center fw-bold p-5 m-5 display-5">
+      <div className="text-center fw-bold p-5 m-5 display-5">
         Explore the World of <br />{" "}
         <span style={{ color: "#5869DA" }}>Torry Insight Hub</span>
-      </div> */}
-      <main className="bg-grey pb-30">
+      </div>
+      {/* <main className="bg-grey pb-30">
         <div className="container pt-30">
           <div className="featured-slider-3 position-relative">
             <div className="slider-3-arrow-cover"></div>
@@ -171,7 +171,7 @@ function HomePage() {
             </div>
           </div>
         </div>
-      </main>
+      </main> */}
     </>
   );
 }
