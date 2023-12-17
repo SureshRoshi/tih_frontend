@@ -1,3 +1,6 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <>
@@ -137,6 +140,15 @@ function Navbar() {
                     <span />
                   </a>
                 </div>
+                {
+                  // token login, if token no anchor tag, else anchor tag
+                  <Link
+                    className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow"
+                    to={"/login"}
+                  >
+                    Login
+                  </Link>
+                }
               </div>
             </div>
           </div>

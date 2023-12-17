@@ -1,3 +1,6 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 function SignupForm() {
   return (
     <>
@@ -59,7 +62,7 @@ function SignupForm() {
                           />
                           <label
                             className="form-check-label"
-                            for="exampleCheckbox1"
+                            htmlFor="exampleCheckbox1"
                           >
                             <span>I agree to terms &amp; Policy.</span>
                           </label>
@@ -82,7 +85,9 @@ function SignupForm() {
                     <span> or</span>
                   </div>
                   <div className="text-muted text-center">
-                    Already have an account? <a href="/">Login now</a>
+                    Already have an account?{" "}
+                    {/* {<a href="/login">Login now</a>} */}
+                    {<Link to={"/login"}>Login now</Link>}
                   </div>
                 </div>
               </div>

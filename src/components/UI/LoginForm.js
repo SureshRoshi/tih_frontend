@@ -1,3 +1,6 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 function LoginForm() {
   return (
     <>
@@ -65,7 +68,8 @@ function LoginForm() {
                   </div>
                   <div className="text-muted text-center">
                     Don't Have an Account? &nbsp;
-                    <a href="/">Sign up now</a>
+                    {/* {<a href="/signup">Sign up now</a>} */}
+                    {<Link to={"/signup"}>Sign up now</Link>}
                   </div>
                 </div>
               </div>
