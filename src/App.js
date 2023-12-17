@@ -8,6 +8,7 @@ import RootLayout from "./pages/Root";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ErrorPage from "./pages/ErrorPage";
+import HomePage from "./pages/HomePage";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { index: true, element: <Navigate to="/login" /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/signup", element: <SignupPage /> },
+      { path: "/home", element: <HomePage /> },
     ],
   },
 ]);
