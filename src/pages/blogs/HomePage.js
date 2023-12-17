@@ -3,11 +3,10 @@ import React from "react";
 function HomePage() {
   return (
     <>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
+      <div className="text-center fw-bold p-5 m-5 display-5">
+        Explore the World of <br />{" "}
+        <span style={{ color: "#5869DA" }}>Torry Insight Hub</span>
+      </div>
     </>
   );
 }
