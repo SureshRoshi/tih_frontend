@@ -75,8 +75,7 @@ function LoginForm() {
                     <span> or</span>
                   </div>
                   <div className="text-muted text-center">
-                    Don't Have an Account? &nbsp;
-                    {/* {<a href="/signup">Sign up now</a>} */}
+                    Don't Have an Account?{" "}
                     {<Link to={"/signup"}>Sign up now</Link>}
                   </div>
                 </div>

@@ -94,7 +94,6 @@ function SignupForm() {
                   </div>
                   <div className="text-muted text-center">
                     Already have an account?{" "}
-                    {/* {<a href="/login">Login now</a>} */}
                     {<Link to={"/login"}>Login now</Link>}
                   </div>
                 </div>
