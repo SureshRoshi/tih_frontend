@@ -1,7 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginForm() {
+  const navigate = useNavigate();
+
+  function loginHandler(e) {
+    e.preventDefault();
+    navigate("/home");
+  }
+
   return (
     <>
       <main className="bg-grey pt-80 pb-50">
@@ -13,7 +20,7 @@ function LoginForm() {
                   <div className="heading_s1 text-center">
                     <h3 className="mb-30 font-weight-900">Login</h3>
                   </div>
-                  <form method="post">
+                  <form>
                     <div className="form-group">
                       <input
                         type="text"
@@ -58,6 +65,7 @@ function LoginForm() {
                       <button
                         type="submit"
                         className="button button-contactForm btn-block "
+                        onClick={loginHandler}
                       >
                         Login
                       </button>

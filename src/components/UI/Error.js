@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Error() {
   return (
@@ -21,9 +22,9 @@ function Error() {
                   type="submit"
                   className="button button-contactForm mt-30"
                 >
-                  <a className="text-white" href="/">
+                  <Link className="text-white" to="/">
                     Home page
-                  </a>
+                  </Link>
                 </button>
               </div>
             </div>
