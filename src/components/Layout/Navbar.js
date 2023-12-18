@@ -124,7 +124,7 @@ function Navbar() {
                 <a href="/">
                   <img
                     className="logo"
-                    src="assets/imgs/theme/torry.gif"
+                    src="assets/imgs/theme/torry.png"
                     alt="testing"
                   />
                 </a>
