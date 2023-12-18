@@ -25,7 +25,7 @@ function HomePage() {
                         <div className="entry-meta meta-0 font-small mb-20">
                           <a href="category.html" tabindex="0">
                             <span className="post-cat text-info text-uppercase">
-                              Travel
+                              Techology
                             </span>
                           </a>
                           <a href="category.html" tabindex="0">
