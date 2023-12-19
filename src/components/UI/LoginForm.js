@@ -6,7 +6,7 @@ function LoginForm() {
 
   function loginHandler(e) {
     e.preventDefault();
-    navigate("/home");
+    navigate("/blogs");
   }
 
   return (

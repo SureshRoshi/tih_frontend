@@ -53,7 +53,7 @@ function Navbar() {
                   <div className="d-flex hover-up-2 transition-normal">
                     <div className="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                       <a className="color-white" href="/">
-                        <img src="assets/imgs/tech/thumb-1.jpg" alt="Tech 1" />
+                        <img src="/assets/imgs/tech/thumb-1.jpg" alt="Tech 1" />
                       </a>
                     </div>
                     <div className="post-content media-body">
@@ -74,7 +74,7 @@ function Navbar() {
                   <div className="d-flex hover-up-2 transition-normal">
                     <div className="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                       <a className="color-white" href="/">
-                        <img src="assets/imgs/tech/thumb-2.jpg" alt="Tech 2" />
+                        <img src="/assets/imgs/tech/thumb-2.jpg" alt="Tech 2" />
                       </a>
                     </div>
                     <div className="post-content media-body">
@@ -94,7 +94,7 @@ function Navbar() {
                   <div className="d-flex hover-up-2 transition-normal">
                     <div className="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                       <a className="color-white" href="/">
-                        <img src="assets/imgs/tech/thumb-3.jpg" alt="Tech 3" />
+                        <img src="/assets/imgs/tech/thumb-3.jpg" alt="Tech 3" />
                       </a>
                     </div>
                     <div className="post-content media-body">
@@ -124,7 +124,7 @@ function Navbar() {
                 <a href="/">
                   <img
                     className="logo"
-                    src="assets/imgs/theme/torry.png"
+                    src="/assets/imgs/theme/torry.png"
                     alt="testing"
                   />
                 </a>
@@ -315,7 +315,7 @@ function Navbar() {
                 <div className="d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5 mb-30">
                   <div className="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                     <a className="color-white" href="/">
-                      <img src="assets/imgs/news/thumb-2.jpg" alt="" />
+                      <img src="/assets/imgs/news/thumb-2.jpg" alt="" />
                     </a>
                   </div>
                   <div className="post-content media-body">
@@ -334,7 +334,7 @@ function Navbar() {
                 <div className="d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5 mb-30">
                   <div className="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                     <a className="color-white" href="/">
-                      <img src="assets/imgs/news/thumb-4.jpg" alt="" />
+                      <img src="/assets/imgs/news/thumb-4.jpg" alt="" />
                     </a>
                   </div>
                   <div className="post-content media-body">
@@ -353,7 +353,7 @@ function Navbar() {
                 <div className="d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5 mb-30">
                   <div className="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                     <a className="color-white" href="/">
-                      <img src="assets/imgs/news/thumb-3.jpg" alt="" />
+                      <img src="/assets/imgs/news/thumb-3.jpg" alt="" />
                     </a>
                   </div>
                   <div className="post-content media-body">

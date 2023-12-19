@@ -6,7 +6,7 @@ function SignupForm() {
 
   function signupHandler(e) {
     e.preventDefault();
-    navigate("/home");
+    navigate("/blogs");
   }
 
   return (

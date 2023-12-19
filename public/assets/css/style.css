@@ -1921,8 +1921,8 @@ pre {
   color: #0000ff;
 }
 
-/* {% comment %} .upvote-btn:disabled,
+/* .upvote-btn:disabled,
 .downvote-btn:disabled {
   color: #999;
   cursor: not-allowed;
-} {% endcomment %} */
+} */
