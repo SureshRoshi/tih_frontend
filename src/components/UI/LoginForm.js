@@ -24,7 +24,7 @@ function LoginForm() {
                     <div className="form-group">
                       <input
                         type="text"
-                        required=""
+                        required
                         className="form-control"
                         name="email"
                         placeholder="Your Email"
@@ -33,7 +33,7 @@ function LoginForm() {
                     <div className="form-group">
                       <input
                         className="form-control"
-                        required=""
+                        required
                         type="password"
                         name="password"
                         placeholder="Password"
@@ -48,6 +48,7 @@ function LoginForm() {
                             name="checkbox"
                             id="exampleCheckbox1"
                             value=""
+                            required
                           />
                           <label
                             className="form-check-label"

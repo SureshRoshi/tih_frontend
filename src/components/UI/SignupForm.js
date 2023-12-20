@@ -24,7 +24,7 @@ function SignupForm() {
                     <div className="form-group">
                       <input
                         type="text"
-                        required=""
+                        required
                         className="form-control"
                         name="username"
                         placeholder="Username"
@@ -33,7 +33,7 @@ function SignupForm() {
                     <div className="form-group">
                       <input
                         type="text"
-                        required=""
+                        required
                         className="form-control"
                         name="email"
                         placeholder="Email"
@@ -42,7 +42,7 @@ function SignupForm() {
                     <div className="form-group">
                       <input
                         className="form-control"
-                        required=""
+                        required
                         type="password"
                         name="password"
                         placeholder="Password"
@@ -51,7 +51,7 @@ function SignupForm() {
                     <div className="form-group">
                       <input
                         className="form-control"
-                        required=""
+                        required
                         type="password"
                         name="password"
                         placeholder="Confirm password"

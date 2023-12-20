@@ -10,6 +10,7 @@ import SignupPage from "./pages/auth/SignupPage";
 import ErrorPage from "./pages/error/ErrorPage";
 import HomePage from "./pages/blogs/HomePage";
 import BlogDetailPage from "./pages/blogs/BlogDetailPage";
+import AddPost from "./pages/blogs/AddPost";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "signup", element: <SignupPage /> },
       { path: "blogs", element: <HomePage /> },
       { path: "blogs/:blogId", element: <BlogDetailPage /> },
+      { path: "add-post", element: <AddPost /> },
     ],
   },
 ]);

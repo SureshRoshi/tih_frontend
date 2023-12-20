@@ -39,7 +39,7 @@ function BlogDetailPage() {
                 </p>
                 <div className="entry-meta align-items-center meta-2 font-small color-muted">
                   <p className="mb-5">
-                    <a className="author-avatar" href="#">
+                    <a className="author-avatar" href="/">
                       <img
                         className="img-circle"
                         src="/assets/imgs/authors/author.jpg"
@@ -81,28 +81,28 @@ function BlogDetailPage() {
             <p>
               Learn the intricacies of Git with practical tips. Familiarize
               yourself with rebasing using
-              <a href="#"> git rebase</a>
+              <a href="/"> git rebase</a>
               <sup>
-                <a href="#">[2]</a>
+                <a href="/">[2]</a>
               </sup>
               and squash your commits for a cleaner history with
-              <a href="#"> git rebase -i</a>
+              <a href="/"> git rebase -i</a>
               <sup>
-                <a href="#">[3]</a>
+                <a href="/">[3]</a>
               </sup>
               .
             </p>
             <p>
               Enhance your Git skills with advanced techniques. Discover the
               power of Git tags with
-              <a href="#"> git tag</a>
+              <a href="/"> git tag</a>
               <sup>
-                <a href="#">[4]</a>
+                <a href="/">[4]</a>
               </sup>
               , and navigate branches effortlessly using
-              <a href="#"> git checkout</a>
+              <a href="/"> git checkout</a>
               <sup>
-                <a href="#">[5]</a>
+                <a href="/">[5]</a>
               </sup>
               .
             </p>
@@ -110,9 +110,9 @@ function BlogDetailPage() {
             <p>
               Collaborate seamlessly using Git. Resolve conflicts gracefully
               with
-              <a href="#"> git merge --no-ff</a>
+              <a href="/"> git merge --no-ff</a>
               <sup>
-                <a href="#">[6]</a>
+                <a href="/">[6]</a>
               </sup>
               and enhance code quality through effective branching strategies.
             </p>
@@ -120,9 +120,9 @@ function BlogDetailPage() {
               <p>
                 Optimize your workflow with Git best practices. Strive for a
                 clean commit history and a collaborative environment.
-                <a href="#"> git push</a>
+                <a href="/"> git push</a>
                 <sup>
-                  <a href="#">[7]</a>
+                  <a href="/">[7]</a>
                 </sup>
                 responsibly.
               </p>
@@ -359,7 +359,7 @@ function BlogDetailPage() {
                     <div className="d-flex justify-content-between">
                       <div className="d-flex align-items-center">
                         <h5>
-                          <a href="#">Shegu Poojitha</a>
+                          <a href="/">Shegu Poojitha</a>
                         </h5>
                         <p className="date">6 minutes ago</p>
                       </div>
@@ -404,7 +404,7 @@ function BlogDetailPage() {
                             </svg>{" "}
                           </button>
                         </div>
-                        <a href="#" className="btn-reply">
+                        <a href="/" className="btn-reply">
                           Reply
                         </a>
                       </div>
@@ -430,7 +430,7 @@ function BlogDetailPage() {
                     <div className="d-flex justify-content-between">
                       <div className="d-flex align-items-center">
                         <h5>
-                          <a href="#">Charan Srinivasan</a>
+                          <a href="/">Charan Srinivasan</a>
                         </h5>
                         <p className="date">December 4, 2023 at 3:12 pm</p>
                       </div>
@@ -475,7 +475,7 @@ function BlogDetailPage() {
                             </svg>{" "}
                           </button>
                         </div>
-                        <a href="#" className="btn-reply">
+                        <a href="/" className="btn-reply">
                           Reply
                         </a>
                       </div>
@@ -498,7 +498,7 @@ function BlogDetailPage() {
                     <div className="d-flex justify-content-between">
                       <div className="d-flex align-items-center">
                         <h5>
-                          <a href="#">Suresh Dangeti</a>
+                          <a href="/">Suresh Dangeti</a>
                         </h5>
                         <p className="date">December 4, 2023 at 3:12 pm</p>
                       </div>
@@ -543,7 +543,7 @@ function BlogDetailPage() {
                             </svg>{" "}
                           </button>
                         </div>
-                        <a href="#" className="btn-reply">
+                        <a href="/" className="btn-reply">
                           Reply
                         </a>
                       </div>
@@ -568,7 +568,7 @@ function BlogDetailPage() {
                     <div className="d-flex justify-content-between">
                       <div className="d-flex align-items-center">
                         <h5>
-                          <a href="#">Lalith Suresh</a>
+                          <a href="/">Lalit Suresh</a>
                         </h5>
                         <p className="date">December 4, 2023 at 3:12 pm</p>
                       </div>
@@ -613,7 +613,7 @@ function BlogDetailPage() {
                             </svg>{" "}
                           </button>
                         </div>
-                        <a href="#" className="btn-reply">
+                        <a href="/" className="btn-reply">
                           Reply
                         </a>
                       </div>
