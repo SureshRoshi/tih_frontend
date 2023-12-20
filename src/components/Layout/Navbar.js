@@ -124,8 +124,9 @@ function Navbar() {
                 <a href="/">
                   <img
                     className="logo"
-                    src="/assets/imgs/theme/torry.png"
-                    alt="testing"
+                    src="/assets/imgs/theme/this_logo_innerpages.svg"
+                    alt="logo"
+                    height={"50px"}
                   />
                 </a>
               </div>
