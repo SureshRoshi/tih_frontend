@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [loggedIn, isLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <>
@@ -143,7 +143,7 @@ function Navbar() {
                     <span />
                   </a>
                 </div>
-                {isLoggedIn ? (
+                {loggedIn ? (
                   // token login, if token no anchor tag, else anchor tag
                   <Link
                     className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow"
