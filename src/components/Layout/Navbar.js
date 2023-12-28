@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const [loggedIn, isLoggedIn] = useState(false);
+
   return (
     <>
       <div className="scroll-progress primary-bg" />
@@ -141,7 +143,7 @@ function Navbar() {
                     <span />
                   </a>
                 </div>
-                {
+                {isLoggedIn ? (
                   // token login, if token no anchor tag, else anchor tag
                   <Link
                     className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow"
@@ -149,9 +151,7 @@ function Navbar() {
                   >
                     Login
                   </Link>
-                }
-                {/* if token render add-post else login */}
-                {
+                ) : (
                   <Link
                     className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow"
                     to={"/add-post"}
@@ -173,7 +173,7 @@ function Navbar() {
                       <span>Post</span>
                     </span>
                   </Link>
-                }
+                )}
               </div>
             </div>
           </div>

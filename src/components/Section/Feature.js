@@ -9,7 +9,6 @@ const FEATURE_POSTS = [
     title: "Mastering Git: Best Practices for Software Development",
     tag: "Tech Tips",
     date: "15 September 2023",
-    hits: "1.7k Views",
   },
   {
     id: "enhancing-code-quality",
@@ -17,7 +16,6 @@ const FEATURE_POSTS = [
     title: "Enhancing Code Quality: Best Practices for Developers",
     tag: "Development Tips",
     date: "26 August 2023",
-    hits: "2k Views",
   },
   {
     id: "impact-of-ai",
@@ -25,7 +23,6 @@ const FEATURE_POSTS = [
     title: "The Impact of Artificial Intelligence on Future Technologies",
     tag: "Tech Exploration",
     date: "15 September 2023",
-    hits: "2.3k Views",
   },
   {
     id: "impact-of-healthy-env",
@@ -34,7 +31,6 @@ const FEATURE_POSTS = [
     title: "The Impact of a Healthy Work Environment on Developer Productivity",
     tag: "Health in Tech",
     date: "22 September 2023",
-    hits: "1.6k Views",
   },
 ];
 
@@ -106,9 +102,6 @@ function FeatureContainer() {
                           </h1>
                           <div className="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
                             <span className="post-on">{post.date}</span>
-                            <span className="hit-count has-dot">
-                              {post.hits}
-                            </span>
                           </div>
                         </div>
                       </div>
