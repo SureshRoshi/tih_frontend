@@ -364,44 +364,33 @@ function BlogDetailPage() {
                         <p className="date">6 minutes ago</p>
                       </div>
                       <div className="reply-btn">
-                        <div className="voting-icons mb-20">
+                        <div className="voting-icons mt-20 mb-20">
                           <button className="upvote-btn">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
                               height="16"
                               fill="currentColor"
-                              className="bi bi-chevron-double-up"
+                              class="bi bi-caret-up-square"
                               viewBox="0 0 16 16"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z"
-                              />
-                              <path
-                                fillRule="evenodd"
-                                d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
-                              />
-                            </svg>{" "}
+                              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                              <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
+                            </svg>
                           </button>
+                          <span className="votes-count">12</span>
                           <button className="downvote-btn">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
                               height="16"
                               fill="currentColor"
-                              className="bi bi-chevron-double-down"
+                              class="bi bi-caret-down-square"
                               viewBox="0 0 16 16"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                              />
-                              <path
-                                fillRule="evenodd"
-                                d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                              />
-                            </svg>{" "}
+                              <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
+                              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                            </svg>
                           </button>
                         </div>
                         <a href="/" className="btn-reply">
@@ -435,44 +424,33 @@ function BlogDetailPage() {
                         <p className="date">December 4, 2023 at 3:12 pm</p>
                       </div>
                       <div className="reply-btn">
-                        <div className="voting-icons mb-20">
+                        <div className="voting-icons mt-20 mb-20">
                           <button className="upvote-btn">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
                               height="16"
                               fill="currentColor"
-                              className="bi bi-chevron-double-up"
+                              class="bi bi-caret-up-square"
                               viewBox="0 0 16 16"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z"
-                              />
-                              <path
-                                fillRule="evenodd"
-                                d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
-                              />
-                            </svg>{" "}
+                              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                              <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
+                            </svg>
                           </button>
+                          <span className="votes-count">12</span>
                           <button className="downvote-btn">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
                               height="16"
                               fill="currentColor"
-                              className="bi bi-chevron-double-down"
+                              class="bi bi-caret-down-square"
                               viewBox="0 0 16 16"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                              />
-                              <path
-                                fillRule="evenodd"
-                                d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                              />
-                            </svg>{" "}
+                              <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
+                              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                            </svg>
                           </button>
                         </div>
                         <a href="/" className="btn-reply">
@@ -503,44 +481,33 @@ function BlogDetailPage() {
                         <p className="date">December 4, 2023 at 3:12 pm</p>
                       </div>
                       <div className="reply-btn">
-                        <div className="voting-icons mb-20">
+                        <div className="voting-icons mt-20 mb-20">
                           <button className="upvote-btn">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
                               height="16"
                               fill="currentColor"
-                              className="bi bi-chevron-double-up"
+                              class="bi bi-caret-up-square"
                               viewBox="0 0 16 16"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z"
-                              />
-                              <path
-                                fillRule="evenodd"
-                                d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
-                              />
-                            </svg>{" "}
+                              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                              <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
+                            </svg>
                           </button>
+                          <span className="votes-count">12</span>
                           <button className="downvote-btn">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
                               height="16"
                               fill="currentColor"
-                              className="bi bi-chevron-double-down"
+                              class="bi bi-caret-down-square"
                               viewBox="0 0 16 16"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                              />
-                              <path
-                                fillRule="evenodd"
-                                d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                              />
-                            </svg>{" "}
+                              <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
+                              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                            </svg>
                           </button>
                         </div>
                         <a href="/" className="btn-reply">
@@ -573,44 +540,33 @@ function BlogDetailPage() {
                         <p className="date">December 4, 2023 at 3:12 pm</p>
                       </div>
                       <div className="reply-btn">
-                        <div className="voting-icons mb-20">
+                        <div className="voting-icons mt-20 mb-20">
                           <button className="upvote-btn">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
                               height="16"
                               fill="currentColor"
-                              className="bi bi-chevron-double-up"
+                              class="bi bi-caret-up-square"
                               viewBox="0 0 16 16"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z"
-                              />
-                              <path
-                                fillRule="evenodd"
-                                d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
-                              />
-                            </svg>{" "}
+                              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                              <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
+                            </svg>
                           </button>
+                          <span className="votes-count">12</span>
                           <button className="downvote-btn">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
                               height="16"
                               fill="currentColor"
-                              className="bi bi-chevron-double-down"
+                              class="bi bi-caret-down-square"
                               viewBox="0 0 16 16"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                              />
-                              <path
-                                fillRule="evenodd"
-                                d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                              />
-                            </svg>{" "}
+                              <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
+                              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                            </svg>
                           </button>
                         </div>
                         <a href="/" className="btn-reply">
