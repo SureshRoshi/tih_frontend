@@ -23,7 +23,7 @@ function LatestPosts() {
                                 "url(assets/imgs/news/news-13.jpg",
                             }}
                           >
-                            <a className="img-link" href="single.html"></a>
+                            <a className="img-link" href="/"></a>
                           </div>
                         </div>
                       </div>
@@ -37,7 +37,7 @@ function LatestPosts() {
                             </a>
                           </div>
                           <h5 className="post-title font-weight-900 mb-20">
-                            <a href="single.html">
+                            <a href="/">
                               Helpful Tips for Working from Home as a Freelancer
                             </a>
                           </h5>
@@ -88,21 +88,21 @@ function LatestPosts() {
                                 "url(assets/imgs/news/news-4.jpg)",
                             }}
                           >
-                            <a className="img-link" href="single.html"></a>
+                            <a className="img-link" href="/"></a>
                           </div>
                         </div>
                       </div>
                       <div className="col-md-8 align-self-center">
                         <div className="post-content">
                           <div className="entry-meta meta-0 font-small mb-10">
-                            <a href="category.html">
+                            <a href="/">
                               <span className="post-cat text-success">
                                 Cooking
                               </span>
                             </a>
                           </div>
                           <h5 className="post-title font-weight-900 mb-20">
-                            <a href="single.html">
+                            <a href="/">
                               10 Easy Ways to Be Environmentally Conscious At
                               Home
                             </a>
@@ -154,21 +154,21 @@ function LatestPosts() {
                                 "url(assets/imgs/news/news-2.jpg)",
                             }}
                           >
-                            <a className="img-link" href="single.html"></a>
+                            <a className="img-link" href="/"></a>
                           </div>
                         </div>
                       </div>
                       <div className="col-md-8 align-self-center">
                         <div className="post-content">
                           <div className="entry-meta meta-0 font-small mb-10">
-                            <a href="category.html">
+                            <a href="/">
                               <span className="post-cat text-warning">
                                 Cooking
                               </span>
                             </a>
                           </div>
                           <h5 className="post-title font-weight-900 mb-20">
-                            <a href="single.html">
+                            <a href="/">
                               My Favorite Comfies to Lounge in At Home
                             </a>
                           </h5>
@@ -219,21 +219,21 @@ function LatestPosts() {
                                 "url(assets/imgs/news/news-3.jpg)",
                             }}
                           >
-                            <a className="img-link" href="single.html"></a>
+                            <a className="img-link" href="/"></a>
                           </div>
                         </div>
                       </div>
                       <div className="col-md-8 align-self-center">
                         <div className="post-content">
                           <div className="entry-meta meta-0 font-small mb-10">
-                            <a href="category.html">
+                            <a href="/">
                               <span className="post-cat text-danger">
                                 Travel
                               </span>
                             </a>
                           </div>
                           <h5 className="post-title font-weight-900 mb-20">
-                            <a href="single.html">
+                            <a href="/">
                               How to Give Your Space a Parisian-Inspired
                               Makeover
                             </a>
@@ -326,7 +326,7 @@ function LatestPosts() {
                         <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
                           <div className="post-content media-body">
                             <h6 className="post-title mb-15 text-limit-2-row font-medium">
-                              <a href="single.html">
+                              <a href="/">
                                 Spending Some Quality Time with Kids? It’s
                                 Possible
                               </a>
@@ -336,7 +336,7 @@ function LatestPosts() {
                             </div>
                           </div>
                           <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a className="color-white" href="single.html">
+                            <a className="color-white" href="/">
                               <img src="assets/imgs/news/thumb-6.jpg" alt="" />
                             </a>
                           </div>
@@ -346,7 +346,7 @@ function LatestPosts() {
                         <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
                           <div className="post-content media-body">
                             <h6 className="post-title mb-15 text-limit-2-row font-medium">
-                              <a href="single.html">
+                              <a href="/">
                                 Relationship Podcasts are Having “That” Talk
                               </a>
                             </h6>
@@ -355,7 +355,7 @@ function LatestPosts() {
                             </div>
                           </div>
                           <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a className="color-white" href="single.html">
+                            <a className="color-white" href="/">
                               <img src="assets/imgs/news/thumb-7.jpg" alt="" />
                             </a>
                           </div>
@@ -365,7 +365,7 @@ function LatestPosts() {
                         <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
                           <div className="post-content media-body">
                             <h6 className="post-title mb-15 text-limit-2-row font-medium">
-                              <a href="single.html">
+                              <a href="/">
                                 Here’s How to Get the Best Sleep at Night
                               </a>
                             </h6>
@@ -374,7 +374,7 @@ function LatestPosts() {
                             </div>
                           </div>
                           <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a className="color-white" href="single.html">
+                            <a className="color-white" href="/">
                               <img src="assets/imgs/news/thumb-2.jpg" alt="" />
                             </a>
                           </div>
@@ -384,7 +384,7 @@ function LatestPosts() {
                         <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
                           <div className="post-content media-body">
                             <h6 className="post-title mb-15 text-limit-2-row font-medium">
-                              <a href="single.html">
+                              <a href="/">
                                 America’s Governors Get Tested for a Virus That
                                 Is Testing Them
                               </a>
@@ -394,7 +394,7 @@ function LatestPosts() {
                             </div>
                           </div>
                           <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a className="color-white" href="single.html">
+                            <a className="color-white" href="/">
                               <img src="assets/imgs/news/thumb-3.jpg" alt="" />
                             </a>
                           </div>
