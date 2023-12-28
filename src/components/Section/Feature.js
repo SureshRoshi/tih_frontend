@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // data will be fetched from backend and rendered dynamically.
@@ -11,34 +11,61 @@ const FEATURE_POSTS = [
     date: "15 September 2023",
     hits: "1.7k Views",
   },
-  // {
-  //   id: "enhancing-code-quality",
-  //   image: "url(/assets/imgs/hero-tech/hero-tech-1.png) center/cover no-repeat",
-  //   title: "Enhancing Code Quality: Best Practices for Developers",
-  //   tag: "Development Tips",
-  //   date: "26 August 2023",
-  //   hits: "2k Views",
-  // },
-  // {
-  //   id: "impact-of-ai",
-  //   image: "url(/assets/imgs/hero-tech/hero-tech-2.jpg) center/cover no-repeat",
-  //   title: "The Impact of Artificial Intelligence on Future Technologies",
-  //   tag: "Tech Exploration",
-  //   date: "15 September 2023",
-  //   hits: "2.3k Views",
-  // },
-  // {
-  //   id: "impact-of-healthy-env",
-  //   image:
-  //     "url(/assets/imgs/hero-tech/hero-tech-4.jpg) center right/cover no-repeat",
-  //   title: "The Impact of a Healthy Work Environment on Developer Productivity",
-  //   tag: "Health in Tech",
-  //   date: "22 September 2023",
-  //   hits: "1.6k Views",
-  // },
+  {
+    id: "enhancing-code-quality",
+    image: "url(/assets/imgs/hero-tech/hero-tech-1.png) center/cover no-repeat",
+    title: "Enhancing Code Quality: Best Practices for Developers",
+    tag: "Development Tips",
+    date: "26 August 2023",
+    hits: "2k Views",
+  },
+  {
+    id: "impact-of-ai",
+    image: "url(/assets/imgs/hero-tech/hero-tech-2.jpg) center/cover no-repeat",
+    title: "The Impact of Artificial Intelligence on Future Technologies",
+    tag: "Tech Exploration",
+    date: "15 September 2023",
+    hits: "2.3k Views",
+  },
+  {
+    id: "impact-of-healthy-env",
+    image:
+      "url(/assets/imgs/hero-tech/hero-tech-4.jpg) center right/cover no-repeat",
+    title: "The Impact of a Healthy Work Environment on Developer Productivity",
+    tag: "Health in Tech",
+    date: "22 September 2023",
+    hits: "1.6k Views",
+  },
 ];
 
 function FeatureContainer() {
+  useEffect(() => {
+    const $ = window.$;
+
+    if ($.fn.slick) {
+      $(document).ready(() => {
+        const $slider = $(".featured-slider-3-items");
+
+        $slider.slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true,
+          dots: false,
+          fade: true,
+          prevArrow:
+            '<button type="button" class="slick-prev"><i class="elegant-icon arrow_left"></i></button>',
+          nextArrow:
+            '<button type="button" class="slick-next"><i class="elegant-icon arrow_right"></i></button>',
+          appendArrows: ".slider-3-arrow-cover",
+        });
+
+        return () => {
+          $slider.slick("unslick");
+        };
+      });
+    }
+  }, []);
+
   return (
     <>
       <div className="container pt-30">

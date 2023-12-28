@@ -158,18 +158,18 @@
       verticalSwiping: true,
     });
     // featured slider 3
-    $(".featured-slider-3-items").slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      dots: false,
-      fade: true,
-      prevArrow:
-        '<button type="button" class="slick-prev"><i class="elegant-icon arrow_left"></i></button>',
-      nextArrow:
-        '<button type="button" class="slick-next"><i class="elegant-icon arrow_right"></i></button>',
-      appendArrows: ".slider-3-arrow-cover",
-    });
+    // $(".featured-slider-3-items").slick({
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    //   arrows: true,
+    //   dots: false,
+    //   fade: true,
+    //   prevArrow:
+    //     '<button type="button" class="slick-prev"><i class="elegant-icon arrow_left"></i></button>',
+    //   nextArrow:
+    //     '<button type="button" class="slick-next"><i class="elegant-icon arrow_right"></i></button>',
+    //   appendArrows: ".slider-3-arrow-cover",
+    // });
   };
 
   var typeWriter = function () {
