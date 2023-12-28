@@ -26,8 +26,8 @@ function LoginForm() {
                         type="text"
                         required
                         className="form-control"
-                        name="email"
-                        placeholder="Your Email"
+                        name="employeeId"
+                        placeholder="Employee ID"
                       />
                     </div>
                     <div className="form-group">

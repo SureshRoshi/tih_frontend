@@ -1885,10 +1885,10 @@ pre {
     box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
   }
 }
-
 .voting-icons {
   display: flex;
-  gap: 10px;
+  gap: 5px;
+  align-items: center;
 }
 
 .upvote-btn,
@@ -1919,6 +1919,11 @@ pre {
 
 .upvote-btn:hover {
   color: #0000ff;
+}
+
+.votes-count {
+  font-size: 14px;
+  margin: 0 5px;
 }
 
 /* .upvote-btn:disabled,

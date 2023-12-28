@@ -35,6 +35,15 @@ function SignupForm() {
                         type="text"
                         required
                         className="form-control"
+                        name="employeeId"
+                        placeholder="Employee ID"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        required
+                        className="form-control"
                         name="email"
                         placeholder="Email"
                       />
