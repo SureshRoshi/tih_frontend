@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddPost() {
+  const navigate = useNavigate();
+
+  function handleAddPost(e) {
+    e.preventDefault();
+    navigate("/blogs");
+  }
+
   return (
     <>
       <main className="container pt-30">
@@ -22,7 +30,6 @@ function AddPost() {
                       id="image"
                       name="image"
                       accept="image/*"
-                      required
                     />
                   </div>
                   <small className="form-text text-muted">
@@ -76,6 +83,7 @@ function AddPost() {
                   <button
                     type="submit"
                     className="btn button button-contactForm"
+                    onClick={handleAddPost}
                   >
                     Submit Post
                   </button>
