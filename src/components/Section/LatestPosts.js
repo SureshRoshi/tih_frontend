@@ -40,9 +40,6 @@ function LatestPosts() {
                             <a href="single.html">
                               Helpful Tips for Working from Home as a Freelancer
                             </a>
-                            {/* <span className="post-format-icon">
-                              <i className="elegant-icon icon_star_alt"></i>
-                            </span> */}
                           </h5>
                           <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
                             <span className="post-on">7 August</span>
