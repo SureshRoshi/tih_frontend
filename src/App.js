@@ -1,8 +1,12 @@
+import React, { useContext } from "react";
+
 import {
   createBrowserRouter,
   RouterProvider,
   Navigate,
 } from "react-router-dom";
+
+import AuthContentProvider, { AuthContext } from "./store/auth-context";
 
 import RootLayout from "./pages/root/Root";
 import LoginPage from "./pages/auth/LoginPage";
@@ -29,7 +33,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <AuthContentProvider>
+        <RouterProvider router={router} />
+      </AuthContentProvider>
+    </>
+  );
 }
 
 export default App;

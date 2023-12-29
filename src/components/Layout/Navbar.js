@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../store/auth-context";
 
 function Navbar() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const authCtx = useContext(AuthContext);
+  const isLoggedIn = authCtx.isAuthenticated;
+  console.log(isLoggedIn);
 
   return (
     <>
@@ -143,15 +146,7 @@ function Navbar() {
                     <span />
                   </a>
                 </div> */}
-                {loggedIn ? (
-                  // token login, if token no anchor tag, else anchor tag
-                  <Link
-                    className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow"
-                    to={"/login"}
-                  >
-                    Login
-                  </Link>
-                ) : (
+                {isLoggedIn ? (
                   <Link
                     className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow"
                     to={"/add-post"}
@@ -172,6 +167,14 @@ function Navbar() {
                       </svg>{" "}
                       <span>Post</span>
                     </span>
+                  </Link>
+                ) : (
+                  // token login, if token no anchor tag, else anchor tag
+                  <Link
+                    className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow"
+                    to={"/login"}
+                  >
+                    Login
                   </Link>
                 )}
               </div>

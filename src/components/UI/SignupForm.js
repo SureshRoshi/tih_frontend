@@ -1,14 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function SignupForm() {
-  const navigate = useNavigate();
-
-  function signupHandler(e) {
-    e.preventDefault();
-    navigate("/blogs");
-  }
-
+function SignupForm({ signupHandler }) {
   return (
     <>
       <main className="bg-grey pt-80 pb-50">

@@ -1,14 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function LoginForm() {
-  const navigate = useNavigate();
-
-  function loginHandler(e) {
-    e.preventDefault();
-    navigate("/blogs");
-  }
-
+function LoginForm({ routeHandle, onAuthenticate }) {
   return (
     <>
       <main className="bg-grey pt-80 pb-50">
@@ -66,7 +59,7 @@ function LoginForm() {
                       <button
                         type="submit"
                         className="button button-contactForm btn-block "
-                        onClick={loginHandler}
+                        onClick={routeHandle}
                       >
                         Login
                       </button>
