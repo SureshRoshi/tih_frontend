@@ -5,7 +5,7 @@ import { AuthContext } from "../../store/auth-context";
 function Navbar() {
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isAuthenticated;
-  console.log(isLoggedIn);
+  console.log({ isLoggedIn });
 
   return (
     <>
