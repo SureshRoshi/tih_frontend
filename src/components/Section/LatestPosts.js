@@ -20,7 +20,7 @@ function LatestPosts() {
                             className="img-hover-slide border-radius-5 position-relative"
                             style={{
                               backgroundImage:
-                                "url(assets/imgs/news/news-13.jpg",
+                                "url(assets/imgs/tech/tech-post-1.jpg)",
                             }}
                           >
                             <a className="img-link" href="/"></a>
@@ -32,17 +32,17 @@ function LatestPosts() {
                           <div className="entry-meta meta-0 font-small mb-10">
                             <a href="#">
                               <span className="post-cat text-primary">
-                                Food
+                                Technology
                               </span>
                             </a>
                           </div>
                           <h5 className="post-title font-weight-900 mb-20">
                             <a href="/">
-                              Helpful Tips for Working from Home as a Freelancer
+                              Mastering Machine Learning: A Comprehensive Guide
                             </a>
                           </h5>
                           <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                            <span className="post-on">7 August</span>
+                            <span className="post-on">15 January</span>
                             <div className="voting-icons mt-20">
                               <button className="upvote-btn">
                                 <svg
@@ -50,21 +50,21 @@ function LatestPosts() {
                                   width="16"
                                   height="16"
                                   fill="currentColor"
-                                  class="bi bi-caret-up-square"
+                                  className="bi bi-caret-up-square"
                                   viewBox="0 0 16 16"
                                 >
                                   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
                                   <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
                                 </svg>
                               </button>
-                              <span className="votes-count">12</span>
+                              <span className="votes-count">28</span>
                               <button className="downvote-btn">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="16"
                                   height="16"
                                   fill="currentColor"
-                                  class="bi bi-caret-down-square"
+                                  className="bi bi-caret-down-square"
                                   viewBox="0 0 16 16"
                                 >
                                   <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
@@ -85,7 +85,7 @@ function LatestPosts() {
                             className="img-hover-slide border-radius-5 position-relative"
                             style={{
                               backgroundImage:
-                                "url(assets/imgs/news/news-4.jpg)",
+                                "url(assets/imgs/tech/tech-post-2.jpg)",
                             }}
                           >
                             <a className="img-link" href="/"></a>
@@ -96,19 +96,19 @@ function LatestPosts() {
                         <div className="post-content">
                           <div className="entry-meta meta-0 font-small mb-10">
                             <a href="/">
-                              <span className="post-cat text-success">
-                                Cooking
+                              <span className="post-cat text-primary">
+                                Technology
                               </span>
                             </a>
                           </div>
                           <h5 className="post-title font-weight-900 mb-20">
                             <a href="/">
-                              10 Easy Ways to Be Environmentally Conscious At
-                              Home
+                              The Future of Artificial Intelligence: Trends and
+                              Developments
                             </a>
                           </h5>
                           <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                            <span className="post-on">27 Sep</span>
+                            <span className="post-on">15 October</span>
                             <div className="voting-icons mt-20">
                               <button className="upvote-btn">
                                 <svg
@@ -116,21 +116,21 @@ function LatestPosts() {
                                   width="16"
                                   height="16"
                                   fill="currentColor"
-                                  class="bi bi-caret-up-square"
+                                  className="bi bi-caret-up-square"
                                   viewBox="0 0 16 16"
                                 >
                                   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
                                   <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
                                 </svg>
                               </button>
-                              <span className="votes-count">7</span>
+                              <span className="votes-count">15</span>
                               <button className="downvote-btn">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="16"
                                   height="16"
                                   fill="currentColor"
-                                  class="bi bi-caret-down-square"
+                                  className="bi bi-caret-down-square"
                                   viewBox="0 0 16 16"
                                 >
                                   <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
@@ -151,7 +151,7 @@ function LatestPosts() {
                             className="img-hover-slide border-radius-5 position-relative"
                             style={{
                               backgroundImage:
-                                "url(assets/imgs/news/news-2.jpg)",
+                                "url(assets/imgs/tech/tech-post-3.png)",
                             }}
                           >
                             <a className="img-link" href="/"></a>
@@ -162,18 +162,19 @@ function LatestPosts() {
                         <div className="post-content">
                           <div className="entry-meta meta-0 font-small mb-10">
                             <a href="/">
-                              <span className="post-cat text-warning">
-                                Cooking
+                              <span className="post-cat text-primary">
+                                Technology
                               </span>
                             </a>
                           </div>
                           <h5 className="post-title font-weight-900 mb-20">
                             <a href="/">
-                              My Favorite Comfies to Lounge in At Home
+                              Exploring the Latest Innovations in Mobile
+                              Technology
                             </a>
                           </h5>
                           <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                            <span className="post-on">7 August</span>
+                            <span className="post-on">12 November</span>
                             <div className="voting-icons mt-20">
                               <button className="upvote-btn">
                                 <svg
@@ -181,21 +182,21 @@ function LatestPosts() {
                                   width="16"
                                   height="16"
                                   fill="currentColor"
-                                  class="bi bi-caret-up-square"
+                                  className="bi bi-caret-up-square"
                                   viewBox="0 0 16 16"
                                 >
                                   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
                                   <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
                                 </svg>
                               </button>
-                              <span className="votes-count">9</span>
+                              <span className="votes-count">20</span>
                               <button className="downvote-btn">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="16"
                                   height="16"
                                   fill="currentColor"
-                                  class="bi bi-caret-down-square"
+                                  className="bi bi-caret-down-square"
                                   viewBox="0 0 16 16"
                                 >
                                   <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
@@ -216,7 +217,7 @@ function LatestPosts() {
                             className="img-hover-slide border-radius-5 position-relative"
                             style={{
                               backgroundImage:
-                                "url(assets/imgs/news/news-3.jpg)",
+                                "url(assets/imgs/tech/tech-post-4.jpg)",
                             }}
                           >
                             <a className="img-link" href="/"></a>
@@ -227,19 +228,19 @@ function LatestPosts() {
                         <div className="post-content">
                           <div className="entry-meta meta-0 font-small mb-10">
                             <a href="/">
-                              <span className="post-cat text-danger">
-                                Travel
+                              <span className="post-cat text-primary">
+                                Technology
                               </span>
                             </a>
                           </div>
                           <h5 className="post-title font-weight-900 mb-20">
                             <a href="/">
-                              How to Give Your Space a Parisian-Inspired
-                              Makeover
+                              The Future of Quantum Computing: Exploring Its
+                              Possibilities
                             </a>
                           </h5>
                           <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                            <span className="post-on">27 August</span>
+                            <span className="post-on">5 October</span>
                             <div className="voting-icons mt-20">
                               <button className="upvote-btn">
                                 <svg
@@ -247,21 +248,21 @@ function LatestPosts() {
                                   width="16"
                                   height="16"
                                   fill="currentColor"
-                                  class="bi bi-caret-up-square"
+                                  className="bi bi-caret-up-square"
                                   viewBox="0 0 16 16"
                                 >
                                   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
                                   <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
                                 </svg>
                               </button>
-                              <span className="votes-count">19</span>
+                              <span className="votes-count">15</span>
                               <button className="downvote-btn">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="16"
                                   height="16"
                                   fill="currentColor"
-                                  class="bi bi-caret-down-square"
+                                  className="bi bi-caret-down-square"
                                   viewBox="0 0 16 16"
                                 >
                                   <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
@@ -327,17 +328,20 @@ function LatestPosts() {
                           <div className="post-content media-body">
                             <h6 className="post-title mb-15 text-limit-2-row font-medium">
                               <a href="/">
-                                Spending Some Quality Time with Kids? It’s
-                                Possible
+                                Leveraging the Power of JavaScript: A
+                                Developer's Guide
                               </a>
                             </h6>
                             <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">05 August</span>
+                              <span className="post-on">15 October</span>
                             </div>
                           </div>
                           <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
                             <a className="color-white" href="/">
-                              <img src="assets/imgs/news/thumb-6.jpg" alt="" />
+                              <img
+                                src="assets/imgs/tech/dev-thumb-1.jpg"
+                                alt="Tech Thumbnail"
+                              />
                             </a>
                           </div>
                         </div>
@@ -347,16 +351,20 @@ function LatestPosts() {
                           <div className="post-content media-body">
                             <h6 className="post-title mb-15 text-limit-2-row font-medium">
                               <a href="/">
-                                Relationship Podcasts are Having “That” Talk
+                                Exploring the Latest Trends in Web Development:
+                                A Developer's Perspective
                               </a>
                             </h6>
                             <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">12 August</span>
+                              <span className="post-on">25 September</span>
                             </div>
                           </div>
                           <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
                             <a className="color-white" href="/">
-                              <img src="assets/imgs/news/thumb-7.jpg" alt="" />
+                              <img
+                                src="assets/imgs/tech/dev-thumb-2.jpg"
+                                alt="Tech Thumbnail"
+                              />
                             </a>
                           </div>
                         </div>
@@ -366,16 +374,20 @@ function LatestPosts() {
                           <div className="post-content media-body">
                             <h6 className="post-title mb-15 text-limit-2-row font-medium">
                               <a href="/">
-                                Here’s How to Get the Best Sleep at Night
+                                Mastering Productivity: A Tech Enthusiast's
+                                Guide to Efficient Work
                               </a>
                             </h6>
                             <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">15 August</span>
+                              <span className="post-on">18 September</span>
                             </div>
                           </div>
                           <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
                             <a className="color-white" href="/">
-                              <img src="assets/imgs/news/thumb-2.jpg" alt="" />
+                              <img
+                                src="assets/imgs/tech/dev-thumb-3.jpg"
+                                alt="Tech Thumbnail"
+                              />
                             </a>
                           </div>
                         </div>
@@ -385,17 +397,20 @@ function LatestPosts() {
                           <div className="post-content media-body">
                             <h6 className="post-title mb-15 text-limit-2-row font-medium">
                               <a href="/">
-                                America’s Governors Get Tested for a Virus That
-                                Is Testing Them
+                                Tech Leaders Navigate the Challenges of Emerging
+                                Viral Threats
                               </a>
                             </h6>
                             <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">12 August</span>
+                              <span className="post-on">21 September</span>
                             </div>
                           </div>
                           <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
                             <a className="color-white" href="/">
-                              <img src="assets/imgs/news/thumb-3.jpg" alt="" />
+                              <img
+                                src="assets/imgs/tech/dev-thumb-4.jpg"
+                                alt="Tech Thumbnail"
+                              />
                             </a>
                           </div>
                         </div>
