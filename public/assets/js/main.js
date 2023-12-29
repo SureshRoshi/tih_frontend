@@ -411,25 +411,25 @@
   /* WOW active */
   new WOW().init();
 
-  var darkLightMode = function () {
-    const darkLightBtn = document.querySelector(".dark-light-mode");
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme == "dark") {
-      document.body.classList.add("dark");
-    }
+  // var darkLightMode = function () {
+  //   const darkLightBtn = document.querySelector(".dark-light-mode");
+  //   const currentTheme = localStorage.getItem("theme");
+  //   if (currentTheme == "dark") {
+  //     document.body.classList.add("dark");
+  //   }
 
-    darkLightBtn.addEventListener("click", function () {
-      document.body.classList.toggle("dark");
-      let theme = "light";
-      if (document.body.classList.contains("dark")) {
-        theme = "dark";
-        $(".dark-light-mode").addClass("dark");
-      } else {
-        $(".dark-light-mode").removeClass("dark");
-      }
-      localStorage.setItem("theme", theme);
-    });
-  };
+  //   darkLightBtn.addEventListener("click", function () {
+  //     document.body.classList.toggle("dark");
+  //     let theme = "light";
+  //     if (document.body.classList.contains("dark")) {
+  //       theme = "dark";
+  //       $(".dark-light-mode").addClass("dark");
+  //     } else {
+  //       $(".dark-light-mode").removeClass("dark");
+  //     }
+  //     localStorage.setItem("theme", theme);
+  //   });
+  // };
 
   // $("body").bind("cut copy paste", function (e) {
   //     e.preventDefault();
@@ -441,7 +441,7 @@
 
   //Load functions
   $(document).ready(function () {
-    darkLightMode();
+    // darkLightMode();
     openSearchForm();
     OffCanvas();
     customScrollbar();

@@ -138,11 +138,11 @@ function Navbar() {
                     <i className="elegant-icon icon_search mr-5"></i>Search
                   </span>
                 </button>
-                <div className="dark-light-mode-cover">
+                {/* <div className="dark-light-mode-cover">
                   <a className="dark-light-mode" href="javascript:void(0)">
                     <span />
                   </a>
-                </div>
+                </div> */}
                 {loggedIn ? (
                   // token login, if token no anchor tag, else anchor tag
                   <Link
