@@ -150,7 +150,7 @@ function Navbar() {
                 {isLoggedIn ? (
                   <Link
                     className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow"
-                    to={"/add-post"}
+                    to={"/blogs/add-post"}
                   >
                     <span className="d-flex align-items-center">
                       <svg
