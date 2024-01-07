@@ -6,7 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import RootLayout from "./pages/root/Root";
+import RootLayout, { action as searchAction } from "./pages/root/Root";
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
 import ErrorPage from "./pages/error/ErrorPage";
@@ -22,6 +22,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <RootLayout />,
     errorElement: <ErrorPage />,
+    // need to tweek this action, need a add a new route for search functionality
+    action: searchAction,
     children: [
       { index: true, element: <Navigate to="blogs" /> },
       { path: "login", element: <LoginPage />, action: loginAction },

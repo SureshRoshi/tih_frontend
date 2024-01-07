@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Search from "./Search";
+
 function Navbar() {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   return (
     <>
       <div className="scroll-progress primary-bg" />
@@ -122,14 +124,14 @@ function Navbar() {
           <div className="container">
             <div className="row pt-20 pb-20">
               <div className="col-md-3 col-xs-6">
-                <a href="/">
+                <Link to="/">
                   <img
                     className="logo"
                     src="/assets/imgs/theme/this_logo_innerpages.svg"
                     alt="logo"
                     height={"50px"}
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-md-9 col-xs-6 text-end header-top-right">
                 <button className="search-icon d-none d-md-inline">
@@ -285,20 +287,7 @@ function Navbar() {
                 <p className="text-center">
                   <span className="search-text-bg">Search</span>
                 </p>
-                <form action="#" className="search-header">
-                  <div className="input-group w-100">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Search Tech Insights, Topics, and Contributors"
-                    />
-                    <div className="input-group-append">
-                      <button className="btn btn-search bg-white" type="submit">
-                        <i className="elegant-icon icon_search"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                <Search />
               </div>
             </div>
             <div className="row mt-80 text-center">
