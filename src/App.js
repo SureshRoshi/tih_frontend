@@ -12,7 +12,7 @@ import SignupPage from "./pages/auth/SignupPage";
 import ErrorPage from "./pages/error/ErrorPage";
 import HomePage, { loader as homeLoader } from "./pages/blogs/HomePage";
 import BlogDetailPage from "./pages/blogs/BlogDetailPage";
-import AddPost from "./pages/blogs/AddPost";
+import AddPost, { action as addPostAction } from "./pages/blogs/AddPost";
 
 import { action as loginAction } from "./components/UI/LoginForm";
 import { action as signupAction } from "./components/UI/SignupForm";
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         path: "blogs",
         children: [
           { index: true, element: <HomePage />, loader: homeLoader },
-          { path: "add-post", element: <AddPost /> },
+          { path: "add-post", element: <AddPost />, action: addPostAction },
           { path: ":blogId", element: <BlogDetailPage /> },
         ],
       },

@@ -1,14 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 
 function AddPost() {
-  const navigate = useNavigate();
-
-  function handleAddPost(e) {
-    e.preventDefault();
-    navigate("/blogs");
-  }
-
   return (
     <>
       <main className="container pt-30">
@@ -18,23 +11,19 @@ function AddPost() {
               <div className="heading_s1 text-center">
                 <h3 className="mb-30 font-weight-900">Add New Post</h3>
               </div>
-              <form action="/submit-post" method="POST">
+              <Form method="POST">
                 <div className="mb-3">
                   <label htmlFor="image" className="form-label">
                     Post Image:
                   </label>
-                  <div className="custom-file">
-                    <input
-                      type="file"
-                      className="custom-file-input"
-                      id="image"
-                      name="image"
-                      accept="image/*"
-                    />
-                  </div>
-                  <small className="form-text text-muted">
-                    Upload an image for your post.
-                  </small>
+                  <input
+                    className="form-control"
+                    id="image"
+                    type="url"
+                    name="image"
+                    placeholder="Enter image url of your post"
+                    required
+                  />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="title" className="form-label">
@@ -80,15 +69,11 @@ function AddPost() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <button
-                    type="submit"
-                    className="btn button button-contactForm"
-                    onClick={handleAddPost}
-                  >
+                  <button className="btn button button-contactForm">
                     Submit Post
                   </button>
                 </div>
-              </form>
+              </Form>
             </div>
           </div>
         </div>
@@ -98,3 +83,19 @@ function AddPost() {
 }
 
 export default AddPost;
+
+export async function action({ request, params }) {
+  const method = request.method;
+  const data = await request.formData();
+
+  const newPostData = {
+    image: data.get("image"),
+    title: data.get("title"),
+    tags: data.get("tag"),
+    description: data.get("comment"),
+  };
+
+  console.log(newPostData);
+
+  return redirect("/blogs");
+}

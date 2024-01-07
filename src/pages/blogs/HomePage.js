@@ -1,11 +1,16 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Await, defer, useLoaderData } from "react-router-dom";
 
 import FeatureContainer from "../../components/Section/Feature";
 import LatestPosts from "../../components/Section/LatestPosts";
 
 function HomePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { feature, latest } = useLoaderData();
+
   return (
     <>
       <main className="bg-grey pb-30">
