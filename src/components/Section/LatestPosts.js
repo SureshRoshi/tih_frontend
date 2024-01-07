@@ -1,48 +1,7 @@
 import React, { useState } from "react";
 
-function LatestPosts() {
-  const [latestPosts, setLatestPosts] = useState([
-    {
-      id: "mastering-machine-learning",
-      image: "url(/assets/imgs/tech/tech-post-1.jpg)",
-      title: "Mastering Machine Learning: A Comprehensive Guide",
-      post_link: "/",
-      tag_link: "/",
-      tag: "Technology",
-      date: "15 January",
-      votes: 28,
-    },
-    {
-      id: "future-of-artificial",
-      image: "url(/assets/imgs/tech/tech-post-2.jpg)",
-      title: "The Future of Artificial Intelligence: Trends and Developments",
-      post_link: "/",
-      tag_link: "/",
-      tag: "Technology",
-      date: "15 October",
-      votes: 15,
-    },
-    {
-      id: "latest-inno-mobile",
-      image: "url(/assets/imgs/tech/tech-post-3.png)",
-      title: "Exploring the Latest Innovations in Mobile Technology",
-      post_link: "/",
-      tag_link: "/",
-      tag: "Technology",
-      date: "12 November",
-      votes: 20,
-    },
-    {
-      id: "future-of-quantum-computing",
-      image: "url(/assets/imgs/tech/tech-post-4.jpg)",
-      title: "The Future of Quantum Computing: Exploring Its Possibilities",
-      post_link: "/",
-      tag_link: "/",
-      tag: "Technology",
-      date: "5 October",
-      votes: 15,
-    },
-  ]);
+function LatestPosts({ latest }) {
+  const [latestPosts, setLatestPosts] = useState(latest);
 
   const handleUpvote = (postId) => {
     setLatestPosts((prevPosts) =>

@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Form, Link, redirect } from "react-router-dom";
 
-function SignupForm({ signupHandler }) {
+function SignupForm() {
   return (
     <>
       <main className="bg-grey pt-80 pb-50">
@@ -13,50 +13,50 @@ function SignupForm({ signupHandler }) {
                   <div className="heading_s1 text-center">
                     <h3 className="mb-30 font-weight-900">Create an account</h3>
                   </div>
-                  <form>
+                  <Form method="POST">
                     <div className="form-group">
                       <input
                         type="text"
-                        required
                         className="form-control"
                         name="username"
                         placeholder="Username"
+                        required
                       />
                     </div>
                     <div className="form-group">
                       <input
                         type="text"
-                        required
                         className="form-control"
                         name="employeeId"
                         placeholder="Employee ID"
+                        required
                       />
                     </div>
                     <div className="form-group">
                       <input
                         type="text"
-                        required
                         className="form-control"
                         name="email"
                         placeholder="Email"
+                        required
                       />
                     </div>
                     <div className="form-group">
                       <input
                         className="form-control"
-                        required
                         type="password"
                         name="password"
                         placeholder="Password"
+                        required
                       />
                     </div>
                     <div className="form-group">
                       <input
                         className="form-control"
-                        required
                         type="password"
-                        name="password"
+                        name="confirm-password"
                         placeholder="Confirm password"
+                        required
                       />
                     </div>
                     <div className="login_footer form-group">
@@ -67,7 +67,7 @@ function SignupForm({ signupHandler }) {
                             type="checkbox"
                             name="checkbox"
                             id="exampleCheckbox1"
-                            value=""
+                            value="true"
                           />
                           <label
                             className="form-check-label"
@@ -85,12 +85,11 @@ function SignupForm({ signupHandler }) {
                       <button
                         type="submit"
                         className="button button-contactForm btn-block"
-                        onClick={signupHandler}
                       >
                         Submit &amp; Register
                       </button>
                     </div>
-                  </form>
+                  </Form>
                   <div className="divider-text-center mt-15 mb-15">
                     <span> or</span>
                   </div>
@@ -109,3 +108,23 @@ function SignupForm({ signupHandler }) {
 }
 
 export default SignupForm;
+
+export async function action({ request, params }) {
+  const method = request.method;
+  const data = await request.formData();
+
+  const signupData = {
+    username: data.get("username"),
+    empid: data.get("employeeId"),
+    email: data.get("email"),
+    password: data.get("password"),
+    confirmPassword: data.get("confirm-password"),
+    checkbox: data.get("checkbox"),
+  };
+
+  console.log(signupData);
+
+  // api post call for login
+
+  return redirect("/blogs");
+}

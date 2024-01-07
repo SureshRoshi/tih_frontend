@@ -1,43 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function FeatureContainer() {
-  const [featurePosts, setFeaturePosts] = useState([
-    {
-      id: "mastering-git",
-      image:
-        "url(/assets/imgs/hero-tech/hero-tech-3.png) center/cover no-repeat",
-      title: "Mastering Git: Best Practices for Software Development",
-      tag: "Tech Tips",
-      date: "15 September 2023",
-    },
-    {
-      id: "enhancing-code-quality",
-      image:
-        "url(/assets/imgs/hero-tech/hero-tech-1.png) center/cover no-repeat",
-      title: "Enhancing Code Quality: Best Practices for Developers",
-      tag: "Development Tips",
-      date: "26 August 2023",
-    },
-    {
-      id: "impact-of-ai",
-      image:
-        "url(/assets/imgs/hero-tech/hero-tech-2.jpg) center/cover no-repeat",
-      title: "The Impact of Artificial Intelligence on Future Technologies",
-      tag: "Tech Exploration",
-      date: "15 September 2023",
-    },
-    {
-      id: "impact-of-healthy-env",
-      image:
-        "url(/assets/imgs/hero-tech/hero-tech-4.jpg) center right/cover no-repeat",
-      title:
-        "The Impact of a Healthy Work Environment on Developer Productivity",
-      tag: "Health in Tech",
-      date: "22 September 2023",
-    },
-  ]);
-
+function FeatureContainer({ featurePosts }) {
   useEffect(() => {
     const $ = window.$;
 

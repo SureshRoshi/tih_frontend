@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import {
   createBrowserRouter,
@@ -6,15 +6,16 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import AuthContentProvider, { AuthContext } from "./store/auth-context";
-
 import RootLayout from "./pages/root/Root";
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
 import ErrorPage from "./pages/error/ErrorPage";
-import HomePage from "./pages/blogs/HomePage";
+import HomePage, { loader as homeLoader } from "./pages/blogs/HomePage";
 import BlogDetailPage from "./pages/blogs/BlogDetailPage";
 import AddPost from "./pages/blogs/AddPost";
+
+import { action as loginAction } from "./components/UI/LoginForm";
+import { action as signupAction } from "./components/UI/SignupForm";
 
 const router = createBrowserRouter([
   {
@@ -23,12 +24,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Navigate to="blogs" /> },
-      { path: "login", element: <LoginPage /> },
-      { path: "signup", element: <SignupPage /> },
+      { path: "login", element: <LoginPage />, action: loginAction },
+      { path: "signup", element: <SignupPage />, action: signupAction },
       {
         path: "blogs",
         children: [
-          { index: true, element: <HomePage /> },
+          { index: true, element: <HomePage />, loader: homeLoader },
           { path: "add-post", element: <AddPost /> },
           { path: ":blogId", element: <BlogDetailPage /> },
         ],
@@ -38,13 +39,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <>
-      <AuthContentProvider>
-        <RouterProvider router={router} />
-      </AuthContentProvider>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,13 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../store/auth-context";
 
 function Navbar() {
-  const authCtx = useContext(AuthContext);
-
-  const isLoggedIn = authCtx.isAuthenticated;
-  console.log({ isLoggedIn });
-
+  const isLoggedIn = true;
   return (
     <>
       <div className="scroll-progress primary-bg" />

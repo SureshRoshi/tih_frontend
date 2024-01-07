@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Form, Link, redirect } from "react-router-dom";
 
-function LoginForm({ routeHandle, onAuthenticate }) {
+function LoginForm() {
   return (
     <>
       <main className="bg-grey pt-80 pb-50">
@@ -13,23 +13,23 @@ function LoginForm({ routeHandle, onAuthenticate }) {
                   <div className="heading_s1 text-center">
                     <h3 className="mb-30 font-weight-900">Login</h3>
                   </div>
-                  <form>
+                  <Form method="POST">
                     <div className="form-group">
                       <input
                         type="text"
-                        required
                         className="form-control"
                         name="employeeId"
                         placeholder="Employee ID"
+                        required
                       />
                     </div>
                     <div className="form-group">
                       <input
                         className="form-control"
-                        required
                         type="password"
                         name="password"
                         placeholder="Password"
+                        required
                       />
                     </div>
                     <div className="login_footer form-group">
@@ -40,8 +40,7 @@ function LoginForm({ routeHandle, onAuthenticate }) {
                             type="checkbox"
                             name="checkbox"
                             id="exampleCheckbox1"
-                            value=""
-                            required
+                            value="true"
                           />
                           <label
                             className="form-check-label"
@@ -59,12 +58,11 @@ function LoginForm({ routeHandle, onAuthenticate }) {
                       <button
                         type="submit"
                         className="button button-contactForm btn-block "
-                        onClick={routeHandle}
                       >
                         Login
                       </button>
                     </div>
-                  </form>
+                  </Form>
                   <div className="divider-text-center mt-15 mb-15">
                     <span> or</span>
                   </div>
@@ -83,3 +81,20 @@ function LoginForm({ routeHandle, onAuthenticate }) {
 }
 
 export default LoginForm;
+
+export async function action({ request, params }) {
+  const method = request.method;
+  const data = await request.formData();
+
+  const loginData = {
+    empid: data.get("employeeId"),
+    password: data.get("password"),
+    checkbox: data.get("checkbox"),
+  };
+
+  console.log(loginData);
+
+  // api post call for login
+
+  return redirect("/blogs");
+}
