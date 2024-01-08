@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-function LatestPosts({ latest }) {
+function LatestPosts({ latest, mostPopular }) {
   const [latestPosts, setLatestPosts] = useState(latest);
 
   const handleUpvote = (postId) => {
@@ -44,21 +45,24 @@ function LatestPosts({ latest }) {
                                 backgroundImage: post.image,
                               }}
                             >
-                              <a className="img-link" href={post.post_link}></a>
+                              <Link
+                                className="img-link"
+                                to={post.post_link}
+                              ></Link>
                             </div>
                           </div>
                         </div>
                         <div className="col-md-8 align-self-center">
                           <div className="post-content">
                             <div className="entry-meta meta-0 font-small mb-10">
-                              <a href={post.tag_link}>
+                              <Link to={post.tag_link}>
                                 <span className="post-cat text-primary">
                                   {post.tag}
                                 </span>
-                              </a>
+                              </Link>
                             </div>
                             <h5 className="post-title font-weight-900 mb-20">
-                              <a href={post.post_link}>{post.title}</a>
+                              <Link to={post.post_link}>{post.title}</Link>
                             </h5>
                             <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
                               <span className="post-on">{post.date}</span>
@@ -153,98 +157,28 @@ function LatestPosts({ latest }) {
                   </div>
                   <div className="post-block-list post-module-1">
                     <ul className="list-post">
-                      <li className="mb-30 wow fadeInUp animated">
-                        <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
-                          <div className="post-content media-body">
-                            <h6 className="post-title mb-15 text-limit-2-row font-medium">
-                              <a href="/">
-                                Leveraging the Power of JavaScript: A
-                                Developer's Guide
-                              </a>
-                            </h6>
-                            <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">15 October</span>
+                      {mostPopular.map((item) => (
+                        <li
+                          className="mb-30 wow fadeInUp animated"
+                          key={item.id}
+                        >
+                          <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
+                            <div className="post-content media-body">
+                              <h6 className="post-title mb-15 text-limit-2-row font-medium">
+                                <Link to={item.post_link}>{item.title}</Link>
+                              </h6>
+                              <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
+                                <span className="post-on">{item.date}</span>
+                              </div>
+                            </div>
+                            <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
+                              <Link className="color-white" to={item.post_link}>
+                                <img src={item.image} alt="Tech Thumbnail" />
+                              </Link>
                             </div>
                           </div>
-                          <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a className="color-white" href="/">
-                              <img
-                                src="/assets/imgs/tech/dev-thumb-1.jpg"
-                                alt="Tech Thumbnail"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li className="mb-30 wow fadeInUp animated">
-                        <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
-                          <div className="post-content media-body">
-                            <h6 className="post-title mb-15 text-limit-2-row font-medium">
-                              <a href="/">
-                                Exploring the Latest Trends in Web Development:
-                                A Developer's Perspective
-                              </a>
-                            </h6>
-                            <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">25 September</span>
-                            </div>
-                          </div>
-                          <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a className="color-white" href="/">
-                              <img
-                                src="/assets/imgs/tech/dev-thumb-2.jpg"
-                                alt="Tech Thumbnail"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li className="mb-30 wow fadeInUp animated">
-                        <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
-                          <div className="post-content media-body">
-                            <h6 className="post-title mb-15 text-limit-2-row font-medium">
-                              <a href="/">
-                                Mastering Productivity: A Tech Enthusiast's
-                                Guide to Efficient Work
-                              </a>
-                            </h6>
-                            <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">18 September</span>
-                            </div>
-                          </div>
-                          <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a className="color-white" href="/">
-                              <img
-                                src="/assets/imgs/tech/dev-thumb-3.jpg"
-                                alt="Tech Thumbnail"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li className="wow fadeInUp animated">
-                        <div className="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
-                          <div className="post-content media-body">
-                            <h6 className="post-title mb-15 text-limit-2-row font-medium">
-                              <a href="/">
-                                Tech Leaders Navigate the Challenges of Emerging
-                                Viral Threats
-                              </a>
-                            </h6>
-                            <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">21 September</span>
-                            </div>
-                          </div>
-                          <div className="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                            <a className="color-white" href="/">
-                              <img
-                                src="/assets/imgs/tech/dev-thumb-4.jpg"
-                                alt="Tech Thumbnail"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                      </li>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>

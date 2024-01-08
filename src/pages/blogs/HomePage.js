@@ -9,7 +9,7 @@ function HomePage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const { feature, latest } = useLoaderData();
+  const { feature, latest, popular } = useLoaderData();
 
   return (
     <>
@@ -22,8 +22,17 @@ function HomePage() {
           </Await>
         </Suspense>
         <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
-          <Await resolve={latest}>
-            {(loadedLatest) => <LatestPosts latest={loadedLatest} />}
+          <Await
+            resolve={Promise.all([latest, popular])}
+            fallback={
+              <p style={{ textAlign: "center" }}>
+                Loading latest and popular...
+              </p>
+            }
+          >
+            {(loadedData) => (
+              <LatestPosts latest={loadedData[0]} mostPopular={loadedData[1]} />
+            )}
           </Await>
         </Suspense>
       </main>
@@ -79,8 +88,8 @@ async function loadLatestBlogs() {
       id: "mastering-machine-learning",
       image: "url(/assets/imgs/tech/tech-post-1.jpg)",
       title: "Mastering Machine Learning: A Comprehensive Guide",
-      post_link: "/",
-      tag_link: "/",
+      post_link: "mastering-machine-learning",
+      tag_link: "mastering-machine-learning",
       tag: "Technology",
       date: "15 January",
       votes: 28,
@@ -89,8 +98,8 @@ async function loadLatestBlogs() {
       id: "future-of-artificial",
       image: "url(/assets/imgs/tech/tech-post-2.jpg)",
       title: "The Future of Artificial Intelligence: Trends and Developments",
-      post_link: "/",
-      tag_link: "/",
+      post_link: "future-of-artificial",
+      tag_link: "future-of-artificial",
       tag: "Technology",
       date: "15 October",
       votes: 15,
@@ -99,8 +108,8 @@ async function loadLatestBlogs() {
       id: "latest-inno-mobile",
       image: "url(/assets/imgs/tech/tech-post-3.png)",
       title: "Exploring the Latest Innovations in Mobile Technology",
-      post_link: "/",
-      tag_link: "/",
+      post_link: "latest-inno-mobile",
+      tag_link: "latest-inno-mobile",
       tag: "Technology",
       date: "12 November",
       votes: 20,
@@ -109,8 +118,8 @@ async function loadLatestBlogs() {
       id: "future-of-quantum-computing",
       image: "url(/assets/imgs/tech/tech-post-4.jpg)",
       title: "The Future of Quantum Computing: Exploring Its Possibilities",
-      post_link: "/",
-      tag_link: "/",
+      post_link: "future-of-quantum-computing",
+      tag_link: "future-of-quantum-computing",
       tag: "Technology",
       date: "5 October",
       votes: 15,
@@ -120,9 +129,47 @@ async function loadLatestBlogs() {
   return latestPosts;
 }
 
+async function mostPopularBlogs() {
+  const mostPopular = [
+    {
+      id: "power-of-js",
+      image: "/assets/imgs/tech/dev-thumb-1.jpg",
+      title: "Leveraging the Power of JavaScript: A Developer's Guide",
+      post_link: "power-of-js",
+      date: "15 October",
+    },
+    {
+      id: "trends-in-web",
+      image: "/assets/imgs/tech/dev-thumb-2.jpg",
+      title:
+        "Exploring the Latest Trends in Web Development: A Developer's Perspective",
+      post_link: "trends-in-web",
+      date: "25 September",
+    },
+    {
+      id: "mastering-productivity",
+      image: "/assets/imgs/tech/dev-thumb-3.jpg",
+      title:
+        "Mastering Productivity: A Tech Enthusiast's Guide to Efficient Work",
+      post_link: "mastering-productivity",
+      date: "18 September",
+    },
+    {
+      id: "challenges-of-emerging-threats",
+      image: "/assets/imgs/tech/dev-thumb-4.jpg",
+      title: "Tech Leaders Navigate the Challenges of Emerging Viral Threats",
+      post_link: "challenges-of-emerging-threats",
+      date: "21 September",
+    },
+  ];
+
+  return mostPopular;
+}
+
 export async function loader() {
   return defer({
     feature: await loadFeatureBlogs(),
     latest: await loadLatestBlogs(),
+    popular: await mostPopularBlogs(),
   });
 }
