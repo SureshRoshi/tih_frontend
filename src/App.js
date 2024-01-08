@@ -6,7 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import RootLayout, { action as searchAction } from "./pages/root/Root";
+import RootLayout from "./pages/root/Root";
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
 import ErrorPage from "./pages/error/ErrorPage";
@@ -16,6 +16,7 @@ import AddPost, { action as addPostAction } from "./pages/blogs/AddPost";
 
 import { action as loginAction } from "./components/UI/LoginForm";
 import { action as signupAction } from "./components/UI/SignupForm";
+import { action as searchAction } from "./components/Layout/Navbar";
 
 const router = createBrowserRouter([
   {

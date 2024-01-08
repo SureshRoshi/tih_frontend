@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
 import Search from "./Search";
 
@@ -266,3 +266,13 @@ function Navbar() {
 }
 
 export default Navbar;
+
+export async function action({ request, params }) {
+  const method = request.method;
+  const data = await request.formData();
+
+  const searchData = data.get("search-text");
+  console.log(searchData);
+
+  return redirect("/blogs");
+}
