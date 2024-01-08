@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, redirect } from "react-router-dom";
 
 import Search from "./Search";
 
 function Navbar() {
-  const isLoggedIn = false;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const empid = localStorage.getItem("empid");
+    if (empid) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   return (
     <>
@@ -13,14 +20,14 @@ function Navbar() {
           <div className="container">
             <div className="row pt-20 pb-20">
               <div className="col-md-3 col-xs-6">
-                <Link to="/">
+                <a href="/">
                   <img
                     className="logo"
                     src="/assets/imgs/theme/this_logo_innerpages.svg"
                     alt="logo"
                     height={"50px"}
                   />
-                </Link>
+                </a>
               </div>
               <div className="col-md-9 col-xs-6 text-end header-top-right">
                 <button className="search-icon d-none d-md-inline">

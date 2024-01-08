@@ -94,6 +94,10 @@ export async function action({ request, params }) {
 
   console.log(loginData);
 
+  localStorage.setItem("empid", loginData.empid);
+  localStorage.setItem("password", loginData.password);
+  localStorage.setItem("remember", loginData.checkbox);
+
   // api post call for login
 
   return redirect("/blogs");
