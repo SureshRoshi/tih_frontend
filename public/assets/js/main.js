@@ -283,10 +283,10 @@
   };
 
   //Custom scrollbar
-  var customScrollbar = function () {
-    var $ = document.querySelector.bind(document);
-    var ps = new PerfectScrollbar(".custom-scrollbar");
-  };
+  // var customScrollbar = function () {
+  //   var $ = document.querySelector.bind(document);
+  //   var ps = new PerfectScrollbar(".custom-scrollbar");
+  // };
 
   //Mega menu
   var megaMenu = function () {
@@ -444,7 +444,7 @@
     // darkLightMode();
     openSearchForm();
     OffCanvas();
-    customScrollbar();
+    // customScrollbar();
     magPopup();
     scrollToTop();
     headerSticky();
