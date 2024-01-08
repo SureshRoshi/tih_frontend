@@ -4,6 +4,19 @@ import { Link } from "react-router-dom";
 function LatestPosts({ latest, mostPopular }) {
   const [latestPosts, setLatestPosts] = useState(latest);
 
+  // Initial number of posts to display
+  const [visiblePosts, setVisiblePosts] = useState(2);
+  // Number of posts to load on each "Load More" click
+  const postsToLoad = 1;
+
+  // posts rendered based on slicing
+  const currentPosts = latestPosts.slice(0, visiblePosts);
+
+  // load more handler
+  const handleLoadMore = () => {
+    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + postsToLoad);
+  };
+
   const handleUpvote = (postId) => {
     setLatestPosts((prevPosts) =>
       prevPosts.map((post) =>
@@ -31,9 +44,9 @@ function LatestPosts({ latest, mostPopular }) {
                   <h5 className="mt-5 mb-30">Latest posts</h5>
                 </div>
                 <div className="loop-list loop-list-style-1">
-                  {latestPosts.map((post) => (
+                  {currentPosts.map((post) => (
                     <article
-                      className="hover-up-2 transition-normal wow fadeInUp animated"
+                      className="hover-up-2 transition-normal wow animated"
                       key={post.id}
                     >
                       <div className="row mb-40 list-style-2">
@@ -111,42 +124,18 @@ function LatestPosts({ latest, mostPopular }) {
                   ))}
                 </div>
               </div>
-              <div className="pagination-area mb-30 wow fadeInUp animated">
-                <nav aria-label="Page navigation example">
-                  <ul className="pagination justify-content-start">
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        <i className="elegant-icon arrow_left"></i>
-                      </a>
-                    </li>
-                    <li className="page-item active">
-                      <a className="page-link" href="#">
-                        01
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        02
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        03
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        04
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        <i className="elegant-icon arrow_right"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
+              {/* load more starts */}
+              {visiblePosts < latestPosts.length && (
+                <div className="mb-30 wow fadeInUp animated text-center">
+                  <button
+                    className="btn btn-radius bg-primary text-white ml-15 font-small box-shadow"
+                    onClick={handleLoadMore}
+                  >
+                    Load More
+                  </button>
+                </div>
+              )}
+              {/* load more ends */}
             </div>
             {/*  */}
             <div className="col-lg-4">
