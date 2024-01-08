@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 function BlogDetailPage() {
   const params = useParams();
   const blog = params.blogId;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <main className="bg-grey pb-30">
