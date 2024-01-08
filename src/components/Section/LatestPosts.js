@@ -46,7 +46,7 @@ function LatestPosts({ latest, mostPopular }) {
                 <div className="loop-list loop-list-style-1">
                   {currentPosts.map((post) => (
                     <article
-                      className="hover-up-2 transition-normal wow fadeInUp animated"
+                      className="hover-up-2 transition-normal wow animated"
                       key={post.id}
                     >
                       <div className="row mb-40 list-style-2">
