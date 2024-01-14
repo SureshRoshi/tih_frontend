@@ -17,18 +17,24 @@ import AddPost, { action as addPostAction } from "./pages/blogs/AddPost";
 import { action as loginAction } from "./components/UI/LoginForm";
 import { action as signupAction } from "./components/UI/SignupForm";
 import { action as searchAction } from "./components/Layout/Navbar";
+import { action as logoutAction } from "./pages/auth/Logout";
+
+import { tokenLoader } from "./components/util/auth";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     errorElement: <ErrorPage />,
+    loader: tokenLoader,
+    id: "root",
     // need to tweek this action, need a add a new route for search functionality
     action: searchAction,
     children: [
       { index: true, element: <Navigate to="blogs" /> },
       { path: "login", element: <LoginPage />, action: loginAction },
       { path: "signup", element: <SignupPage />, action: signupAction },
+      { path: "logout", action: logoutAction },
       {
         path: "blogs",
         children: [
