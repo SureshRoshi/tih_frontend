@@ -19,7 +19,7 @@ import { action as signupAction } from "./components/UI/SignupForm";
 import { action as searchAction } from "./components/Layout/Navbar";
 import { action as logoutAction } from "./pages/auth/Logout";
 
-import { tokenLoader } from "./components/util/auth";
+import { checkAuthLoader, tokenLoader } from "./components/util/auth";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +39,12 @@ const router = createBrowserRouter([
         path: "blogs",
         children: [
           { index: true, element: <HomePage />, loader: homeLoader },
-          { path: "add-post", element: <AddPost />, action: addPostAction },
+          {
+            path: "add-post",
+            element: <AddPost />,
+            action: addPostAction,
+            loader: checkAuthLoader,
+          },
           { path: ":blogId", element: <BlogDetailPage /> },
         ],
       },
