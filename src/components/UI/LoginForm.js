@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Link, redirect } from "react-router-dom";
+import { isEmpId, isPassword } from "../util/validation";
 
 function LoginForm() {
   return (
@@ -33,7 +34,7 @@ function LoginForm() {
                       />
                     </div>
                     <div className="login_footer form-group">
-                      <div className="chek-form">
+                      {/* <div className="chek-form">
                         <div className="custome-checkbox">
                           <input
                             className="form-check-input"
@@ -49,7 +50,7 @@ function LoginForm() {
                             <span>Remember me</span>
                           </label>
                         </div>
-                      </div>
+                      </div> */}
                       <a className="text-muted" href="/">
                         Forgot password?
                       </a>
@@ -86,19 +87,45 @@ export async function action({ request, params }) {
   const method = request.method;
   const data = await request.formData();
 
-  const loginData = {
-    empid: data.get("employeeId"),
-    password: data.get("password"),
-    checkbox: data.get("checkbox"),
-  };
+  const formEmpId = parseInt(data.get("employeeId"));
+  const formPassword = data.get("password");
 
-  console.log(loginData);
+  if (isEmpId(formEmpId) && isPassword(formPassword)) {
+    const loginData = {
+      employee_id: formEmpId,
+      password: formPassword,
+    };
 
-  localStorage.setItem("empid", loginData.empid);
-  localStorage.setItem("password", loginData.password);
-  localStorage.setItem("remember", loginData.checkbox);
+    const ip = "184.72.183.27";
+    const url = `http://${ip}:8000/accounts/Login/`;
 
-  // api post call for login
+    try {
+      const response = await fetch(url, {
+        method: method,
+        body: JSON.stringify(loginData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Could not authenticate user");
+      }
 
-  return redirect("/blogs");
+      const resData = await response.json();
+
+      localStorage.setItem("token", resData.data.token.access);
+
+      const expiration = new Date();
+      expiration.setHours(expiration.getHours() + 1);
+      localStorage.setItem("expiration", expiration.toISOString());
+
+      return redirect("/blogs");
+    } catch (error) {
+      console.error(error);
+    }
+  } else {
+    console.log("error in credentials");
+    console.log(isEmpId(formEmpId));
+    console.log(isPassword(formPassword));
+  }
 }
