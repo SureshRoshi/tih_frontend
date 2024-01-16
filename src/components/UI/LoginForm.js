@@ -1,8 +1,16 @@
 import React from "react";
-import { Form, Link, redirect } from "react-router-dom";
+import { Form, Link, redirect, useActionData } from "react-router-dom";
 import { isEmpId, isPassword } from "../util/validation";
 
 function LoginForm() {
+  const data = useActionData();
+
+  const errorFromServer =
+    data &&
+    data.data &&
+    data.data.field_errors &&
+    (data.data.field_errors.password || data.data.field_errors.employee_id);
+
   return (
     <>
       <main className="bg-grey pt-80 pb-50">
@@ -14,6 +22,16 @@ function LoginForm() {
                   <div className="heading_s1 text-center">
                     <h3 className="mb-30 font-weight-900">Login</h3>
                   </div>
+                  {errorFromServer && (
+                    <div className="alert alert-danger border-radius-10 text-center">
+                      {errorFromServer}
+                    </div>
+                  )}
+                  {!errorFromServer && data && data.message && (
+                    <div className="alert alert-danger border-radius-10 text-center">
+                      {data.message}
+                    </div>
+                  )}
                   <Form method="POST">
                     <div className="form-group">
                       <input
@@ -90,6 +108,8 @@ export async function action({ request, params }) {
   const formEmpId = parseInt(data.get("employeeId"));
   const formPassword = data.get("password");
 
+  let message = null;
+
   if (isEmpId(formEmpId) && isPassword(formPassword)) {
     const loginData = {
       employee_id: formEmpId,
@@ -107,6 +127,11 @@ export async function action({ request, params }) {
           "Content-Type": "application/json",
         },
       });
+
+      if (response.status === 400) {
+        return response;
+      }
+
       if (!response.ok) {
         throw new Error("Could not authenticate user");
       }
@@ -121,11 +146,10 @@ export async function action({ request, params }) {
 
       return redirect("/blogs");
     } catch (error) {
-      console.error(error);
+      message = "Error connecting to the server. Please try again later.";
     }
   } else {
-    console.log("error in credentials");
-    console.log(isEmpId(formEmpId));
-    console.log(isPassword(formPassword));
+    message = "Invalid form data. Please check your inputs.";
   }
+  return { message };
 }

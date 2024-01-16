@@ -1,7 +1,10 @@
 import React from "react";
-import { Form, Link, redirect } from "react-router-dom";
+import { Form, Link, redirect, useActionData } from "react-router-dom";
+import { isEmail, isEqualsToOtherValue, isPassword } from "../util/validation";
 
 function SignupForm() {
+  const data = useActionData();
+
   return (
     <>
       <main className="bg-grey pt-80 pb-50">
@@ -13,6 +16,11 @@ function SignupForm() {
                   <div className="heading_s1 text-center">
                     <h3 className="mb-30 font-weight-900">Create an account</h3>
                   </div>
+                  {data && data.message && (
+                    <div className="alert alert-danger border-radius-10">
+                      {data.message}
+                    </div>
+                  )}
                   <Form method="POST">
                     <div className="form-group">
                       <input
@@ -113,18 +121,56 @@ export async function action({ request, params }) {
   const method = request.method;
   const data = await request.formData();
 
-  const signupData = {
-    username: data.get("username"),
-    empid: data.get("employeeId"),
-    email: data.get("email"),
-    password: data.get("password"),
-    confirmPassword: data.get("confirm-password"),
-    checkbox: data.get("checkbox"),
-  };
+  const formUsername = data.get("username");
+  const formPassword = data.get("password");
+  const formEmpId = data.get("employeeId");
+  const formEmail = data.get("email");
+  const formRepeatPassword = data.get("confirm-password");
+  const formCheckbox = data.get("checkbox");
 
-  console.log(signupData);
+  let message = null;
 
-  // api post call for login
+  if (
+    formCheckbox &&
+    isEmail(formEmail) &&
+    isPassword(formPassword) &&
+    isEqualsToOtherValue(formPassword, formRepeatPassword)
+  ) {
+    const signupData = {
+      username: formUsername,
+      employee_id: formEmpId,
+      email: formEmail,
+      password: formPassword,
+    };
 
-  return redirect("/blogs");
+    const ip = "184.73.79.114";
+    const url = `http://${ip}:8000/accounts/register/`;
+
+    try {
+      const response = await fetch(url, {
+        method: method,
+        body: JSON.stringify(signupData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.status === 400) {
+        return response;
+      }
+
+      if (!response.ok) {
+        throw new Error("Could not authenticate user");
+      }
+      const resData = await response.json();
+      console.log(resData);
+
+      return redirect("/login");
+    } catch (err) {
+      message = "Error connecting to the server. Please try again later.";
+    }
+  } else {
+    message = "Invalid form data. Please check your inputs.";
+  }
+  return { message };
 }
