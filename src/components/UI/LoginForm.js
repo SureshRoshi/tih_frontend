@@ -96,7 +96,7 @@ export async function action({ request, params }) {
       password: formPassword,
     };
 
-    const ip = "3.92.194.157";
+    const ip = "184.73.79.114";
     const url = `http://${ip}:8000/accounts/Login/`;
 
     try {
