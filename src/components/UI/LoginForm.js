@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Link, redirect, useActionData } from "react-router-dom";
 import { isEmpId, isPassword } from "../util/validation";
+import config from "../util/config";
 
 function LoginForm() {
   const data = useActionData();
@@ -116,8 +117,7 @@ export async function action({ request, params }) {
       password: formPassword,
     };
 
-    const ip = "184.73.79.114";
-    const url = `http://${ip}:8000/accounts/Login/`;
+    const url = `http://${config.backend_url}:8000/accounts/Login/`;
 
     try {
       const response = await fetch(url, {
