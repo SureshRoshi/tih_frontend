@@ -56,7 +56,7 @@ function LatestPosts({ latest, mostPopular }) {
                             <div
                               className="img-hover-slide border-radius-5 position-relative"
                               style={{
-                                backgroundImage: post.image,
+                                backgroundImage: `url(${post.image})`,
                               }}
                             >
                               <Link

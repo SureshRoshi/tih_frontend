@@ -3,7 +3,7 @@ import React from "react";
 import {
   createBrowserRouter,
   RouterProvider,
-  Navigate,
+  // Navigate,
 } from "react-router-dom";
 
 import RootLayout from "./pages/root/Root";

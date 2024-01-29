@@ -275,7 +275,7 @@ function Navbar() {
 export default Navbar;
 
 export async function action({ request, params }) {
-  const method = request.method;
+  // const method = request.method;
   const data = await request.formData();
 
   const searchData = data.get("search-text");

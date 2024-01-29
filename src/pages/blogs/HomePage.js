@@ -1,12 +1,5 @@
 import React, { Suspense, useEffect } from "react";
-import {
-  Await,
-  defer,
-  json,
-  redirect,
-  useLoaderData,
-  useRouteLoaderData,
-} from "react-router-dom";
+import { Await, defer, json, redirect, useLoaderData } from "react-router-dom";
 
 import FeatureContainer from "../../components/Section/Feature";
 import LatestPosts from "../../components/Section/LatestPosts";
@@ -19,6 +12,7 @@ function HomePage() {
   }, []);
 
   const { feature, latest, popular } = useLoaderData();
+
   const token = localStorage.getItem("token");
 
   if (!token) {
