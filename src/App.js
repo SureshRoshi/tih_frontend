@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     // need to tweek this action, need a add a new route for search functionality
     action: searchAction,
     children: [
-      { index: true, element: <Navigate to="blogs" /> },
+      { index: true, element: <Navigate to="login" /> },
       { path: "login", element: <LoginPage />, action: loginAction },
       { path: "signup", element: <SignupPage />, action: signupAction },
       { path: "logout", action: logoutAction },

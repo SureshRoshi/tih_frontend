@@ -1,8 +1,17 @@
 import React, { Suspense, useEffect } from "react";
-import { Await, defer, useLoaderData } from "react-router-dom";
+import {
+  Await,
+  defer,
+  json,
+  redirect,
+  useLoaderData,
+  useRouteLoaderData,
+} from "react-router-dom";
 
 import FeatureContainer from "../../components/Section/Feature";
 import LatestPosts from "../../components/Section/LatestPosts";
+import { getAuthToken } from "../../components/util/auth";
+import config from "../../components/util/config";
 
 function HomePage() {
   useEffect(() => {
@@ -10,6 +19,11 @@ function HomePage() {
   }, []);
 
   const { feature, latest, popular } = useLoaderData();
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    redirect("/login");
+  }
 
   return (
     <>
@@ -126,7 +140,31 @@ async function loadLatestBlogs() {
     },
   ];
 
-  return latestPosts;
+  const token = getAuthToken();
+
+  try {
+    const response = await fetch(
+      `http://${config.backend_url}:8000/api/blog/`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw json({ message: "Could not fetch posts." }, { status: 500 });
+    } else {
+      const resData = await response.json();
+      console.log(resData);
+      return resData.data;
+    }
+  } catch (error) {
+    return {
+      message: `Hold up! Our server is on an unscheduled vacation 🏖️. 
+        It's taking a break from your requests. Give it a moment to recharge its tropical vibes and try again later!`,
+    };
+  }
 }
 
 async function mostPopularBlogs() {

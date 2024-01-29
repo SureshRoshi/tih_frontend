@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function LatestPosts({ latest, mostPopular }) {
+  console.log(latest);
   const [latestPosts, setLatestPosts] = useState(latest);
 
   // Initial number of posts to display
