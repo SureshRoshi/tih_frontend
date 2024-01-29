@@ -20,6 +20,7 @@ import { action as searchAction } from "./components/Layout/Navbar";
 import { action as logoutAction } from "./pages/auth/Logout";
 
 import { checkAuthLoader, tokenLoader } from "./components/util/auth";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
     // need to tweek this action, need a add a new route for search functionality
     action: searchAction,
     children: [
-      { index: true, element: <Navigate to="login" /> },
+      { index: true, element: <Home /> },
       { path: "login", element: <LoginPage />, action: loginAction },
       { path: "signup", element: <SignupPage />, action: signupAction },
       { path: "logout", action: logoutAction },
