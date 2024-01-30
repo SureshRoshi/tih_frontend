@@ -1,10 +1,17 @@
 import React from "react";
-import { Form, Link, redirect, useActionData } from "react-router-dom";
+import {
+  Form,
+  Link,
+  redirect,
+  useActionData,
+  useNavigation,
+} from "react-router-dom";
 import { isEmail, isEqualsToOtherValue, isPassword } from "../util/validation";
 import config from "../util/config";
 
 function SignupForm() {
   const data = useActionData();
+  const { state } = useNavigation();
 
   return (
     <>
@@ -95,7 +102,9 @@ function SignupForm() {
                         type="submit"
                         className="button button-contactForm btn-block"
                       >
-                        Submit &amp; Register
+                        {state === "submitting"
+                          ? "Registering User..."
+                          : "Submit & Register"}
                       </button>
                     </div>
                   </Form>

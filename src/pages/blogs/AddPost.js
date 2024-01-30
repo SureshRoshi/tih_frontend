@@ -1,9 +1,10 @@
 import React from "react";
-import { Form, json, redirect } from "react-router-dom";
+import { Form, json, redirect, useNavigation } from "react-router-dom";
 import config from "../../components/util/config";
 import { getAuthToken } from "../../components/util/auth";
 
 function AddPost() {
+  const { state } = useNavigation();
   return (
     <>
       <main className="container pt-30">
@@ -72,7 +73,9 @@ function AddPost() {
                 </div>
                 <div className="form-group">
                   <button className="btn button button-contactForm">
-                    Submit Post
+                    {state === "submitting"
+                      ? "Submitting Post..."
+                      : "Submit Post"}
                   </button>
                 </div>
               </Form>

@@ -3,6 +3,8 @@ import { Await, defer, json, redirect, useLoaderData } from "react-router-dom";
 
 import FeatureContainer from "../../components/Section/Feature";
 import LatestPosts from "../../components/Section/LatestPosts";
+import Loader from "../../components/Layout/Loader";
+
 import { getAuthToken } from "../../components/util/auth";
 import config from "../../components/util/config";
 
@@ -22,22 +24,15 @@ function HomePage() {
   return (
     <>
       <main className="bg-grey pb-30">
-        <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+        <Suspense fallback={<Loader />}>
           <Await resolve={feature}>
             {(loadedFeatures) => (
               <FeatureContainer featurePosts={loadedFeatures} />
             )}
           </Await>
         </Suspense>
-        <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
-          <Await
-            resolve={Promise.all([latest, popular])}
-            fallback={
-              <p style={{ textAlign: "center" }}>
-                Loading latest and popular...
-              </p>
-            }
-          >
+        <Suspense fallback={<Loader />}>
+          <Await resolve={Promise.all([latest, popular])} fallback={<Loader />}>
             {(loadedData) => (
               <LatestPosts latest={loadedData[0]} mostPopular={loadedData[1]} />
             )}
@@ -91,49 +86,6 @@ async function loadFeatureBlogs() {
 }
 
 async function loadLatestBlogs() {
-  const latestPosts = [
-    {
-      id: "mastering-machine-learning",
-      image: "url(/assets/imgs/tech/tech-post-1.jpg)",
-      title: "Mastering Machine Learning: A Comprehensive Guide",
-      post_link: "mastering-machine-learning",
-      tag_link: "mastering-machine-learning",
-      tag: "Technology",
-      date: "15 January",
-      votes: 28,
-    },
-    {
-      id: "future-of-artificial",
-      image: "url(/assets/imgs/tech/tech-post-2.jpg)",
-      title: "The Future of Artificial Intelligence: Trends and Developments",
-      post_link: "future-of-artificial",
-      tag_link: "future-of-artificial",
-      tag: "Technology",
-      date: "15 October",
-      votes: 15,
-    },
-    {
-      id: "latest-inno-mobile",
-      image: "url(/assets/imgs/tech/tech-post-3.png)",
-      title: "Exploring the Latest Innovations in Mobile Technology",
-      post_link: "latest-inno-mobile",
-      tag_link: "latest-inno-mobile",
-      tag: "Technology",
-      date: "12 November",
-      votes: 20,
-    },
-    {
-      id: "future-of-quantum-computing",
-      image: "url(/assets/imgs/tech/tech-post-4.jpg)",
-      title: "The Future of Quantum Computing: Exploring Its Possibilities",
-      post_link: "future-of-quantum-computing",
-      tag_link: "future-of-quantum-computing",
-      tag: "Technology",
-      date: "5 October",
-      votes: 15,
-    },
-  ];
-
   const token = getAuthToken();
 
   try {

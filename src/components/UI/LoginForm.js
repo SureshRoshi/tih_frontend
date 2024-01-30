@@ -1,10 +1,17 @@
 import React from "react";
-import { Form, Link, redirect, useActionData } from "react-router-dom";
+import {
+  Form,
+  Link,
+  redirect,
+  useActionData,
+  useNavigation,
+} from "react-router-dom";
 import { isEmpId, isPassword } from "../util/validation";
 import config from "../util/config";
 
 function LoginForm() {
   const data = useActionData();
+  const { state } = useNavigation();
 
   const errorFromServer =
     data &&
@@ -79,7 +86,7 @@ function LoginForm() {
                         type="submit"
                         className="button button-contactForm btn-block "
                       >
-                        Login
+                        {state === "submitting" ? "Logging you in..." : "Login"}
                       </button>
                     </div>
                   </Form>

@@ -11,7 +11,9 @@ import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
 import ErrorPage from "./pages/error/ErrorPage";
 import HomePage, { loader as homeLoader } from "./pages/blogs/HomePage";
-import BlogDetailPage from "./pages/blogs/BlogDetailPage";
+import BlogDetailPage, {
+  loader as detailLoader,
+} from "./pages/blogs/BlogDetailPage";
 import AddPost, { action as addPostAction } from "./pages/blogs/AddPost";
 
 import { action as loginAction } from "./components/UI/LoginForm";
@@ -36,6 +38,8 @@ const router = createBrowserRouter([
       { path: "login", element: <LoginPage />, action: loginAction },
       { path: "signup", element: <SignupPage />, action: signupAction },
       { path: "logout", action: logoutAction },
+      // need to edit this
+      { path: "author", element: "Author Element" },
       {
         path: "blogs",
         children: [
@@ -46,7 +50,17 @@ const router = createBrowserRouter([
             action: addPostAction,
             loader: checkAuthLoader,
           },
-          { path: ":blogId", element: <BlogDetailPage /> },
+          {
+            path: ":blogId",
+            element: <BlogDetailPage />,
+            loader: detailLoader,
+          },
+          // need to edit this
+          {
+            path: "tags",
+            element: "Tag List Element",
+            children: [{ path: "tagId", element: "Tag Detail Element" }],
+          },
         ],
       },
     ],

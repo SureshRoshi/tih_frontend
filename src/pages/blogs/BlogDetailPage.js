@@ -1,13 +1,50 @@
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import {
+  Link,
+  defer,
+  json,
+  useLoaderData,
+  useNavigation,
+} from "react-router-dom";
+import config from "../../components/util/config";
+import { getAuthToken } from "../../components/util/auth";
+import Loader from "../../components/Layout/Loader";
 
 function BlogDetailPage() {
-  const params = useParams();
-  const blog = params.blogId;
+  const { blog } = useLoaderData();
+
+  const { state } = useNavigation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (state === "loading") {
+    return <Loader />;
+  }
+
+  const dateObj = new Date(blog.created_at);
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const day = dateObj.getDate();
+  const monthIndex = dateObj.getMonth();
+  const year = dateObj.getFullYear();
+
+  const formattedDate = `${day} ${months[monthIndex]} ${year}`;
 
   return (
     <main className="bg-grey pb-30">
@@ -18,7 +55,7 @@ function BlogDetailPage() {
               <figure className="mb-0 mt-lg-0 mt-3 border-radius-5">
                 <img
                   className="border-radius-5"
-                  src="/assets/imgs/hero-tech/hero-tech-3.png"
+                  src={blog.main_image}
                   alt="git"
                 />
               </figure>
@@ -28,19 +65,13 @@ function BlogDetailPage() {
                 <div className="entry-meta meta-0 mb-15 font-small">
                   <a href="/">
                     <span className="post-cat position-relative text-info">
-                      Tech Tips
+                      {blog.tags}
                     </span>
                   </a>
                 </div>
                 <h1 className="entry-title mb-30 font-weight-900">
-                  Mastering Git: Best Practices for Software Development
+                  {blog.title}
                 </h1>
-                <p className="excerpt mb-30">
-                  Unlock the power of Git with expert insights into mastering
-                  this essential version control system. Dive into best
-                  practices for seamless collaboration and efficient software
-                  development.
-                </p>
                 <div className="entry-meta align-items-center meta-2 font-small color-muted">
                   <p className="mb-5">
                     <a className="author-avatar" href="/">
@@ -53,12 +84,11 @@ function BlogDetailPage() {
                     By{" "}
                     <a href="/">
                       <span className="author-name font-weight-bold">
-                        Chandrasekhar Dolla
+                        {blog.user_username}
                       </span>
                     </a>
                   </p>
-                  <span className="mr-10"> 15 September 2023</span>
-                  <span className="has-dot"> 2 mins read</span>
+                  <span className="mr-10">{formattedDate}</span>
                 </div>
               </div>
             </div>
@@ -67,136 +97,31 @@ function BlogDetailPage() {
 
         <article className="entry-wraper mb-50">
           <div className="excerpt mb-30">
-            <p>
-              Explore the world of version control with Git and uncover best
-              practices that elevate your development workflow. Dive into
-              essential commands and strategies for efficient collaboration and
-              code management.
-            </p>
-          </div>
-          <div className="entry-main-content dropcap wow fadeIn animated">
-            <p>
-              Mastering Git involves embracing best practices to streamline your
-              development journey. Execute commands like:
-              <code>git pull</code>,
-              <code>git commit -m "Your commit message"</code>,
-              <code>git branch</code>, and <code>git merge</code>.
-            </p>
-            <p>
-              Learn the intricacies of Git with practical tips. Familiarize
-              yourself with rebasing using
-              <a href="/"> git rebase</a>
-              <sup>
-                <a href="/">[2]</a>
-              </sup>
-              and squash your commits for a cleaner history with
-              <a href="/"> git rebase -i</a>
-              <sup>
-                <a href="/">[3]</a>
-              </sup>
-              .
-            </p>
-            <p>
-              Enhance your Git skills with advanced techniques. Discover the
-              power of Git tags with
-              <a href="/"> git tag</a>
-              <sup>
-                <a href="/">[4]</a>
-              </sup>
-              , and navigate branches effortlessly using
-              <a href="/"> git checkout</a>
-              <sup>
-                <a href="/">[5]</a>
-              </sup>
-              .
-            </p>
-            <h2>Effective Collaboration</h2>
-            <p>
-              Collaborate seamlessly using Git. Resolve conflicts gracefully
-              with
-              <a href="/"> git merge --no-ff</a>
-              <sup>
-                <a href="/">[6]</a>
-              </sup>
-              and enhance code quality through effective branching strategies.
-            </p>
-            <blockquote>
-              <p>
-                Optimize your workflow with Git best practices. Strive for a
-                clean commit history and a collaborative environment.
-                <a href="/"> git push</a>
-                <sup>
-                  <a href="/">[7]</a>
-                </sup>
-                responsibly.
-              </p>
-            </blockquote>
-            <p>
-              Elevate your development experience with Git. Embrace these best
-              practices to become a proficient version control master.
-            </p>
+            <p>{blog.blog_text}</p>
           </div>
 
           <div className="entry-bottom mt-50 mb-30 wow fadeIn animated">
             <div className="tags">
               <span>Tags: </span>
-              <a href="category.html" rel="tag">
-                Tech Tips
-              </a>
+              <Link href="/" rel="tag">
+                {blog.tags}
+              </Link>
             </div>
           </div>
           <div className="single-social-share clearfix wow fadeIn animated">
             <div className="entry-meta meta-1 font-small color-grey float-start mt-10">
               <span className="hit-count mr-15">
-                <i className="elegant-icon icon_comment_alt mr-5"></i>4 comments
+                <i className="elegant-icon icon_comment_alt mr-5"></i>
+                {blog.comments.length} comments
               </span>
               <span className="hit-count mr-15">
-                <i className="elegant-icon icon_like mr-5"></i>26 Upvotes
-              </span>
-              <span className="hit-count">
-                <i className="elegant-icon icon_star-half_alt mr-5"></i>Rate:
-                9/10
+                <i className="elegant-icon icon_like mr-5"></i>
+                {blog.upvotes} Upvotes
               </span>
             </div>
           </div>
 
-          <div className="author-bio p-30 mt-50 border-radius-10 bg-white wow fadeIn animated">
-            <div className="author-image mb-30">
-              <a href="author.html">
-                <img
-                  src="/assets/imgs/authors/author.jpg"
-                  alt=""
-                  className="avatar"
-                />
-              </a>
-            </div>
-            <div className="author-info">
-              <h4 className="font-weight-bold mb-20">
-                <span className="vcard author">
-                  <span className="fn">
-                    <a
-                      href="author.html"
-                      title="Posted by Chandrasekhar Dolla"
-                      rel="author"
-                    >
-                      Chandrasekhar Dolla{" "}
-                    </a>
-                  </span>
-                </span>
-              </h4>
-              <h5 className="text-muted">About author</h5>
-              <div className="author-description text-muted">
-                You should code because you find beauty in crafting algorithms
-                and the elegance of lines of code shaping innovative solutions
-                in the digital realm.
-              </div>
-              <a href="author.html" className="author-bio-link mb-md-0 mb-3">
-                View all posts (12)
-              </a>
-            </div>
-          </div>
-
-          <div className="related-posts">
+          <div className="related-posts pt-30">
             <div className="post-module-3">
               <div className="widget-header-2 position-relative mb-30">
                 <h5 className="mt-5 mb-30">Related posts</h5>
@@ -236,47 +161,6 @@ function BlogDetailPage() {
                             5 mins read
                           </span>
                           <span className="post-by has-dot">200 views</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article className="hover-up-2 transition-normal wow fadeInUp animated">
-                  <div className="row mb-40 list-style-2">
-                    <div className="col-md-4">
-                      <div className="post-thumb position-relative border-radius-5">
-                        <div
-                          className="img-hover-slide border-radius-5 position-relative"
-                          style={{
-                            background:
-                              "url(/assets/imgs/tech/kubernetes-featured-image.png) center/cover no-repeat",
-                          }}
-                        >
-                          <a className="img-link" href="single.html"></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-8 align-self-center">
-                      <div className="post-content">
-                        <div className="entry-meta meta-0 font-small mb-10">
-                          <a href="category.html">
-                            <span className="post-cat text-success">
-                              DevOps
-                            </span>
-                          </a>
-                        </div>
-                        <h5 className="post-title font-weight-900 mb-20">
-                          <a href="single.html">
-                            Mastering Kubernetes: Best Practices and Tips for
-                            Efficient Container Orchestration
-                          </a>
-                        </h5>
-                        <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                          <span className="post-on">15 November 2023</span>
-                          <span className="time-reading has-dot">
-                            12 mins read
-                          </span>
-                          <span className="post-by has-dot">500 views</span>
                         </div>
                       </div>
                     </div>
@@ -340,7 +224,6 @@ function BlogDetailPage() {
               </ul>
             </div>
           </div>
-
           <div className="comments-area">
             <div className="widget-header-2 position-relative mb-30">
               <h5 className="mt-5 mb-30">Comments</h5>
@@ -621,3 +504,38 @@ function BlogDetailPage() {
 }
 
 export default BlogDetailPage;
+
+async function blogLoader(id) {
+  const token = getAuthToken();
+
+  try {
+    const response = await fetch(
+      `http://${config.backend_url}:8000/api/blog/${id}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw json({ message: "Could not fetch blog by id." }, { status: 500 });
+    } else {
+      const resData = await response.json();
+      return resData.data;
+    }
+  } catch (error) {
+    return {
+      message: `Hold up! Our server is on an unscheduled vacation 🏖️. 
+        It's taking a break from your requests. Give it a moment to recharge its tropical vibes and try again later!`,
+    };
+  }
+}
+
+export async function loader({ params }) {
+  const { blogId } = params;
+  return defer({
+    blog: await blogLoader(blogId),
+  });
+}
