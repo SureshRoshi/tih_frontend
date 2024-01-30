@@ -1,5 +1,7 @@
 import React from "react";
-import { Form, redirect } from "react-router-dom";
+import { Form, json, redirect } from "react-router-dom";
+import config from "../../components/util/config";
+import { getAuthToken } from "../../components/util/auth";
 
 function AddPost() {
   return (
@@ -85,17 +87,49 @@ function AddPost() {
 export default AddPost;
 
 export async function action({ request, params }) {
+  const token = getAuthToken();
   const method = request.method;
   const data = await request.formData();
 
-  const newPostData = {
-    image: data.get("image"),
-    title: data.get("title"),
-    tags: data.get("tag"),
-    description: data.get("comment"),
-  };
+  let message = "";
 
-  console.log(newPostData);
+  const image = data.get("image");
+  const title = data.get("title");
+  const tags = data.get("tag");
+  const blog_text = data.get("comment");
 
-  return redirect("/blogs");
+  if (image && title && tags && blog_text) {
+    const newPostData = {
+      main_image: image,
+      title: title,
+      tags: tags,
+      blog_text: blog_text,
+    };
+    try {
+      const response = await fetch(
+        `http://${config.backend_url}:8000/api/blog/`,
+        {
+          method: method,
+          body: JSON.stringify(newPostData),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw json({ message: "could not authenticate you" });
+      }
+      const resData = await response.json();
+      console.log(resData);
+
+      return redirect("/blogs");
+    } catch (err) {
+      message = "Error connecting to the server. Please try again later.";
+    }
+  } else {
+    message = "Invalid form data. Please check your inputs.";
+  }
+  return { message };
 }
