@@ -24,11 +24,7 @@ export default function AuthorPage() {
                 <h3 className="font-weight-900">
                   <span className="vcard author">
                     <span className="fn">
-                      <a
-                        href="author.html"
-                        title="Posts by Steven"
-                        rel="author"
-                      >
+                      <a href="/" title="Posts by Steven" rel="author">
                         Steven
                       </a>
                     </span>
@@ -129,12 +125,16 @@ export default function AuthorPage() {
 async function authorLoader() {
   const token = getAuthToken();
 
+  // update this
   try {
-    const response = await fetch(`http://${config.backend_url}/api/MyBlogs/`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      `http://${config.backend_url}/api/blog/${""}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     if (!response.ok) {
       throw json({ message: "Could not fetch posts." }, { status: 500 });

@@ -15,8 +15,6 @@ function BlogDetailPage() {
 
   const { state } = useNavigation();
 
-  console.log(blog);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
