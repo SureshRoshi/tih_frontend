@@ -1,3 +1,3 @@
 module.exports = {
-  backend_url: "34.227.104.245:8000",
+  backend_url: "54.89.52.217:8000",
 };

@@ -1,4 +1,6 @@
-import { defer, useLoaderData } from "react-router-dom";
+import { Link, defer, json, useLoaderData } from "react-router-dom";
+import { getAuthToken } from "../../components/util/auth";
+import config from "../../components/util/config";
 
 export default function AuthorPage() {
   const { author } = useLoaderData();
@@ -10,7 +12,7 @@ export default function AuthorPage() {
           <div className="col-12">
             <div className="author-bio mb-50 bg-white p-30 border-radius-10">
               <div className="author-image mb-30">
-                <a href="author.html">
+                <a href="/">
                   <img
                     src="assets/imgs/authors/author.jpg"
                     alt=""
@@ -75,50 +77,45 @@ export default function AuthorPage() {
               </div>
               <div className="loop-list loop-list-style-1">
                 <div className="row">
-                  <article className="col-md-6 mb-40 wow fadeInUp  animated">
-                    <div className="post-card-1 border-radius-10 hover-up">
-                      <div
-                        className="post-thumb thumb-overlay img-hover-slide position-relative"
-                        style={{
-                          backgroundImage: "url(assets/imgs/news/news-6.jpg)",
-                        }}
-                      >
-                        <a className="img-link" href="single.html"></a>
-                      </div>
-                      <div className="post-content p-30">
-                        <div className="entry-meta meta-0 font-small mb-10">
-                          <a href="category.html">
-                            <span className="post-cat text-info">Artists</span>
-                          </a>
-                          <a href="category.html">
-                            <span className="post-cat text-success">Film</span>
-                          </a>
+                  {author.map((post) => (
+                    <article
+                      className="col-md-6 mb-40 wow fadeInUp  animated"
+                      key={post.uid}
+                    >
+                      <div className="post-card-1 border-radius-10 hover-up">
+                        <div
+                          className="post-thumb thumb-overlay img-hover-slide position-relative"
+                          style={{
+                            backgroundImage: `url(${post.main_image})`,
+                          }}
+                        >
+                          <p className="img-link"></p>
                         </div>
-                        <div className="d-flex post-card-content">
-                          <h5 className="post-title mb-20 font-weight-900">
-                            <a href="single.html">
-                              Easy Ways to Use Alternatives to Plastic
-                            </a>
-                          </h5>
-                          <div className="post-excerpt mb-25 font-small text-muted">
-                            <p>
-                              Graduating from a top accelerator or incubator can
-                              be as career-defining for a&nbsp;startup
-                              founder&nbsp;as an elite university diploma. The
-                              intensive programmes, which…
-                            </p>
+                        <div className="post-content p-30">
+                          <div className="entry-meta meta-0 font-small mb-10">
+                            <Link to={`/blogs/tags/${post.tags.toLowerCase()}`}>
+                              <span className="post-cat text-success">
+                                {post.tags}
+                              </span>
+                            </Link>
                           </div>
-                          <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                            <span className="post-on">27 August</span>
-                            <span className="time-reading has-dot">
-                              12 mins read
-                            </span>
-                            <span className="post-by has-dot">23k views</span>
+                          <div className="d-flex post-card-content">
+                            <h5 className="post-title mb-20 font-weight-900">
+                              <Link to={`/blogs/${post.uid}`}>
+                                {post.title}
+                              </Link>
+                            </h5>
+                            <div className="post-excerpt mb-25 font-small text-muted">
+                              <p>{post.blog_text}</p>
+                            </div>
+                            <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
+                              <span className="post-on">{post.created_at}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </article>
+                    </article>
+                  ))}
                 </div>
               </div>
             </div>
@@ -130,7 +127,28 @@ export default function AuthorPage() {
 }
 
 async function authorLoader() {
-  return { data: "author data" };
+  const token = getAuthToken();
+
+  try {
+    const response = await fetch(`http://${config.backend_url}/api/MyBlogs/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw json({ message: "Could not fetch posts." }, { status: 500 });
+    } else {
+      const resData = await response.json();
+      console.log(resData);
+      return resData.data;
+    }
+  } catch (error) {
+    return {
+      message: `Hold up! Our server is on an unscheduled vacation 🏖️. 
+        It's taking a break from your requests. Give it a moment to recharge its tropical vibes and try again later!`,
+    };
+  }
 }
 
 export async function loader() {
