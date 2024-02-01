@@ -1,13 +1,22 @@
-import { defer, useLoaderData } from "react-router-dom";
+import { Link, defer, useLoaderData } from "react-router-dom";
 
 export default function CategoryPage() {
   const { tag } = useLoaderData();
   return (
-    <div className="text-center fw-bold pt-50 mt-50 pb-50 mb-50 display-5">
-      <div className="text-center fw-bold pt-20 mt-20 pb-20 mb-20 display-5">
-        Explore <span style={{ color: "#5869DA" }}>{tag}</span>
+    <main>
+      <div className="archive-header pt-50">
+        <div className="container">
+          <h2 className="font-weight-900">{tag.toUpperCase()}</h2>
+          <div className="breadcrumb">
+            <Link to="/blogs" rel="nofollow">
+              Home
+            </Link>
+            <span></span> {tag}
+          </div>
+          <div className="bt-1 border-color-1 mt-30 mb-50"></div>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
 
