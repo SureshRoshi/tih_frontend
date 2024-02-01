@@ -19,7 +19,7 @@ function RootLayout() {
     }
 
     const tokenDuration = getTokenDuration();
-    console.log(tokenDuration);
+    // console.log(tokenDuration);F
 
     setTimeout(() => {
       submit(null, { action: "/logout", method: "POST" });
