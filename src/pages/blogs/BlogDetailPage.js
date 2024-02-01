@@ -15,6 +15,8 @@ function BlogDetailPage() {
 
   const { state } = useNavigation();
 
+  console.log(blog);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -97,7 +99,7 @@ function BlogDetailPage() {
 
         <article className="entry-wraper mb-50">
           <div className="excerpt mb-30">
-            <p>{blog.blog_text}</p>
+            <p>{blog.description}</p>
           </div>
 
           <div className="entry-bottom mt-50 mb-30 wow fadeIn animated">
