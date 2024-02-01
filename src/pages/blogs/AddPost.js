@@ -50,7 +50,7 @@ function AddPost() {
                     className="form-control"
                     id="tag"
                     name="tag"
-                    placeholder="Enter tags of your post"
+                    placeholder="Enter tag of your post"
                     required
                   />
                 </div>
