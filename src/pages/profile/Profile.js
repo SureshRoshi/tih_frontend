@@ -1,6 +1,7 @@
 import { Link, defer, json, useLoaderData } from "react-router-dom";
 import { getAuthToken } from "../../components/util/auth";
 import config from "../../components/util/config";
+import { formatDate } from "../../components/util/formatDate";
 
 export default function ProfilePage() {
   const { profile } = useLoaderData();
@@ -125,7 +126,9 @@ export default function ProfilePage() {
                               <p>{post.blog_text}</p>
                             </div>
                             <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">{post.created_at}</span>
+                              <span className="post-on">
+                                {formatDate(post.created_at)}
+                              </span>
                             </div>
                           </div>
                         </div>
