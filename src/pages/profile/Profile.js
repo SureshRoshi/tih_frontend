@@ -33,7 +33,7 @@ export default function ProfilePage() {
                 <h5 className="text-muted"></h5>
                 <div className="author-description text-muted"></div>
                 {/* <strong className="text-muted">Follow: </strong>
-                 <ul className="header-social-network d-inline-block list-inline color-white mb-20">
+                <ul className="header-social-network d-inline-block list-inline color-white mb-20">
                   <li className="list-inline-item">
                     <a className="fb" href="#" target="_blank" title="Facebook">
                       <i className="elegant-icon social_facebook"></i>
