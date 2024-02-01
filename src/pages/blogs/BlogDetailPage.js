@@ -138,29 +138,25 @@ function BlogDetailPage() {
                               "url(/assets/imgs/tech/tech-featured-image.jpg)",
                           }}
                         >
-                          <a className="img-link" href="single.html"></a>
+                          <p className="img-link" href="/"></p>
                         </div>
                       </div>
                     </div>
                     <div className="col-md-8 align-self-center">
                       <div className="post-content">
                         <div className="entry-meta meta-0 font-small mb-10">
-                          <a href="category.html">
+                          <Link to={`/blogs/tags/tech`}>
                             <span className="post-cat text-primary">Tech</span>
-                          </a>
+                          </Link>
                         </div>
                         <h5 className="post-title font-weight-900 mb-20">
-                          <a href="single.html">
+                          <Link href="/">
                             Exploring Innovative Uses of Raspberry Pi in Modern
                             Technology
-                          </a>
+                          </Link>
                         </h5>
                         <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
                           <span className="post-on">15 October 2023</span>
-                          <span className="time-reading has-dot">
-                            5 mins read
-                          </span>
-                          <span className="post-by has-dot">200 views</span>
                         </div>
                       </div>
                     </div>
@@ -170,60 +166,6 @@ function BlogDetailPage() {
             </div>
           </div>
 
-          <div className="single-more-articles border-radius-5">
-            <div className="widget-header-2 position-relative mb-30">
-              <h5 className="mt-5 mb-30">You might be interested in</h5>
-              <button className="single-more-articles-close">
-                <i className="elegant-icon icon_close"></i>
-              </button>
-            </div>
-            <div className="post-block-list post-module-1 post-module-5">
-              <ul className="list-post">
-                <li className="mb-30">
-                  <div className="d-flex hover-up-2 transition-normal">
-                    <div className="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
-                      <a className="color-white" href="single.html">
-                        <img src="/assets/imgs/tech/tech-thumb-1.jpg" alt="" />
-                      </a>
-                    </div>
-                    <div className="post-content media-body">
-                      <h6 className="post-title mb-15 text-limit-2-row font-medium">
-                        <a href="single.html">
-                          Emerging Technologies Shaping the Future of Software
-                          Development
-                        </a>
-                      </h6>
-                      <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                        <span className="post-on">15 March 2023</span>
-                        <span className="post-by has-dot">800 views</span>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li className="mb-10">
-                  <div className="d-flex hover-up-2 transition-normal">
-                    <div className="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
-                      <a className="color-white" href="single.html">
-                        <img src="/assets/imgs/tech/tech-thumb-2.jpg" alt="" />
-                      </a>
-                    </div>
-                    <div className="post-content media-body">
-                      <h6 className="post-title mb-15 text-limit-2-row font-medium">
-                        <a href="single.html">
-                          Exploring the Latest Innovations in Artificial
-                          Intelligence
-                        </a>
-                      </h6>
-                      <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                        <span className="post-on">10 September 2023</span>
-                        <span className="post-by has-dot">250 views</span>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
           <div className="comments-area">
             <div className="widget-header-2 position-relative mb-30">
               <h5 className="mt-5 mb-30">Comments</h5>
