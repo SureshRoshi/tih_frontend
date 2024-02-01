@@ -41,6 +41,7 @@ const router = createBrowserRouter([
       { path: "login", element: <LoginPage />, action: loginAction },
       { path: "signup", element: <SignupPage />, action: signupAction },
       { path: "logout", action: logoutAction },
+      { path: "your-profile", element: <ProfilePage />, loader: profileLoader },
       {
         path: "author",
         children: [
@@ -52,7 +53,6 @@ const router = createBrowserRouter([
           },
         ],
       },
-      { path: "your-profile", element: <ProfilePage />, loader: profileLoader },
       {
         path: "blogs",
         children: [
