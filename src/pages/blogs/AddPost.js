@@ -16,19 +16,6 @@ function AddPost() {
               </div>
               <Form method="POST">
                 <div className="mb-3">
-                  <label htmlFor="image" className="form-label">
-                    Post Image:
-                  </label>
-                  <input
-                    className="form-control"
-                    id="image"
-                    type="url"
-                    name="image"
-                    placeholder="Enter image url of your post"
-                    required
-                  />
-                </div>
-                <div className="mb-3">
                   <label htmlFor="title" className="form-label">
                     Post Title
                   </label>
@@ -38,6 +25,19 @@ function AddPost() {
                     id="title"
                     name="title"
                     placeholder="Enter the title of your post"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="image" className="form-label">
+                    Post Image:
+                  </label>
+                  <input
+                    className="form-control"
+                    id="image"
+                    type="url"
+                    name="image"
+                    placeholder="Enter image url of your post"
                     required
                   />
                 </div>
@@ -54,6 +54,19 @@ function AddPost() {
                     required
                   />
                 </div>
+                <div className="mb-3">
+                  <label htmlFor="title" className="form-label">
+                    Summary
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="summary"
+                    name="summary"
+                    placeholder="Enter the short summary"
+                    required
+                  />
+                </div>
                 <div className="row">
                   <label htmlFor="description" className="form-label">
                     Post Description
@@ -62,8 +75,8 @@ function AddPost() {
                     <div className="form-group">
                       <textarea
                         className="form-control w-100"
-                        name="comment"
-                        id="comment"
+                        name="description"
+                        id="description"
                         cols="30"
                         rows="9"
                         placeholder="Write your post content here..."
@@ -99,14 +112,16 @@ export async function action({ request, params }) {
   const image = data.get("image");
   const title = data.get("title");
   const tags = data.get("tag");
-  const blog_text = data.get("comment");
+  const summary = data.get("summary");
+  const description = data.get("description");
 
-  if (image && title && tags && blog_text) {
+  if (image && title && tags && summary && description) {
     const newPostData = {
-      main_image: image,
       title: title,
+      main_image: image,
       tags: tags,
-      blog_text: blog_text,
+      summary: summary,
+      description: description,
     };
     try {
       const response = await fetch(`http://${config.backend_url}/api/blog/`, {
