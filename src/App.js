@@ -3,7 +3,7 @@ import React from "react";
 import {
   createBrowserRouter,
   RouterProvider,
-  // Navigate,
+  Navigate,
 } from "react-router-dom";
 
 import RootLayout from "./pages/root/Root";
@@ -15,6 +15,8 @@ import BlogDetailPage, {
   loader as detailLoader,
 } from "./pages/blogs/BlogDetailPage";
 import AddPost, { action as addPostAction } from "./pages/blogs/AddPost";
+import AuthorPage, { loader as authorLoader } from "./pages/Author";
+import CategoryPage, { loader as tagLoader } from "./pages/category/Category";
 
 import { action as loginAction } from "./components/UI/LoginForm";
 import { action as signupAction } from "./components/UI/SignupForm";
@@ -23,7 +25,6 @@ import { action as logoutAction } from "./pages/auth/Logout";
 
 import { checkAuthLoader, tokenLoader } from "./components/util/auth";
 import Home from "./pages/Home";
-import AuthorPage from "./pages/Author";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       { path: "login", element: <LoginPage />, action: loginAction },
       { path: "signup", element: <SignupPage />, action: signupAction },
       { path: "logout", action: logoutAction },
-      { path: "author", element: <AuthorPage />  },
+      { path: "author", element: <AuthorPage />, loader: authorLoader },
       {
         path: "blogs",
         children: [
@@ -55,11 +56,12 @@ const router = createBrowserRouter([
             element: <BlogDetailPage />,
             loader: detailLoader,
           },
-          // need to edit this
           {
             path: "tags",
-            element: "Tag List Element",
-            children: [{ path: "tagId", element: "Tag Detail Element" }],
+            children: [
+              { index: true, element: <Navigate to={":tagId"} /> },
+              { path: ":tagId", element: <CategoryPage />, loader: tagLoader },
+            ],
           },
         ],
       },

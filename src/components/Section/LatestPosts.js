@@ -5,9 +5,10 @@ function LatestPosts({ latest, mostPopular }) {
   const [latestPosts, setLatestPosts] = useState(latest);
 
   // Initial number of posts to display
-  const [visiblePosts, setVisiblePosts] = useState(2);
+  const [visiblePosts, setVisiblePosts] = useState(10);
+
   // Number of posts to load on each "Load More" click
-  const postsToLoad = 1;
+  const postsToLoad = 10;
 
   // posts rendered based on slicing
   const currentPosts = latestPosts.slice(0, visiblePosts);
@@ -68,7 +69,9 @@ function LatestPosts({ latest, mostPopular }) {
                         <div className="col-md-8 align-self-center">
                           <div className="post-content">
                             <div className="entry-meta meta-0 font-small mb-10">
-                              <Link to={post.tag_link}>
+                              <Link
+                                to={`/blogs/tags/${post.tag_link.toLowerCase()}`}
+                              >
                                 <span className="post-cat text-primary">
                                   {post.tag}
                                 </span>

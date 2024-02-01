@@ -1,4 +1,8 @@
+import { defer, useLoaderData } from "react-router-dom";
+
 export default function AuthorPage() {
+  const { author } = useLoaderData();
+  console.log(author);
   return (
     <main className="bg-grey pt-50 pb-50">
       <div className="container">
@@ -123,4 +127,14 @@ export default function AuthorPage() {
       </div>
     </main>
   );
+}
+
+async function authorLoader() {
+  return { data: "author data" };
+}
+
+export async function loader() {
+  return defer({
+    author: await authorLoader(),
+  });
 }
