@@ -10,12 +10,13 @@ import RootLayout from "./pages/root/Root";
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
 import ErrorPage from "./pages/error/ErrorPage";
+import Home from "./pages/home/Home";
 import HomePage, { loader as homeLoader } from "./pages/blogs/HomePage";
 import BlogDetailPage, {
   loader as detailLoader,
 } from "./pages/blogs/BlogDetailPage";
 import AddPost, { action as addPostAction } from "./pages/blogs/AddPost";
-import AuthorPage, { loader as authorLoader } from "./pages/Author";
+import AuthorPage, { loader as authorLoader } from "./pages/author/Author";
 import CategoryPage, { loader as tagLoader } from "./pages/category/Category";
 
 import { action as loginAction } from "./components/UI/LoginForm";
@@ -24,7 +25,6 @@ import { action as searchAction } from "./components/Layout/Navbar";
 import { action as logoutAction } from "./pages/auth/Logout";
 
 import { checkAuthLoader, tokenLoader } from "./components/util/auth";
-import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
