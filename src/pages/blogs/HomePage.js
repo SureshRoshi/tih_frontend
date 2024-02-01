@@ -89,14 +89,11 @@ async function loadLatestBlogs() {
   const token = getAuthToken();
 
   try {
-    const response = await fetch(
-      `http://${config.backend_url}:8000/api/blog/`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await fetch(`http://${config.backend_url}/api/blog/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     if (!response.ok) {
       throw json({ message: "Could not fetch posts." }, { status: 500 });

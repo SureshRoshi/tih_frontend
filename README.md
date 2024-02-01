@@ -40,6 +40,31 @@ npm install
 npm start
 ```
 
+```
+Your React App
+│
+└── src
+    │
+    └── util
+        │
+        └── config.js
+```
+
+In the `config.js` file, find and update the `backend_url`:
+
+```javascript
+// config.js
+
+module.exports = {
+  backend_url: "http://your_backend_server_ip:port",
+  // Other settings...
+};
+
+export default config;
+```
+
+Replace `'http://your_backend_server_ip:port'` with your actual backend server's IP and port.
+
 4. Open your browser and navigate to http://localhost:3000 to access Torry Insight Hub.
 
 ### Usage

@@ -109,17 +109,14 @@ export async function action({ request, params }) {
       blog_text: blog_text,
     };
     try {
-      const response = await fetch(
-        `http://${config.backend_url}:8000/api/blog/`,
-        {
-          method: method,
-          body: JSON.stringify(newPostData),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`http://${config.backend_url}/api/blog/`, {
+        method: method,
+        body: JSON.stringify(newPostData),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (!response.ok) {
         throw json({ message: "could not authenticate you" });

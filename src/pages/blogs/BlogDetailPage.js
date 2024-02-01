@@ -82,11 +82,11 @@ function BlogDetailPage() {
                       />
                     </a>
                     By{" "}
-                    <a href="/">
+                    <Link to="/author">
                       <span className="author-name font-weight-bold">
                         {blog.user_username}
                       </span>
-                    </a>
+                    </Link>
                   </p>
                   <span className="mr-10">{formattedDate}</span>
                 </div>
@@ -510,7 +510,7 @@ async function blogLoader(id) {
 
   try {
     const response = await fetch(
-      `http://${config.backend_url}:8000/api/blog/${id}`,
+      `http://${config.backend_url}/api/blog/${id}`,
       {
         method: "GET",
         headers: {

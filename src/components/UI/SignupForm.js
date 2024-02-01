@@ -153,7 +153,7 @@ export async function action({ request, params }) {
       password: formPassword,
     };
 
-    const url = `http://${config.backend_url}:8000/accounts/register/`;
+    const url = `http://${config.backend_url}/accounts/register/`;
 
     try {
       const response = await fetch(url, {

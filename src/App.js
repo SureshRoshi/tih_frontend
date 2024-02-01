@@ -23,6 +23,7 @@ import { action as logoutAction } from "./pages/auth/Logout";
 
 import { checkAuthLoader, tokenLoader } from "./components/util/auth";
 import Home from "./pages/Home";
+import AuthorPage from "./pages/Author";
 
 const router = createBrowserRouter([
   {
@@ -38,8 +39,7 @@ const router = createBrowserRouter([
       { path: "login", element: <LoginPage />, action: loginAction },
       { path: "signup", element: <SignupPage />, action: signupAction },
       { path: "logout", action: logoutAction },
-      // need to edit this
-      { path: "author", element: "Author Element" },
+      { path: "author", element: <AuthorPage />  },
       {
         path: "blogs",
         children: [

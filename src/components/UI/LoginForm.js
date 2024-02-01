@@ -124,7 +124,7 @@ export async function action({ request, params }) {
       password: formPassword,
     };
 
-    const url = `http://${config.backend_url}:8000/accounts/Login/`;
+    const url = `http://${config.backend_url}/accounts/Login/`;
 
     try {
       const response = await fetch(url, {
