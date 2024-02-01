@@ -109,8 +109,8 @@ export async function action({ request, params }) {
 
   let message = "";
 
-  const image = data.get("image");
   const title = data.get("title");
+  const image = data.get("image");
   const tags = data.get("tag");
   const summary = data.get("summary");
   const description = data.get("description");
