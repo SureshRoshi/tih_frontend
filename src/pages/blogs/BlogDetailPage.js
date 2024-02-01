@@ -63,24 +63,24 @@ function BlogDetailPage() {
             <div className="col-md-6 align-self-center">
               <div className="post-content">
                 <div className="entry-meta meta-0 mb-15 font-small">
-                  <a href="/">
+                  <Link to={`/blogs/tags/${blog.tags.toLowerCase()}`}>
                     <span className="post-cat position-relative text-info">
                       {blog.tags}
                     </span>
-                  </a>
+                  </Link>
                 </div>
                 <h1 className="entry-title mb-30 font-weight-900">
                   {blog.title}
                 </h1>
                 <div className="entry-meta align-items-center meta-2 font-small color-muted">
                   <p className="mb-5">
-                    <a className="author-avatar" href="/">
+                    <Link className="author-avatar" to="/author">
                       <img
                         className="img-circle"
                         src="/assets/imgs/authors/author.jpg"
                         alt=""
                       />
-                    </a>
+                    </Link>
                     By{" "}
                     <Link to="/author">
                       <span className="author-name font-weight-bold">
