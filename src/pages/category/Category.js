@@ -33,7 +33,7 @@ export default function CategoryPage() {
                   {tag.data.map((post) => (
                     <article
                       className="hover-up-2 transition-normal wow fadeInUp animated"
-                      key={post.uid}
+                      key={post.id}
                     >
                       <div className="row mb-40 list-style-2">
                         <div className="col-md-4">
@@ -41,7 +41,7 @@ export default function CategoryPage() {
                             <div
                               className="img-hover-slide border-radius-5 position-relative"
                               style={{
-                                backgroundImage: `url(${post.main_image})`,
+                                backgroundImage: `url(${post.image})`,
                               }}
                             >
                               <p className="img-link"></p>
@@ -61,9 +61,6 @@ export default function CategoryPage() {
                               <Link to={`/blogs/${post.uid}`}>
                                 {post.title}
                               </Link>
-                              <span className="post-format-icon">
-                                <i className="elegant-icon icon_star_alt"></i>
-                              </span>
                             </h5>
                             <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
                               <span className="post-on">{post.created_at}</span>

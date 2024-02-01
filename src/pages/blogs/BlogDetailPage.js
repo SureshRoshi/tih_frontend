@@ -9,6 +9,7 @@ import {
 import config from "../../components/util/config";
 import { getAuthToken } from "../../components/util/auth";
 import Loader from "../../components/Layout/Loader";
+import { formatDate } from "../../components/util/formatDate";
 
 function BlogDetailPage() {
   const { blog } = useLoaderData();
@@ -23,29 +24,6 @@ function BlogDetailPage() {
     return <Loader />;
   }
 
-  const dateObj = new Date(blog.created_at);
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  const day = dateObj.getDate();
-  const monthIndex = dateObj.getMonth();
-  const year = dateObj.getFullYear();
-
-  const formattedDate = `${day} ${months[monthIndex]} ${year}`;
-
   return (
     <main className="bg-grey pb-30">
       <div className="container single-content">
@@ -56,7 +34,7 @@ function BlogDetailPage() {
                 <img
                   className="border-radius-5"
                   src={blog.main_image}
-                  alt="git"
+                  alt={blog.title}
                 />
               </figure>
             </div>
@@ -72,6 +50,7 @@ function BlogDetailPage() {
                 <h1 className="entry-title mb-30 font-weight-900">
                   {blog.title}
                 </h1>
+                <p className="excerpt mb-30">{blog.summary}</p>
                 <div className="entry-meta align-items-center meta-2 font-small color-muted">
                   <p className="mb-5">
                     <Link className="author-avatar" to="/author">
@@ -82,13 +61,13 @@ function BlogDetailPage() {
                       />
                     </Link>
                     By{" "}
-                    <Link to="/author">
+                    <Link to={`/author/${blog.user_username}`}>
                       <span className="author-name font-weight-bold">
                         {blog.user_username}
                       </span>
                     </Link>
                   </p>
-                  <span className="mr-10">{formattedDate}</span>
+                  <span className="mr-10">{formatDate(blog.created_at)}</span>
                 </div>
               </div>
             </div>

@@ -71,7 +71,7 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <div className="header-sticky">
+        {/* <div className="header-sticky">
           <div className="container align-self-center position-relative">
             <div className="mobile_menu d-lg-none d-block"></div>
             <div className="main-nav d-none d-lg-block float-start">
@@ -159,7 +159,7 @@ function Navbar() {
             </div>
             <div className="clearfix"></div>
           </div>
-        </div>
+        </div> */}
       </header>
       <div className="main-search-form">
         <div className="container">

@@ -40,7 +40,17 @@ const router = createBrowserRouter([
       { path: "login", element: <LoginPage />, action: loginAction },
       { path: "signup", element: <SignupPage />, action: signupAction },
       { path: "logout", action: logoutAction },
-      { path: "author", element: <AuthorPage />, loader: authorLoader },
+      {
+        path: "author",
+        children: [
+          { index: true, element: <Navigate to={":author_name"} /> },
+          {
+            path: ":author_name",
+            element: <AuthorPage />,
+            loader: authorLoader,
+          },
+        ],
+      },
       {
         path: "blogs",
         children: [

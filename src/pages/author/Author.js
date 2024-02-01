@@ -4,7 +4,7 @@ import config from "../../components/util/config";
 
 export default function AuthorPage() {
   const { author } = useLoaderData();
-  console.log(author);
+
   return (
     <main className="bg-grey pt-50 pb-50">
       <div className="container">
@@ -14,9 +14,9 @@ export default function AuthorPage() {
               <div className="author-image mb-30">
                 <a href="/">
                   <img
-                    src="assets/imgs/authors/author.jpg"
+                    className="img-circle"
+                    src="/assets/imgs/authors/author.jpg"
                     alt=""
-                    className="avatar"
                   />
                 </a>
               </div>
@@ -24,20 +24,20 @@ export default function AuthorPage() {
                 <h3 className="font-weight-900">
                   <span className="vcard author">
                     <span className="fn">
-                      <a href="/" title="Posts by Steven" rel="author">
-                        Steven
-                      </a>
+                      <Link title={`Posts by ${author.username}`} rel="author">
+                        {author.username}
+                      </Link>
                     </span>
                   </span>
                 </h3>
-                <h5 className="text-muted">About author</h5>
+                {/* <h5 className="text-muted">About author</h5>
                 <div className="author-description text-muted">
                   You should write because you love the shape of stories and
                   sentences and the creation of different words on a page.
                   Graduating from a top accelerator or incubator can be as
                   career-defining for a startup founder as an elite university
                   diploma.
-                </div>
+                </div> */}
                 <strong className="text-muted">Follow: </strong>
                 <ul className="header-social-network d-inline-block list-inline color-white mb-20">
                   <li className="list-inline-item">
@@ -46,19 +46,24 @@ export default function AuthorPage() {
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a
+                    <Link
                       className="tw"
                       href="#"
                       target="_blank"
                       title="Tweet now"
                     >
                       <i className="elegant-icon social_twitter"></i>
-                    </a>
+                    </Link>
                   </li>
                   <li className="list-inline-item">
-                    <a className="pt" href="#" target="_blank" title="Pin it">
+                    <Link
+                      className="pt"
+                      href="#"
+                      target="_blank"
+                      title="Pin it"
+                    >
                       <i className="elegant-icon social_pinterest"></i>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -73,33 +78,31 @@ export default function AuthorPage() {
               </div>
               <div className="loop-list loop-list-style-1">
                 <div className="row">
-                  {author.map((post) => (
+                  {author.data.map((post) => (
                     <article
                       className="col-md-6 mb-40 wow fadeInUp  animated"
-                      key={post.uid}
+                      key={post.id}
                     >
                       <div className="post-card-1 border-radius-10 hover-up">
                         <div
                           className="post-thumb thumb-overlay img-hover-slide position-relative"
                           style={{
-                            backgroundImage: `url(${post.main_image})`,
+                            backgroundImage: `url(${post.image})`,
                           }}
                         >
                           <p className="img-link"></p>
                         </div>
                         <div className="post-content p-30">
                           <div className="entry-meta meta-0 font-small mb-10">
-                            <Link to={`/blogs/tags/${post.tags.toLowerCase()}`}>
+                            <Link to={`/blogs/tags/${post.tag.toLowerCase()}`}>
                               <span className="post-cat text-success">
-                                {post.tags}
+                                {post.tag}
                               </span>
                             </Link>
                           </div>
                           <div className="d-flex post-card-content">
                             <h5 className="post-title mb-20 font-weight-900">
-                              <Link to={`/blogs/${post.uid}`}>
-                                {post.title}
-                              </Link>
+                              <Link to={`/blogs/${post.id}`}>{post.title}</Link>
                             </h5>
                             <div className="post-excerpt mb-25 font-small text-muted">
                               <p>{post.blog_text}</p>
@@ -122,13 +125,12 @@ export default function AuthorPage() {
   );
 }
 
-async function authorLoader() {
+async function authorLoader(name) {
   const token = getAuthToken();
 
-  // update this
   try {
     const response = await fetch(
-      `http://${config.backend_url}/api/blog/${""}`,
+      `http://${config.backend_url}/api/blog/${name}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -140,8 +142,7 @@ async function authorLoader() {
       throw json({ message: "Could not fetch posts." }, { status: 500 });
     } else {
       const resData = await response.json();
-      console.log(resData);
-      return resData.data;
+      return resData;
     }
   } catch (error) {
     return {
@@ -151,8 +152,9 @@ async function authorLoader() {
   }
 }
 
-export async function loader() {
+export async function loader({ params }) {
+  const { author_name } = params;
   return defer({
-    author: await authorLoader(),
+    author: await authorLoader(author_name),
   });
 }

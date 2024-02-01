@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { formatDate } from "../util/formatDate";
 
 function LatestPosts({ latest, mostPopular }) {
   const [latestPosts, setLatestPosts] = useState(latest);
@@ -81,7 +82,9 @@ function LatestPosts({ latest, mostPopular }) {
                               <Link to={post.post_link}>{post.title}</Link>
                             </h5>
                             <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">{post.date}</span>
+                              <span className="post-on">
+                                {formatDate(post.date)}
+                              </span>
                               <div className="voting-icons mt-20">
                                 <button
                                   className="upvote-btn"

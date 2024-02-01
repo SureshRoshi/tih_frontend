@@ -99,7 +99,6 @@ async function loadLatestBlogs() {
       throw json({ message: "Could not fetch posts." }, { status: 500 });
     } else {
       const resData = await response.json();
-      console.log(resData);
       return resData.data;
     }
   } catch (error) {
