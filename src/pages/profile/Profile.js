@@ -117,7 +117,9 @@ export default function ProfilePage() {
                           </div>
                           <div className="d-flex post-card-content">
                             <h5 className="post-title mb-20 font-weight-900">
-                              <Link to={`/blogs/${post.id}`}>{post.title}</Link>
+                              <Link to={`/blogs/${post.uid}`}>
+                                {post.title}
+                              </Link>
                             </h5>
                             <div className="post-excerpt mb-25 font-small text-muted">
                               <p>{post.blog_text}</p>
