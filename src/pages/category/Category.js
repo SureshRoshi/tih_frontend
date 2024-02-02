@@ -134,6 +134,7 @@ async function tagLoader(id) {
     return {
       message: `Hold up! Our server is on an unscheduled vacation 🏖️. 
         It's taking a break from your requests. Give it a moment to recharge its tropical vibes and try again later!`,
+      status: 500,
     };
   }
 }
