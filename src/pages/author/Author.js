@@ -25,7 +25,7 @@ export default function AuthorPage() {
                   <span className="vcard author">
                     <span className="fn">
                       <Link title={`Posts by ${author.username}`} rel="author">
-                        {author.username}
+                        {author.username.toUpperCase()}
                       </Link>
                     </span>
                   </span>
@@ -71,10 +71,10 @@ export default function AuthorPage() {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-8">
+          <div className="col-lg-12">
             <div className="post-module-2">
               <div className="widget-header-2 position-relative mb-30  wow fadeInUp animated">
-                <h5 className="mt-5 mb-30">Posted by Steven</h5>
+                <h5 className="mt-5 mb-30">Posted by {author.username}</h5>
               </div>
               <div className="loop-list loop-list-style-1">
                 <div className="row">

@@ -100,7 +100,7 @@ export default function ProfilePage() {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-8">
+          <div className="col-lg-12">
             <div className="post-module-2">
               <div className="widget-header-2 position-relative mb-30  wow fadeInUp animated">
                 <h5 className="mt-5 mb-30">Posted by {profile.username}</h5>
