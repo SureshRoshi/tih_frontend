@@ -174,7 +174,6 @@ export async function action({ request, params }) {
       }
       const resData = await response.json();
       console.log(resData);
-
       return redirect("/login");
     } catch (err) {
       message = "Error connecting to the server. Please try again later.";

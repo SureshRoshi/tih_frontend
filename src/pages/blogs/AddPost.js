@@ -1,10 +1,17 @@
 import React from "react";
-import { Form, json, redirect, useNavigation } from "react-router-dom";
+import {
+  Form,
+  json,
+  redirect,
+  useActionData,
+  useNavigation,
+} from "react-router-dom";
 import config from "../../components/util/config";
 import { getAuthToken } from "../../components/util/auth";
 import Loader from "../../components/Layout/Loader";
 
 function AddPost() {
+  const data = useActionData();
   const { state } = useNavigation();
 
   if (state === "loading") {
@@ -20,6 +27,11 @@ function AddPost() {
               <div className="heading_s1 text-center">
                 <h3 className="mb-30 font-weight-900">Add New Post</h3>
               </div>
+              {data && data.message && (
+                <div className="alert alert-danger border-radius-10">
+                  {data.message}
+                </div>
+              )}
               <Form method="POST">
                 <div className="mb-3">
                   <label htmlFor="title" className="form-label">
@@ -139,12 +151,15 @@ export async function action({ request, params }) {
         },
       });
 
+      if (response.status === 400) {
+        return response;
+      }
+
       if (!response.ok) {
-        throw json({ message: "could not authenticate you" });
+        throw json({ message: "could not authenticate user" });
       }
       const resData = await response.json();
       console.log(resData);
-
       return redirect("/blogs");
     } catch (err) {
       message = "Error connecting to the server. Please try again later.";
