@@ -62,88 +62,94 @@ function LatestPosts({ latest, mostPopular }) {
                 )}
                 {!latest.message && (
                   <div className="loop-list loop-list-style-1">
-                    {currentPosts.map((post) => (
-                      <article
-                        className="hover-up-2 transition-normal wow animated"
-                        key={post.id}
-                      >
-                        <div className="row mb-40 list-style-2">
-                          <div className="col-md-4">
-                            <div className="post-thumb position-relative border-radius-5">
-                              <div
-                                className="img-hover-slide border-radius-5 position-relative"
-                                style={{
-                                  backgroundImage: `url(${post.image})`,
-                                }}
-                              >
-                                <Link
-                                  className="img-link"
-                                  to={post.post_link}
-                                ></Link>
+                    {currentPosts.length === 0 && (
+                      <h5 className="post-title font-weight-900 mb-20">
+                        No Posts yet
+                      </h5>
+                    )}
+                    {currentPosts.length > 0 &&
+                      currentPosts.map((post) => (
+                        <article
+                          className="hover-up-2 transition-normal wow animated"
+                          key={post.id}
+                        >
+                          <div className="row mb-40 list-style-2">
+                            <div className="col-md-4">
+                              <div className="post-thumb position-relative border-radius-5">
+                                <div
+                                  className="img-hover-slide border-radius-5 position-relative"
+                                  style={{
+                                    backgroundImage: `url(${post.image})`,
+                                  }}
+                                >
+                                  <Link
+                                    className="img-link"
+                                    to={post.post_link}
+                                  ></Link>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div className="col-md-8 align-self-center">
-                            <div className="post-content">
-                              <div className="entry-meta meta-0 font-small mb-10">
-                                <Link
-                                  to={`/blogs/tags/${post.tag_link.toLowerCase()}`}
-                                >
-                                  <span className="post-cat text-primary">
-                                    {post.tag}
-                                  </span>
-                                </Link>
-                              </div>
-                              <h5 className="post-title font-weight-900 mb-20">
-                                <Link to={post.post_link}>{post.title}</Link>
-                              </h5>
-                              <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                                <span className="post-on">
-                                  {formatDate(post.date)}
-                                </span>
-                                <div className="voting-icons mt-20">
-                                  <button
-                                    className="upvote-btn"
-                                    onClick={() => handleUpvote(post.id)}
+                            <div className="col-md-8 align-self-center">
+                              <div className="post-content">
+                                <div className="entry-meta meta-0 font-small mb-10">
+                                  <Link
+                                    to={`/blogs/tags/${post.tag_link.toLowerCase()}`}
                                   >
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="16"
-                                      height="16"
-                                      fill="currentColor"
-                                      className="bi bi-caret-up-square"
-                                      viewBox="0 0 16 16"
-                                    >
-                                      <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                                      <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
-                                    </svg>
-                                  </button>
-                                  <span className="votes-count">
-                                    {post.votes}
+                                    <span className="post-cat text-primary">
+                                      {post.tag}
+                                    </span>
+                                  </Link>
+                                </div>
+                                <h5 className="post-title font-weight-900 mb-20">
+                                  <Link to={post.post_link}>{post.title}</Link>
+                                </h5>
+                                <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
+                                  <span className="post-on">
+                                    {formatDate(post.date)}
                                   </span>
-                                  <button
-                                    className="downvote-btn"
-                                    onClick={() => handleDownvote(post.id)}
-                                  >
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="16"
-                                      height="16"
-                                      fill="currentColor"
-                                      className="bi bi-caret-down-square"
-                                      viewBox="0 0 16 16"
+                                  <div className="voting-icons mt-20">
+                                    <button
+                                      className="upvote-btn"
+                                      onClick={() => handleUpvote(post.id)}
                                     >
-                                      <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
-                                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
-                                    </svg>
-                                  </button>
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                        className="bi bi-caret-up-square"
+                                        viewBox="0 0 16 16"
+                                      >
+                                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                                        <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
+                                      </svg>
+                                    </button>
+                                    <span className="votes-count">
+                                      {post.votes}
+                                    </span>
+                                    <button
+                                      className="downvote-btn"
+                                      onClick={() => handleDownvote(post.id)}
+                                    >
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                        className="bi bi-caret-down-square"
+                                        viewBox="0 0 16 16"
+                                      >
+                                        <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
+                                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                                      </svg>
+                                    </button>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </article>
-                    ))}
+                        </article>
+                      ))}
                   </div>
                 )}
               </div>
