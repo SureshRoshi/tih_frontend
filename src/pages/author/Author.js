@@ -12,13 +12,13 @@ export default function AuthorPage() {
           <div className="col-12">
             <div className="author-bio mb-50 bg-white p-30 border-radius-10">
               <div className="author-image mb-30">
-                <a href="/">
+                <Link to={`/author/${author.username}`}>
                   <img
                     className="img-circle"
                     src="/assets/imgs/authors/author.jpg"
                     alt=""
                   />
-                </a>
+                </Link>
               </div>
               <div className="author-info">
                 <h3 className="font-weight-900">

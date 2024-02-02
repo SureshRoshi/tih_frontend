@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import {
+  Form,
   Link,
   defer,
   json,
@@ -82,7 +83,7 @@ function BlogDetailPage() {
           <div className="entry-bottom mt-50 mb-30 wow fadeIn animated">
             <div className="tags">
               <span>Tags: </span>
-              <Link href="/" rel="tag">
+              <Link to={`/blogs/tags/${blog.tags}`} rel="tag">
                 {blog.tags}
               </Link>
             </div>
@@ -392,10 +393,10 @@ function BlogDetailPage() {
             <div className="widget-header-2 position-relative mb-30">
               <h5 className="mt-5 mb-30">Leave a Reply</h5>
             </div>
-            <form
+            <Form
               className="form-contact comment_form"
-              action="#"
               id="commentForm"
+              method="POST"
             >
               <div className="row">
                 <div className="col-12">
@@ -416,7 +417,7 @@ function BlogDetailPage() {
                   Post Comment
                 </button>
               </div>
-            </form>
+            </Form>
           </div>
         </article>
       </div>
@@ -459,4 +460,44 @@ export async function loader({ params }) {
   return defer({
     blog: await blogLoader(blogId),
   });
+}
+
+export async function action({ request, params }) {
+  const token = getAuthToken();
+  const method = request.method;
+  const data = await request.formData();
+
+  let message = "";
+
+  const comment = data.get("comment");
+  console.log(comment);
+
+  // if (comment) {
+  //   const newPostData = {
+  //     comment: comment,
+  //   };
+  //   try {
+  //     const response = await fetch(`http://${config.backend_url}/api/blog/`, {
+  //       method: method,
+  //       body: JSON.stringify(newPostData),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     });
+
+  //     if (!response.ok) {
+  //       throw json({ message: "could not authenticate you" });
+  //     }
+  //     const resData = await response.json();
+  //     console.log(resData);
+
+  //     return redirect("/blogs");
+  //   } catch (err) {
+  //     message = "Error connecting to the server. Please try again later.";
+  //   }
+  // } else {
+  //   message = "Invalid form data. Please check your inputs.";
+  // }
+  // return { message };
 }
