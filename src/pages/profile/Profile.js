@@ -59,7 +59,7 @@ export default function ProfilePage() {
                       </span>
                     </span>
                   </h3>
-                  <h5 className="text-muted"></h5>
+                  <p className="text-muted" />
                   <div className="author-description text-muted"></div>
                   {/* <strong className="text-muted">Follow: </strong>
                 <ul className="header-social-network d-inline-block list-inline color-white mb-20">
@@ -131,7 +131,7 @@ export default function ProfilePage() {
                           <div
                             className="post-thumb thumb-overlay img-hover-slide position-relative"
                             style={{
-                              backgroundImage: `url(${post.image})`,
+                              backgroundImage: `url(${post.main_image})`,
                             }}
                           >
                             <p className="img-link"></p>
