@@ -1,10 +1,23 @@
-import { Link, defer, json, useLoaderData } from "react-router-dom";
+import {
+  Link,
+  defer,
+  json,
+  useLoaderData,
+  useNavigation,
+} from "react-router-dom";
 import { getAuthToken } from "../../components/util/auth";
 import config from "../../components/util/config";
 import { formatDate } from "../../components/util/formatDate";
+import Loader from "../../components/Layout/Loader";
 
 export default function ProfilePage() {
   const { profile } = useLoaderData();
+
+  const { state } = useNavigation();
+
+  if (state === "loading") {
+    return <Loader />;
+  }
 
   return (
     <main className="bg-grey pt-50 pb-50">

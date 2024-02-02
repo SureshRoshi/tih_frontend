@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import { formatDate } from "../util/formatDate";
+import Loader from "../Layout/Loader";
 
 function LatestPosts({ latest, mostPopular }) {
   const [latestPosts, setLatestPosts] = useState(latest);
 
   // Initial number of posts to display
   const [visiblePosts, setVisiblePosts] = useState(10);
+
+  const { state } = useNavigation();
+
+  if (state === "loading") {
+    return <Loader />;
+  }
 
   // Number of posts to load on each "Load More" click
   const postsToLoad = 10;

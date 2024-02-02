@@ -2,9 +2,15 @@ import React from "react";
 import { Form, json, redirect, useNavigation } from "react-router-dom";
 import config from "../../components/util/config";
 import { getAuthToken } from "../../components/util/auth";
+import Loader from "../../components/Layout/Loader";
 
 function AddPost() {
   const { state } = useNavigation();
+
+  if (state === "loading") {
+    return <Loader />;
+  }
+
   return (
     <>
       <main className="container pt-30">

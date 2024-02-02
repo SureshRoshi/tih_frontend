@@ -11,6 +11,7 @@ import config from "../util/config";
 
 function SignupForm() {
   const data = useActionData();
+
   const { state } = useNavigation();
 
   return (

@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
+import Loader from "../../components/Layout/Loader";
 
 export default function Home() {
+  const { state } = useNavigation();
+
   const token = localStorage.getItem("token");
+
+  if (state === "loading") {
+    return <Loader />;
+  }
 
   return (
     <>

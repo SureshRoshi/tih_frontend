@@ -1,14 +1,27 @@
 import { useEffect } from "react";
-import { Link, defer, json, useLoaderData } from "react-router-dom";
+import {
+  Link,
+  defer,
+  json,
+  useLoaderData,
+  useNavigation,
+} from "react-router-dom";
 import { getAuthToken } from "../../components/util/auth";
 import config from "../../components/util/config";
+import Loader from "../../components/Layout/Loader";
 
 export default function CategoryPage() {
   const { tag } = useLoaderData();
 
+  const { state } = useNavigation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (state === "loading") {
+    return <Loader />;
+  }
 
   return (
     <main>
@@ -58,9 +71,7 @@ export default function CategoryPage() {
                               </Link>
                             </div>
                             <h5 className="post-title font-weight-900 mb-20">
-                              <Link to={`/blogs/${post.uid}`}>
-                                {post.title}
-                              </Link>
+                              <Link to={`/blogs/${post.id}`}>{post.title}</Link>
                             </h5>
                             <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
                               <span className="post-on">{post.created_at}</span>
