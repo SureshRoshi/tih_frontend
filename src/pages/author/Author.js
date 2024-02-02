@@ -7,30 +7,45 @@ export default function AuthorPage() {
 
   return (
     <main className="bg-grey pt-50 pb-50">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <div className="author-bio mb-50 bg-white p-30 border-radius-10">
-              <div className="author-image mb-30">
-                <Link to={`/author/${author.username}`}>
-                  <img
-                    className="img-circle"
-                    src="/assets/imgs/authors/author.jpg"
-                    alt=""
-                  />
-                </Link>
-              </div>
-              <div className="author-info">
-                <h3 className="font-weight-900">
-                  <span className="vcard author">
-                    <span className="fn">
-                      <Link title={`Posts by ${author.username}`} rel="author">
-                        {author.username.toUpperCase()}
-                      </Link>
+      {author.status === 500 && (
+        <div className="container single-content">
+          <div className="entry-header pt-80 pb-30 mb-20">
+            <div className="row">
+              <h1 className="entry-title mb-30 font-weight-900">
+                {author.message}
+              </h1>
+            </div>
+          </div>
+        </div>
+      )}
+      {author.status !== 500 && (
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="author-bio mb-50 bg-white p-30 border-radius-10">
+                <div className="author-image mb-30">
+                  <Link to={`/author/${author.username}`}>
+                    <img
+                      className="img-circle"
+                      src="/assets/imgs/authors/author.jpg"
+                      alt=""
+                    />
+                  </Link>
+                </div>
+                <div className="author-info">
+                  <h3 className="font-weight-900">
+                    <span className="vcard author">
+                      <span className="fn">
+                        <Link
+                          title={`Posts by ${author.username}`}
+                          rel="author"
+                        >
+                          {author.username.toUpperCase()}
+                        </Link>
+                      </span>
                     </span>
-                  </span>
-                </h3>
-                {/* <h5 className="text-muted">About author</h5>
+                  </h3>
+                  {/* <h5 className="text-muted">About author</h5>
                 <div className="author-description text-muted">
                   You should write because you love the shape of stories and
                   sentences and the creation of different words on a page.
@@ -38,89 +53,101 @@ export default function AuthorPage() {
                   career-defining for a startup founder as an elite university
                   diploma.
                 </div> */}
-                <strong className="text-muted">Follow: </strong>
-                <ul className="header-social-network d-inline-block list-inline color-white mb-20">
-                  <li className="list-inline-item">
-                    <a className="fb" href="#" target="_blank" title="Facebook">
-                      <i className="elegant-icon social_facebook"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <Link
-                      className="tw"
-                      href="#"
-                      target="_blank"
-                      title="Tweet now"
-                    >
-                      <i className="elegant-icon social_twitter"></i>
-                    </Link>
-                  </li>
-                  <li className="list-inline-item">
-                    <Link
-                      className="pt"
-                      href="#"
-                      target="_blank"
-                      title="Pin it"
-                    >
-                      <i className="elegant-icon social_pinterest"></i>
-                    </Link>
-                  </li>
-                </ul>
+                  <strong className="text-muted">Follow: </strong>
+                  <ul className="header-social-network d-inline-block list-inline color-white mb-20">
+                    <li className="list-inline-item">
+                      <a
+                        className="fb"
+                        href="#"
+                        target="_blank"
+                        title="Facebook"
+                      >
+                        <i className="elegant-icon social_facebook"></i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <Link
+                        className="tw"
+                        href="#"
+                        target="_blank"
+                        title="Tweet now"
+                      >
+                        <i className="elegant-icon social_twitter"></i>
+                      </Link>
+                    </li>
+                    <li className="list-inline-item">
+                      <Link
+                        className="pt"
+                        href="#"
+                        target="_blank"
+                        title="Pin it"
+                      >
+                        <i className="elegant-icon social_pinterest"></i>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="post-module-2">
-              <div className="widget-header-2 position-relative mb-30  wow fadeInUp animated">
-                <h5 className="mt-5 mb-30">Posted by {author.username}</h5>
-              </div>
-              <div className="loop-list loop-list-style-1">
-                <div className="row">
-                  {author.data.map((post) => (
-                    <article
-                      className="col-md-6 mb-40 wow fadeInUp  animated"
-                      key={post.id}
-                    >
-                      <div className="post-card-1 border-radius-10 hover-up">
-                        <div
-                          className="post-thumb thumb-overlay img-hover-slide position-relative"
-                          style={{
-                            backgroundImage: `url(${post.image})`,
-                          }}
-                        >
-                          <p className="img-link"></p>
-                        </div>
-                        <div className="post-content p-30">
-                          <div className="entry-meta meta-0 font-small mb-10">
-                            <Link to={`/blogs/tags/${post.tag.toLowerCase()}`}>
-                              <span className="post-cat text-success">
-                                {post.tag}
-                              </span>
-                            </Link>
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="post-module-2">
+                <div className="widget-header-2 position-relative mb-30  wow fadeInUp animated">
+                  <h5 className="mt-5 mb-30">Posted by {author.username}</h5>
+                </div>
+                <div className="loop-list loop-list-style-1">
+                  <div className="row">
+                    {author.data.map((post) => (
+                      <article
+                        className="col-md-6 mb-40 wow fadeInUp  animated"
+                        key={post.id}
+                      >
+                        <div className="post-card-1 border-radius-10 hover-up">
+                          <div
+                            className="post-thumb thumb-overlay img-hover-slide position-relative"
+                            style={{
+                              backgroundImage: `url(${post.image})`,
+                            }}
+                          >
+                            <p className="img-link"></p>
                           </div>
-                          <div className="d-flex post-card-content">
-                            <h5 className="post-title mb-20 font-weight-900">
-                              <Link to={`/blogs/${post.id}`}>{post.title}</Link>
-                            </h5>
-                            <div className="post-excerpt mb-25 font-small text-muted">
-                              <p>{post.blog_text}</p>
+                          <div className="post-content p-30">
+                            <div className="entry-meta meta-0 font-small mb-10">
+                              <Link
+                                to={`/blogs/tags/${post.tag.toLowerCase()}`}
+                              >
+                                <span className="post-cat text-success">
+                                  {post.tag}
+                                </span>
+                              </Link>
                             </div>
-                            <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                              <span className="post-on">{post.created_at}</span>
+                            <div className="d-flex post-card-content">
+                              <h5 className="post-title mb-20 font-weight-900">
+                                <Link to={`/blogs/${post.id}`}>
+                                  {post.title}
+                                </Link>
+                              </h5>
+                              <div className="post-excerpt mb-25 font-small text-muted">
+                                <p>{post.blog_text}</p>
+                              </div>
+                              <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
+                                <span className="post-on">
+                                  {post.created_at}
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </article>
-                  ))}
+                      </article>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </main>
   );
 }
@@ -148,6 +175,7 @@ async function authorLoader(name) {
     return {
       message: `Hold up! Our server is on an unscheduled vacation 🏖️. 
         It's taking a break from your requests. Give it a moment to recharge its tropical vibes and try again later!`,
+      status: 500,
     };
   }
 }
