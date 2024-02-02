@@ -14,6 +14,7 @@ import Home from "./pages/home/Home";
 import HomePage, { loader as homeLoader } from "./pages/blogs/HomePage";
 import BlogDetailPage, {
   loader as detailLoader,
+  action as commentAction,
 } from "./pages/blogs/BlogDetailPage";
 import AddPost, { action as addPostAction } from "./pages/blogs/AddPost";
 import AuthorPage, { loader as authorLoader } from "./pages/author/Author";
@@ -67,6 +68,7 @@ const router = createBrowserRouter([
             path: ":blogId",
             element: <BlogDetailPage />,
             loader: detailLoader,
+            action: commentAction,
           },
           {
             path: "tags",

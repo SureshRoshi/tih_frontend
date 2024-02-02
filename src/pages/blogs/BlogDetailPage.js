@@ -150,243 +150,57 @@ function BlogDetailPage() {
             <div className="widget-header-2 position-relative mb-30">
               <h5 className="mt-5 mb-30">Comments</h5>
             </div>
-            <div className="comment-list wow fadeIn animated">
-              <div className="single-comment justify-content-between d-flex">
-                <div className="user justify-content-between d-flex">
-                  <div className="thumb">
-                    <img src="/assets/imgs/authors/author.jpg" alt="" />
-                  </div>
-                  <div className="desc">
-                    <p className="comment">
-                      Mastering Git is like navigating a well-structured code
-                      repository. The command branches and merges seamlessly,
-                      much like the flow of a well-thought-out version control
-                      system. Whether you're resolving conflicts or committing
-                      changes, it's a journey through the landscape of
-                      collaboration and efficient software development.
-                    </p>
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex align-items-center">
-                        <h5>
-                          <a href="/">Shegu Poojitha</a>
-                        </h5>
-                        <p className="date">6 minutes ago</p>
+            {blog.comments.length === 0 && (
+              <p className="comment text-center">No Comments yet</p>
+            )}
+            {blog.comments.length > 0 &&
+              blog.comments.map((comment) => (
+                <div
+                  className="comment-list wow fadeIn animated"
+                  key={comment.uid}
+                >
+                  <div className="single-comment justify-content-between d-flex">
+                    <div className="user justify-content-between d-flex">
+                      <div className="thumb">
+                        <img
+                          src="/assets/imgs/authors/author.jpg"
+                          alt="author"
+                        />
                       </div>
-                      <div className="reply-btn">
-                        <div className="voting-icons mt-20 mb-20">
-                          <button className="upvote-btn">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-caret-up-square"
-                              viewBox="0 0 16 16"
-                            >
-                              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                              <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
-                            </svg>
-                          </button>
-                          <span className="votes-count">12</span>
-                          <button className="downvote-btn">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-caret-down-square"
-                              viewBox="0 0 16 16"
-                            >
-                              <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
-                              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
-                            </svg>
-                          </button>
+                      <div className="desc mt-5">
+                        <p className="comment">{comment.add_comment}</p>
+                        <div className="d-flex justify-content-between">
+                          <div className="d-flex align-items-center">
+                            <h5>
+                              <Link to={`/author/${comment.comment_user}`}>
+                                {comment.comment_user}
+                              </Link>
+                            </h5>
+                            <p className="date">
+                              {formatDate(comment.created_at)}
+                            </p>
+                          </div>
                         </div>
-                        <a href="/" className="btn-reply">
-                          Reply
-                        </a>
+                        {/* <div className="reply-btn mt-3">
+                          <form className="reply-form d-flex">
+                            <textarea
+                              name="reply"
+                              className="reply-textarea form-control me-2"
+                              placeholder="Enter your reply..."
+                            ></textarea>
+                            <button
+                              type="submit"
+                              className="btn btn-primary btn-sm align-self-end"
+                            >
+                              Reply
+                            </button>
+                          </form>
+                        </div> */}
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="comment-list wow fadeIn animated">
-              <div className="single-comment justify-content-between d-flex">
-                <div className="user justify-content-between d-flex">
-                  <div className="thumb">
-                    <img src="/assets/imgs/authors/author.jpg" alt="" />
-                  </div>
-                  <div className="desc">
-                    <p className="comment">
-                      Exploring the branches of Git is like taking a stroll
-                      through the commit history, each step revealing the
-                      evolution of the codebase. Merge conflicts become the
-                      crossroads where developers collaborate to ensure a smooth
-                      journey through the repository.
-                    </p>
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex align-items-center">
-                        <h5>
-                          <a href="/">Charan Srinivasan</a>
-                        </h5>
-                        <p className="date">December 4, 2023 at 3:12 pm</p>
-                      </div>
-                      <div className="reply-btn">
-                        <div className="voting-icons mt-20 mb-20">
-                          <button className="upvote-btn">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-caret-up-square"
-                              viewBox="0 0 16 16"
-                            >
-                              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                              <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
-                            </svg>
-                          </button>
-                          <span className="votes-count">12</span>
-                          <button className="downvote-btn">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-caret-down-square"
-                              viewBox="0 0 16 16"
-                            >
-                              <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
-                              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
-                            </svg>
-                          </button>
-                        </div>
-                        <a href="/" className="btn-reply">
-                          Reply
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="single-comment depth-2 justify-content-between d-flex mt-50">
-                <div className="user justify-content-between d-flex">
-                  <div className="thumb">
-                    <img src="/assets/imgs/authors/author.jpg" alt="" />
-                  </div>
-                  <div className="desc">
-                    <p className="comment">
-                      In the world of Git mastery, each commit is a chapter in
-                      the story of software development. Navigating through
-                      branches is akin to flipping pages, revealing the
-                      narrative of collaborative coding and version control.
-                    </p>
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex align-items-center">
-                        <h5>
-                          <a href="/">Suresh Dangeti</a>
-                        </h5>
-                        <p className="date">December 4, 2023 at 3:12 pm</p>
-                      </div>
-                      <div className="reply-btn">
-                        <div className="voting-icons mt-20 mb-20">
-                          <button className="upvote-btn">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-caret-up-square"
-                              viewBox="0 0 16 16"
-                            >
-                              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                              <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
-                            </svg>
-                          </button>
-                          <span className="votes-count">12</span>
-                          <button className="downvote-btn">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-caret-down-square"
-                              viewBox="0 0 16 16"
-                            >
-                              <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
-                              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
-                            </svg>
-                          </button>
-                        </div>
-                        <a href="/" className="btn-reply">
-                          Reply
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="comment-list wow fadeIn animated">
-              <div className="single-comment justify-content-between d-flex">
-                <div className="user justify-content-between d-flex">
-                  <div className="thumb">
-                    <img src="/assets/imgs/authors/author.jpg" alt="" />
-                  </div>
-                  <div className="desc">
-                    <p className="comment">
-                      In the world of Git mastery, each commit is a chapter in
-                      the story of software development. Navigating through
-                      branches is akin to flipping pages, revealing the
-                      narrative of collaborative coding and version control.
-                    </p>
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex align-items-center">
-                        <h5>
-                          <a href="/">Lalit Suresh</a>
-                        </h5>
-                        <p className="date">December 4, 2023 at 3:12 pm</p>
-                      </div>
-                      <div className="reply-btn">
-                        <div className="voting-icons mt-20 mb-20">
-                          <button className="upvote-btn">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-caret-up-square"
-                              viewBox="0 0 16 16"
-                            >
-                              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                              <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537z" />
-                            </svg>
-                          </button>
-                          <span className="votes-count">12</span>
-                          <button className="downvote-btn">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-caret-down-square"
-                              viewBox="0 0 16 16"
-                            >
-                              <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z" />
-                              <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
-                            </svg>
-                          </button>
-                        </div>
-                        <a href="/" className="btn-reply">
-                          Reply
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              ))}
           </div>
 
           <div className="comment-form wow fadeIn animated">
@@ -414,7 +228,9 @@ function BlogDetailPage() {
               </div>
               <div className="form-group">
                 <button type="submit" className="btn button button-contactForm">
-                  Post Comment
+                  {state === "submitting"
+                    ? "Posting Comment..."
+                    : "Post Comment"}
                 </button>
               </div>
             </Form>
@@ -465,39 +281,40 @@ export async function loader({ params }) {
 export async function action({ request, params }) {
   const token = getAuthToken();
   const method = request.method;
+  const { blogId } = params;
   const data = await request.formData();
 
   let message = "";
 
   const comment = data.get("comment");
-  console.log(comment);
 
-  // if (comment) {
-  //   const newPostData = {
-  //     comment: comment,
-  //   };
-  //   try {
-  //     const response = await fetch(`http://${config.backend_url}/api/blog/`, {
-  //       method: method,
-  //       body: JSON.stringify(newPostData),
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
+  if (comment) {
+    const newCommentData = {
+      add_comment: comment,
+    };
 
-  //     if (!response.ok) {
-  //       throw json({ message: "could not authenticate you" });
-  //     }
-  //     const resData = await response.json();
-  //     console.log(resData);
+    try {
+      const response = await fetch(
+        `http://${config.backend_url}/api/blog/${blogId}/`,
+        {
+          method: method,
+          body: JSON.stringify(newCommentData),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-  //     return redirect("/blogs");
-  //   } catch (err) {
-  //     message = "Error connecting to the server. Please try again later.";
-  //   }
-  // } else {
-  //   message = "Invalid form data. Please check your inputs.";
-  // }
-  // return { message };
+      if (!response.ok) {
+        throw json({ message: "could not authenticate you" });
+      }
+      return {};
+    } catch (err) {
+      message = "Error connecting to the server. Please try again later.";
+    }
+  } else {
+    message = "Invalid form data. Please check your inputs.";
+  }
+  return { message };
 }
