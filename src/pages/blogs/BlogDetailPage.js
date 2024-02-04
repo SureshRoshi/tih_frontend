@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Form,
   Link,
@@ -6,6 +6,7 @@ import {
   json,
   useLoaderData,
   useNavigation,
+  useParams,
 } from "react-router-dom";
 import config from "../../components/util/config";
 import { getAuthToken } from "../../components/util/auth";
@@ -15,6 +16,8 @@ import { formatDate } from "../../components/util/formatDate";
 function BlogDetailPage() {
   const { blog } = useLoaderData();
 
+  const { blogId } = useParams();
+
   const { state } = useNavigation();
 
   useEffect(() => {
@@ -23,6 +26,31 @@ function BlogDetailPage() {
 
   if (state === "loading") {
     return <Loader />;
+  }
+
+  async function voteHandler() {
+    const token = getAuthToken();
+    let message = "";
+    try {
+      const response = await fetch(
+        `http://${config.backend_url}/api/blog/upvote/${blogId}/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw json({ message: "could not authenticate you" });
+      }
+      const resData = await response.json();
+      console.log(resData);
+    } catch (err) {
+      message = "Error connecting to the server. Please try again later.";
+    }
   }
 
   return (
@@ -100,15 +128,20 @@ function BlogDetailPage() {
                 </Link>
               </div>
             </div>
+
             <div className="single-social-share clearfix wow fadeIn animated">
               <div className="entry-meta meta-1 font-small color-grey float-start mt-10">
                 <span className="hit-count mr-15">
-                  <i className="elegant-icon icon_comment_alt mr-5"></i>
-                  {blog.comments.length} comments
+                  <button className="btn" onClick={voteHandler}>
+                    <i className="elegant-icon icon_like"></i>
+                  </button>
+                  {blog.upvotes} Upvotes
                 </span>
                 <span className="hit-count mr-15">
-                  <i className="elegant-icon icon_like mr-5"></i>
-                  {blog.upvotes} Upvotes
+                  <button className="btn">
+                    <i className="elegant-icon icon_comment_alt"></i>
+                  </button>
+                  {blog.comments.length} comments
                 </span>
               </div>
             </div>
@@ -160,7 +193,7 @@ function BlogDetailPage() {
               </div>
             </div>
 
-            <div className="comments-area">
+            <div className="comments-area" id="comments-area">
               <div className="widget-header-2 position-relative mb-30">
                 <h5 className="mt-5 mb-30">Comments</h5>
               </div>

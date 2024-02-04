@@ -29,21 +29,21 @@ function LatestPosts({ latest, mostPopular }) {
     setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + postsToLoad);
   };
 
-  const handleUpvote = (postId) => {
-    setLatestPosts((prevPosts) =>
-      prevPosts.map((post) =>
-        post.id === postId ? { ...post, votes: post.votes + 1 } : post
-      )
-    );
-  };
+  // const handleUpvote = (postId) => {
+  //   setLatestPosts((prevPosts) =>
+  //     prevPosts.map((post) =>
+  //       post.id === postId ? { ...post, votes: post.votes + 1 } : post
+  //     )
+  //   );
+  // };
 
-  const handleDownvote = (postId) => {
-    setLatestPosts((prevPosts) =>
-      prevPosts.map((post) =>
-        post.id === postId ? { ...post, votes: post.votes - 1 } : post
-      )
-    );
-  };
+  // const handleDownvote = (postId) => {
+  //   setLatestPosts((prevPosts) =>
+  //     prevPosts.map((post) =>
+  //       post.id === postId ? { ...post, votes: post.votes - 1 } : post
+  //     )
+  //   );
+  // };
 
   return (
     <>
@@ -107,7 +107,7 @@ function LatestPosts({ latest, mostPopular }) {
                                   <span className="post-on">
                                     {formatDate(post.date)}
                                   </span>
-                                  <div className="voting-icons mt-20">
+                                  {/* <div className="voting-icons mt-20">
                                     <button
                                       className="upvote-btn"
                                       onClick={() => handleUpvote(post.id)}
@@ -143,7 +143,7 @@ function LatestPosts({ latest, mostPopular }) {
                                         <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
                                       </svg>
                                     </button>
-                                  </div>
+                                  </div> */}
                                 </div>
                               </div>
                             </div>
