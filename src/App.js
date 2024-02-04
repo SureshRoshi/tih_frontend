@@ -19,7 +19,10 @@ import BlogDetailPage, {
 import AddPost, { action as addPostAction } from "./pages/blogs/AddPost";
 import AuthorPage, { loader as authorLoader } from "./pages/author/Author";
 import CategoryPage, { loader as tagLoader } from "./pages/category/Category";
-import ProfilePage, { loader as profileLoader } from "./pages/profile/Profile";
+import ProfilePage, {
+  loader as profileLoader,
+  action as deleteAction,
+} from "./pages/profile/Profile";
 
 import { action as loginAction } from "./components/UI/LoginForm";
 import { action as signupAction } from "./components/UI/SignupForm";
@@ -42,7 +45,12 @@ const router = createBrowserRouter([
       { path: "login", element: <LoginPage />, action: loginAction },
       { path: "signup", element: <SignupPage />, action: signupAction },
       { path: "logout", action: logoutAction },
-      { path: "your-profile", element: <ProfilePage />, loader: profileLoader },
+      {
+        path: "your-profile",
+        element: <ProfilePage />,
+        loader: profileLoader,
+        action: deleteAction,
+      },
       {
         path: "author",
         children: [
