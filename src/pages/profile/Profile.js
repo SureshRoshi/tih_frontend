@@ -112,49 +112,55 @@ export default function ProfilePage() {
                 </div>
                 <div className="loop-list loop-list-style-1">
                   <div className="row">
-                    {profile.data.map((post) => (
-                      <article
-                        className="col-md-6 mb-40 wow fadeInUp  animated"
-                        key={post.uid}
-                      >
-                        <div className="post-card-1 border-radius-10 hover-up">
-                          <div
-                            className="post-thumb thumb-overlay img-hover-slide position-relative"
-                            style={{
-                              backgroundImage: `url(${post.main_image})`,
-                            }}
-                          >
-                            <p className="img-link"></p>
-                          </div>
-                          <div className="post-content p-30">
-                            <div className="entry-meta meta-0 font-small mb-10">
-                              <Link
-                                to={`/blogs/tags/${post.tags.toLowerCase()}`}
-                              >
-                                <span className="post-cat text-success">
-                                  {post.tags}
-                                </span>
-                              </Link>
+                    {profile.data.length === 0 && (
+                      <h5 className="post-title font-weight-900 mb-20">
+                        No Posts yet
+                      </h5>
+                    )}
+                    {profile.data.length > 0 &&
+                      profile.data.map((post) => (
+                        <article
+                          className="col-md-6 mb-40 wow fadeInUp  animated"
+                          key={post.uid}
+                        >
+                          <div className="post-card-1 border-radius-10 hover-up">
+                            <div
+                              className="post-thumb thumb-overlay img-hover-slide position-relative"
+                              style={{
+                                backgroundImage: `url(${post.main_image})`,
+                              }}
+                            >
+                              <p className="img-link"></p>
                             </div>
-                            <div className="d-flex post-card-content">
-                              <h5 className="post-title mb-20 font-weight-900">
-                                <Link to={`/blogs/${post.uid}`}>
-                                  {post.title}
+                            <div className="post-content p-30">
+                              <div className="entry-meta meta-0 font-small mb-10">
+                                <Link
+                                  to={`/blogs/tags/${post.tags.toLowerCase()}`}
+                                >
+                                  <span className="post-cat text-success">
+                                    {post.tags}
+                                  </span>
                                 </Link>
-                              </h5>
-                              <div className="post-excerpt mb-25 font-small text-muted">
-                                <p>{post.blog_text}</p>
                               </div>
-                              <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                                <span className="post-on">
-                                  {formatDate(post.created_at)}
-                                </span>
+                              <div className="d-flex post-card-content">
+                                <h5 className="post-title mb-20 font-weight-900">
+                                  <Link to={`/blogs/${post.uid}`}>
+                                    {post.title}
+                                  </Link>
+                                </h5>
+                                <div className="post-excerpt mb-25 font-small text-muted">
+                                  <p>{post.blog_text}</p>
+                                </div>
+                                <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
+                                  <span className="post-on">
+                                    {formatDate(post.created_at)}
+                                  </span>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </article>
-                    ))}
+                        </article>
+                      ))}
                   </div>
                 </div>
               </div>
