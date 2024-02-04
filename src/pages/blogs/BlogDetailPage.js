@@ -53,6 +53,9 @@ function BlogDetailPage() {
     }
   }
 
+  blog.description = blog.description.replace(/\n/g, "<br/>");
+  blog.summary = blog.summary.replace(/\n/g, "<br/>");
+
   return (
     <main className="bg-grey pb-30">
       {blog.message && (
@@ -91,7 +94,12 @@ function BlogDetailPage() {
                   <h1 className="entry-title mb-30 font-weight-900">
                     {blog.title}
                   </h1>
-                  <p className="excerpt mb-30">{blog.summary}</p>
+                  <p
+                    className="excerpt mb-30"
+                    dangerouslySetInnerHTML={{
+                      __html: blog.summary,
+                    }}
+                  ></p>
                   <div className="entry-meta align-items-center meta-2 font-small color-muted">
                     <p className="mb-5">
                       <Link className="author-avatar" to="/author">
@@ -117,7 +125,11 @@ function BlogDetailPage() {
 
           <article className="entry-wraper mb-50">
             <div className="excerpt mb-30">
-              <p>{blog.description}</p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: blog.description,
+                }}
+              ></p>
             </div>
 
             <div className="entry-bottom mt-50 mb-30 wow fadeIn animated">
