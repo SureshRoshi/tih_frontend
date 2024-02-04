@@ -3,7 +3,10 @@ import { Link, useNavigation } from "react-router-dom";
 import { formatDate } from "../util/formatDate";
 import Loader from "../Layout/Loader";
 
-function LatestPosts({ latest, mostPopular }) {
+function LatestPosts({
+  latest,
+  //  mostPopular
+}) {
   const [latestPosts, setLatestPosts] = useState(latest);
 
   // Initial number of posts to display
@@ -50,7 +53,7 @@ function LatestPosts({ latest, mostPopular }) {
       <div className="bg-grey pt-50 pb-50">
         <div className="container">
           <div className="row">
-            <div className="col-lg-8">
+            <div className="col-lg-10">
               <div className="post-module-3">
                 <div className="widget-header-1 position-relative mb-30">
                   <h5 className="mt-5 mb-30">Latest posts</h5>
@@ -167,7 +170,7 @@ function LatestPosts({ latest, mostPopular }) {
               {/* load more ends */}
             </div>
             {/*  */}
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               <div className="widget-area">
                 <div className="sidebar-widget widget-latest-posts mb-50 wow fadeInUp animated">
                   <div className="widget-header-1 position-relative mb-30">
@@ -201,7 +204,7 @@ function LatestPosts({ latest, mostPopular }) {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
