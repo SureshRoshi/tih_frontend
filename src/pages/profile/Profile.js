@@ -2,7 +2,6 @@ import {
   Link,
   defer,
   json,
-  redirect,
   useLoaderData,
   useNavigation,
   useSubmit,
@@ -253,13 +252,8 @@ export async function action({ request }) {
   const blogId = await request.formData();
   const id = blogId.get("blogId");
 
-  const deleteData = {
-    uid: id,
-  };
-
-  const response = await fetch(`http://${config.backend_url}/api/blog/`, {
+  const response = await fetch(`http://${config.backend_url}/api/blog/${id}`, {
     method: method,
-    body: JSON.stringify(deleteData),
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -268,6 +262,5 @@ export async function action({ request }) {
   if (!response.ok) {
     throw json({ message: "Could not delete blog" }, { status: 500 });
   }
-  const resData = await response.json();
-  console.log(resData);
+  return {};
 }
