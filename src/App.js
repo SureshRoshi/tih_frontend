@@ -23,6 +23,7 @@ import ProfilePage, {
   loader as profileLoader,
   action as deleteAction,
 } from "./pages/profile/Profile";
+import EditPost, { action as editAction } from "./pages/blogs/EditPost";
 
 import { action as loginAction } from "./components/UI/LoginForm";
 import { action as signupAction } from "./components/UI/SignupForm";
@@ -30,7 +31,6 @@ import { action as searchAction } from "./components/Layout/Navbar";
 import { action as logoutAction } from "./pages/auth/Logout";
 
 import { checkAuthLoader, tokenLoader } from "./components/util/auth";
-import EditPost from "./pages/blogs/EditPost";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +86,7 @@ const router = createBrowserRouter([
               {
                 path: "edit-post",
                 element: <EditPost />,
+                action: editAction,
               },
             ],
           },

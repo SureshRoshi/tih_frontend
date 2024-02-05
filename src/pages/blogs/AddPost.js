@@ -48,7 +48,7 @@ function AddPost() {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="image" className="form-label">
-                    Post Image:
+                    Post Image
                   </label>
                   <input
                     className="form-control"

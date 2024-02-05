@@ -29,17 +29,17 @@ function EditPost() {
           <div className="col-md-8 offset-md-2">
             <div className="add-post-form padding_eight_all mt-30">
               <div className="heading_s1 text-center">
-                <h3 className="mb-30 font-weight-900">Add New Post</h3>
+                <h3 className="mb-30 font-weight-900">Edit Post</h3>
               </div>
               {data && data.message && (
                 <div className="alert alert-danger border-radius-10">
                   {data.message}
                 </div>
               )}
-              <Form method="POST">
+              <Form method="PATCH">
                 <div className="mb-3">
                   <label htmlFor="title" className="form-label">
-                    Post Title
+                    Edit Post Title
                   </label>
                   <input
                     type="text"
@@ -47,12 +47,12 @@ function EditPost() {
                     id="title"
                     name="title"
                     placeholder="Enter the title of your post"
-                    required
+                    defaultValue={blog ? blog.title : ""}
                   />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="image" className="form-label">
-                    Post Image:
+                    Edit Post Image
                   </label>
                   <input
                     className="form-control"
@@ -60,12 +60,12 @@ function EditPost() {
                     type="url"
                     name="image"
                     placeholder="Enter image url of your post"
-                    required
+                    defaultValue={blog ? blog.main_image : ""}
                   />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="tag" className="form-label">
-                    Post Tags
+                    Edit Post Tags
                   </label>
                   <input
                     type="text"
@@ -73,12 +73,12 @@ function EditPost() {
                     id="tag"
                     name="tag"
                     placeholder="Enter tag of your post"
-                    required
+                    defaultValue={blog ? blog.tags : ""}
                   />
                 </div>
                 <div className="row">
                   <label htmlFor="summary" className="form-label">
-                    Summary
+                    Edit Summary
                   </label>
                   <div className="col-12">
                     <div className="form-group">
@@ -89,13 +89,14 @@ function EditPost() {
                         cols="30"
                         rows="5"
                         placeholder="Write your post summary here..."
+                        defaultValue={blog ? blog.summary : ""}
                       ></textarea>
                     </div>
                   </div>
                 </div>
                 <div className="row">
                   <label htmlFor="description" className="form-label">
-                    Post Description
+                    Edit Post Description
                   </label>
                   <div className="col-12">
                     <div className="form-group">
@@ -106,6 +107,7 @@ function EditPost() {
                         cols="30"
                         rows="9"
                         placeholder="Write your post content here..."
+                        defaultValue={blog ? blog.description : ""}
                       ></textarea>
                     </div>
                   </div>
@@ -113,8 +115,8 @@ function EditPost() {
                 <div className="form-group">
                   <button className="btn button button-contactForm">
                     {state === "submitting"
-                      ? "Submitting Post..."
-                      : "Submit Post"}
+                      ? "Updating Post..."
+                      : "Update Post"}
                   </button>
                 </div>
               </Form>
@@ -131,6 +133,7 @@ export default EditPost;
 export async function action({ request, params }) {
   const token = getAuthToken();
   const method = request.method;
+  const { blogId } = params;
   const data = await request.formData();
 
   let message = "";
@@ -141,8 +144,18 @@ export async function action({ request, params }) {
   const summary = data.get("summary");
   const description = data.get("description");
 
-  if (image && title && tags && summary && description) {
-    const newPostData = {
+  function checkLength(value) {
+    return value.length !== 0;
+  }
+
+  if (
+    checkLength(image) &&
+    checkLength(title) &&
+    checkLength(tags) &&
+    checkLength(summary) &&
+    checkLength(description)
+  ) {
+    const updatedData = {
       title: title,
       main_image: image,
       tags: tags,
@@ -150,14 +163,17 @@ export async function action({ request, params }) {
       description: description,
     };
     try {
-      const response = await fetch(`http://${config.backend_url}/api/blog/`, {
-        method: method,
-        body: JSON.stringify(newPostData),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `http://${config.backend_url}/api/blog/${blogId}/`,
+        {
+          method: method,
+          body: JSON.stringify(updatedData),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.status === 400) {
         return response;
@@ -168,7 +184,7 @@ export async function action({ request, params }) {
       }
       const resData = await response.json();
       console.log(resData);
-      return redirect("/blogs");
+      return redirect(`/your-profile`);
     } catch (err) {
       message = "Error connecting to the server. Please try again later.";
     }

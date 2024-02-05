@@ -4,7 +4,6 @@ import {
   Link,
   defer,
   json,
-  useLoaderData,
   useNavigation,
   useParams,
   useRouteLoaderData,
