@@ -72,18 +72,22 @@ function AddPost() {
                     required
                   />
                 </div>
-                <div className="mb-3">
-                  <label htmlFor="title" className="form-label">
+                <div className="row">
+                  <label htmlFor="summary" className="form-label">
                     Summary
                   </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="summary"
-                    name="summary"
-                    placeholder="Enter the short summary"
-                    required
-                  />
+                  <div className="col-12">
+                    <div className="form-group">
+                      <textarea
+                        className="form-control w-100"
+                        name="summary"
+                        id="summary"
+                        cols="30"
+                        rows="5"
+                        placeholder="Write your post summary here..."
+                      ></textarea>
+                    </div>
+                  </div>
                 </div>
                 <div className="row">
                   <label htmlFor="description" className="form-label">
