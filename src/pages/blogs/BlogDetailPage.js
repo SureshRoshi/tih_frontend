@@ -7,6 +7,7 @@ import {
   useLoaderData,
   useNavigation,
   useParams,
+  useRouteLoaderData,
 } from "react-router-dom";
 import config from "../../components/util/config";
 import { getAuthToken } from "../../components/util/auth";
@@ -14,7 +15,7 @@ import Loader from "../../components/Layout/Loader";
 import { formatDate } from "../../components/util/formatDate";
 
 function BlogDetailPage() {
-  const { blog } = useLoaderData();
+  const { blog } = useRouteLoaderData("blog-detail");
 
   const { blogId } = useParams();
 

@@ -30,6 +30,7 @@ import { action as searchAction } from "./components/Layout/Navbar";
 import { action as logoutAction } from "./pages/auth/Logout";
 
 import { checkAuthLoader, tokenLoader } from "./components/util/auth";
+import EditPost from "./pages/blogs/EditPost";
 
 const router = createBrowserRouter([
   {
@@ -74,9 +75,19 @@ const router = createBrowserRouter([
           },
           {
             path: ":blogId",
-            element: <BlogDetailPage />,
             loader: detailLoader,
-            action: commentAction,
+            id: "blog-detail",
+            children: [
+              {
+                index: true,
+                element: <BlogDetailPage />,
+                action: commentAction,
+              },
+              {
+                path: "edit-post",
+                element: <EditPost />,
+              },
+            ],
           },
           {
             path: "tags",

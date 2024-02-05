@@ -3,6 +3,7 @@ import {
   defer,
   json,
   useLoaderData,
+  useNavigate,
   useNavigation,
   useSubmit,
 } from "react-router-dom";
@@ -18,11 +19,17 @@ export default function ProfilePage() {
 
   const { state } = useNavigation();
 
+  const navigate = useNavigate();
+
   function deleteHandler(id) {
     const proceed = window.confirm("Are you sure to delete the post ?");
     if (proceed) {
       submit({ blogId: id }, { method: "DELETE" });
     }
+  }
+
+  function editHandler(id) {
+    navigate(`/blogs/${id}/edit-post`);
   }
 
   if (state === "loading") {
@@ -169,7 +176,7 @@ export default function ProfilePage() {
                                 <div className="mt-15">
                                   <button
                                     className="btn btn-radius bg-primary text-white font-small box-shadow"
-                                    onClick={() => console.log("editing...")}
+                                    onClick={() => editHandler(post.uid)}
                                   >
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
