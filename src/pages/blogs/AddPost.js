@@ -48,7 +48,7 @@ function AddPost() {
                   />
                 </div>
                 <div className="mb-3">
-                  {/* <label htmlFor="image" className="form-label">
+                  <label htmlFor="image" className="form-label">
                     Post Image
                   </label>
                   <input
@@ -58,8 +58,8 @@ function AddPost() {
                     name="image"
                     placeholder="Enter image url of your post"
                     required
-                  /> */}
-                  <ImagePicker label={"Post Image"} name={"image"} />
+                  />
+                  {/* <ImagePicker label={"Post Image"} name={"image"} /> */}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="tag" className="form-label">
@@ -175,3 +175,53 @@ export async function action({ request, params }) {
   }
   return { message };
 }
+
+// export async function action({ request, params }) {
+//   const token = getAuthToken();
+//   const method = request.method;
+//   const data = await request.formData();
+
+//   let message = "";
+
+//   const title = data.get("title");
+//   const image = data.get("image");
+//   const tags = data.get("tag");
+//   const summary = data.get("summary");
+//   const description = data.get("description");
+
+//   if (image && title && tags && summary && description) {
+//     const formData = new FormData();
+
+//     formData.append("title", title);
+//     formData.append("upload_image", image);
+//     formData.append("tags", tags);
+//     formData.append("summary", summary);
+//     formData.append("description", description);
+
+//     try {
+//       const response = await fetch(`http://${config.backend_url}/api/blog/`, {
+//         method: method,
+//         body: formData,
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       });
+
+//       if (response.status === 400) {
+//         return response;
+//       }
+
+//       if (!response.ok) {
+//         throw json({ message: "could not authenticate user" });
+//       }
+//       const resData = await response.json();
+//       console.log(resData);
+//       return redirect("/blogs");
+//     } catch (err) {
+//       message = "Error connecting to the server. Please try again later.";
+//     }
+//   } else {
+//     message = "Invalid form data. Please check your inputs.";
+//   }
+//   return { message };
+// }

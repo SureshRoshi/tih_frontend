@@ -12,7 +12,9 @@ import { getAuthToken } from "../../components/util/auth";
 import Loader from "../../components/Layout/Loader";
 
 function EditPost() {
-  const { blog } = useRouteLoaderData("blog-detail");
+  const { blogDetail } = useRouteLoaderData("blog-detail");
+
+  const blog = blogDetail.data;
 
   const data = useActionData();
 

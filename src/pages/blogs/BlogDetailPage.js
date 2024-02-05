@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Form,
   Link,
@@ -16,6 +16,16 @@ import { formatDate } from "../../components/util/formatDate";
 function BlogDetailPage() {
   const { blogDetail } = useRouteLoaderData("blog-detail");
 
+  const [post, setPost] = useState({});
+
+  useEffect(() => {
+    setPost(blogDetail.data);
+  }, [blogDetail]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const blog = blogDetail.data;
 
   const related_posts = blogDetail.related_posts;
@@ -23,10 +33,6 @@ function BlogDetailPage() {
   const { blogId } = useParams();
 
   const { state } = useNavigation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   if (state === "loading") {
     return <Loader />;
@@ -51,6 +57,12 @@ function BlogDetailPage() {
         throw json({ message: "could not authenticate you" });
       }
       const resData = await response.json();
+
+      setPost((prevPost) => ({
+        ...prevPost,
+        upvotes: prevPost.upvotes + 1,
+      }));
+
       console.log(resData);
     } catch (err) {
       message = "Error connecting to the server. Please try again later.";
@@ -151,7 +163,7 @@ function BlogDetailPage() {
                   <button className="btn" onClick={voteHandler}>
                     <i className="elegant-icon icon_like"></i>
                   </button>
-                  {blog.upvotes} Upvotes
+                  {post.upvotes} Upvotes
                 </span>
                 <span className="hit-count mr-15">
                   <button className="btn">
