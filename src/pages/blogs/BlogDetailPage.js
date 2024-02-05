@@ -53,8 +53,8 @@ function BlogDetailPage() {
     }
   }
 
-  blog.description = blog.description.replace(/\n/g, "<br/>");
-  blog.summary = blog.summary.replace(/\n/g, "<br/>");
+  blog.description = !blog.message && blog.description.replace(/\n/g, "<br/>");
+  blog.summary = !blog.message && blog.summary.replace(/\n/g, "<br/>");
 
   return (
     <main className="bg-grey pb-30">
