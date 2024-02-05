@@ -14,7 +14,11 @@ import Loader from "../../components/Layout/Loader";
 import { formatDate } from "../../components/util/formatDate";
 
 function BlogDetailPage() {
-  const { blog } = useRouteLoaderData("blog-detail");
+  const { blogDetail } = useRouteLoaderData("blog-detail");
+
+  const blog = blogDetail.data;
+
+  const related_posts = blogDetail.related_posts;
 
   const { blogId } = useParams();
 
@@ -157,54 +161,59 @@ function BlogDetailPage() {
                 </span>
               </div>
             </div>
-
-            <div className="related-posts pt-30">
-              <div className="post-module-3">
-                <div className="widget-header-2 position-relative mb-30">
-                  <h5 className="mt-5 mb-30">Related posts</h5>
-                </div>
-                <div className="loop-list loop-list-style-1">
-                  <article className="hover-up-2 transition-normal wow fadeInUp animated">
-                    <div className="row mb-40 list-style-2">
-                      <div className="col-md-4">
-                        <div className="post-thumb position-relative border-radius-5">
-                          <div
-                            className="img-hover-slide border-radius-5 position-relative"
-                            style={{
-                              backgroundImage:
-                                "url(/assets/imgs/tech/tech-featured-image.jpg)",
-                            }}
-                          >
-                            <p className="img-link" href="/"></p>
+            {related_posts.length > 0 && (
+              <div className="related-posts pt-30">
+                <div className="post-module-3">
+                  <div className="widget-header-2 position-relative mb-30">
+                    <h5 className="mt-5 mb-30">Related posts</h5>
+                  </div>
+                  <div className="loop-list loop-list-style-1">
+                    {related_posts.map((post) => (
+                      <article
+                        className="hover-up-2 transition-normal wow fadeInUp animated"
+                        key={post.uid}
+                      >
+                        <div className="row mb-40 list-style-2">
+                          <div className="col-md-4">
+                            <div className="post-thumb position-relative border-radius-5">
+                              <div
+                                className="img-hover-slide border-radius-5 position-relative"
+                                style={{
+                                  backgroundImage: `url(${post.main_image})`,
+                                }}
+                              >
+                                <p className="img-link"></p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-md-8 align-self-center">
+                            <div className="post-content">
+                              <div className="entry-meta meta-0 font-small mb-10">
+                                <Link to={`/blogs/tags/${post.tags}`}>
+                                  <span className="post-cat text-primary">
+                                    {post.tags}
+                                  </span>
+                                </Link>
+                              </div>
+                              <h5 className="post-title font-weight-900 mb-20">
+                                <Link to={`/blogs/${post.uid}`}>
+                                  {post.title}
+                                </Link>
+                              </h5>
+                              <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
+                                <span className="post-on">
+                                  {formatDate(post.created_at)}
+                                </span>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="col-md-8 align-self-center">
-                        <div className="post-content">
-                          <div className="entry-meta meta-0 font-small mb-10">
-                            <Link to={`/blogs/tags/tech`}>
-                              <span className="post-cat text-primary">
-                                Tech
-                              </span>
-                            </Link>
-                          </div>
-                          <h5 className="post-title font-weight-900 mb-20">
-                            <Link href="/">
-                              Exploring Innovative Uses of Raspberry Pi in
-                              Modern Technology
-                            </Link>
-                          </h5>
-                          <div className="entry-meta meta-1 float-start font-x-small text-uppercase">
-                            <span className="post-on">15 October 2023</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
+                      </article>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-
+            )}
             <div className="comments-area" id="comments-area">
               <div className="widget-header-2 position-relative mb-30">
                 <h5 className="mt-5 mb-30">Comments</h5>
@@ -324,7 +333,7 @@ async function blogLoader(id) {
       throw json({ message: "Could not fetch blog by id." }, { status: 500 });
     } else {
       const resData = await response.json();
-      return resData.data;
+      return resData;
     }
   } catch (error) {
     return {
@@ -337,7 +346,7 @@ async function blogLoader(id) {
 export async function loader({ params }) {
   const { blogId } = params;
   return defer({
-    blog: await blogLoader(blogId),
+    blogDetail: await blogLoader(blogId),
   });
 }
 

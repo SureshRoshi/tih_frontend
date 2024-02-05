@@ -9,6 +9,7 @@ import {
 import config from "../../components/util/config";
 import { getAuthToken } from "../../components/util/auth";
 import Loader from "../../components/Layout/Loader";
+import ImagePicker from "../../components/Section/ImagePicker";
 
 function AddPost() {
   const data = useActionData();
@@ -47,7 +48,7 @@ function AddPost() {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="image" className="form-label">
+                  {/* <label htmlFor="image" className="form-label">
                     Post Image
                   </label>
                   <input
@@ -57,7 +58,8 @@ function AddPost() {
                     name="image"
                     placeholder="Enter image url of your post"
                     required
-                  />
+                  /> */}
+                  <ImagePicker label={"Post Image"} name={"image"} />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="tag" className="form-label">
