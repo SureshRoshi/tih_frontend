@@ -47,7 +47,7 @@ function FeatureContainer({ featurePosts }) {
                       <div
                         className="thumb-overlay position-relative"
                         style={{
-                          background: post.image,
+                          background: `url(${post.image})`,
                         }}
                       >
                         <div className="post-content-overlay">
