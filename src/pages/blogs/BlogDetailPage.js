@@ -69,23 +69,25 @@ function BlogDetailPage() {
     }
   }
 
-  blog.description = !blog.message && blog.description.replace(/\n/g, "<br/>");
-  blog.summary = !blog.message && blog.summary.replace(/\n/g, "<br/>");
+  const description =
+    !blogDetail.message && blog && blog.description.replace(/\n/g, "<br/>");
+  const summary =
+    !blogDetail.message && blog && blog.summary.replace(/\n/g, "<br/>");
 
   return (
     <main className="bg-grey pb-30">
-      {blog.message && (
+      {blogDetail.message && (
         <div className="container single-content">
           <div className="entry-header pt-80 pb-30 mb-20">
             <div className="row">
-              <h1 className="entry-title mb-30 font-weight-900">
-                {blog.message}
+              <h1 className="entry-title mb-30 font-weight-900 text-center">
+                {blogDetail.message}
               </h1>
             </div>
           </div>
         </div>
       )}
-      {!blog.message && (
+      {!blogDetail.message && (
         <div className="container single-content">
           <div className="entry-header pt-80 pb-30 mb-20">
             <div className="row">
@@ -113,7 +115,7 @@ function BlogDetailPage() {
                   <p
                     className="excerpt mb-30"
                     dangerouslySetInnerHTML={{
-                      __html: blog.summary,
+                      __html: summary,
                     }}
                   ></p>
                   <div className="entry-meta align-items-center meta-2 font-small color-muted">
@@ -143,7 +145,7 @@ function BlogDetailPage() {
             <div className="excerpt mb-30">
               <p
                 dangerouslySetInnerHTML={{
-                  __html: blog.description,
+                  __html: description,
                 }}
               ></p>
             </div>
@@ -340,6 +342,12 @@ async function blogLoader(id) {
         },
       }
     );
+
+    if (response.status === 404) {
+      return {
+        message: `Embrace the journey: Blog not discovered in the digital realm!`,
+      };
+    }
 
     if (!response.ok) {
       throw json({ message: "Could not fetch blog by id." }, { status: 500 });
