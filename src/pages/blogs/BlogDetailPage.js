@@ -17,6 +17,7 @@ function BlogDetailPage() {
   const { blogDetail } = useRouteLoaderData("blog-detail");
 
   const [post, setPost] = useState({});
+  const [error, setError] = useState("");
 
   useEffect(() => {
     setPost(blogDetail.data);
@@ -53,6 +54,12 @@ function BlogDetailPage() {
         }
       );
 
+      if (response.status === 400) {
+        setError({
+          message: "Your vote has already been cast for this post! 🚀",
+        });
+      }
+
       if (!response.ok) {
         throw json({ message: "could not authenticate you" });
       }
@@ -66,6 +73,8 @@ function BlogDetailPage() {
       message = "Error connecting to the server. Please try again later.";
     }
   }
+
+  const msg = error && error.message;
 
   const description =
     !blogDetail.message && blog && blog.description.replace(/\n/g, "<br/>");
@@ -171,6 +180,7 @@ function BlogDetailPage() {
                   </button>
                   {blog.comments.length} comments
                 </span>
+                {msg && <h5 className="mt-5 mr-15 comment">{msg}</h5>}
               </div>
             </div>
             {related_posts.length > 0 && (
@@ -248,11 +258,14 @@ function BlogDetailPage() {
                           />
                         </div>
                         <div className="desc mt-5">
-                          <p className="comment">{comment.add_comment}</p>
+                          <p>{comment.add_comment}</p>
                           <div className="d-flex justify-content-between">
                             <div className="d-flex align-items-center">
                               <h5>
-                                <Link to={`/author/${comment.comment_user}`}>
+                                <Link
+                                  to={`/author/${comment.comment_user}`}
+                                  className="comment"
+                                >
                                   {comment.comment_user}
                                 </Link>
                               </h5>
