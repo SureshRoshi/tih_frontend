@@ -29,7 +29,7 @@ export default function CategoryPage() {
         <div className="container single-content">
           <div className="entry-header pt-80 pb-30 mb-20">
             <div className="row">
-              <h1 className="entry-title mb-30 font-weight-900">
+              <h1 className="entry-title mb-30 font-weight-900 text-center">
                 {tag.message}
               </h1>
             </div>
@@ -123,6 +123,12 @@ async function tagLoader(id) {
         },
       }
     );
+
+    if (response.status === 404) {
+      return {
+        message: `Embrace the journey: Tag not discovered in the digital realm!`,
+      };
+    }
 
     if (!response.ok) {
       throw json({ message: "Could not fetch blog by id." }, { status: 500 });
