@@ -62,8 +62,6 @@ function BlogDetailPage() {
         ...prevPost,
         upvotes: prevPost.upvotes + 1,
       }));
-
-      console.log(resData);
     } catch (err) {
       message = "Error connecting to the server. Please try again later.";
     }
