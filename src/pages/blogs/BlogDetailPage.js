@@ -41,7 +41,6 @@ function BlogDetailPage() {
 
   async function voteHandler() {
     const token = getAuthToken();
-    let message = "";
     try {
       const response = await fetch(
         `http://${config.backend_url}/api/blog/upvote/${blogId}/`,
@@ -63,23 +62,21 @@ function BlogDetailPage() {
       if (!response.ok) {
         throw json({ message: "could not authenticate you" });
       }
-      const resData = await response.json();
 
       setPost((prevPost) => ({
         ...prevPost,
         upvotes: prevPost.upvotes + 1,
       }));
     } catch (err) {
-      message = "Error connecting to the server. Please try again later.";
+      const message = "Error connecting to the server. Please try again later.";
+      return message;
     }
   }
 
   const msg = error && error.message;
 
-  const description =
-    !blogDetail.message && blog && blog.description.replace(/\n/g, "<br/>");
-  const summary =
-    !blogDetail.message && blog && blog.summary.replace(/\n/g, "<br/>");
+  const summaryMarkup = !blogDetail.message && blog && blog.summary;
+  const descriptionMarkup = !blogDetail.message && blog && blog.description;
 
   return (
     <main className="bg-grey pb-30">
@@ -122,7 +119,7 @@ function BlogDetailPage() {
                   <p
                     className="excerpt mb-30"
                     dangerouslySetInnerHTML={{
-                      __html: summary,
+                      __html: summaryMarkup,
                     }}
                   ></p>
                   <div className="entry-meta align-items-center meta-2 font-small color-muted">
@@ -152,7 +149,7 @@ function BlogDetailPage() {
             <div className="excerpt mb-30">
               <p
                 dangerouslySetInnerHTML={{
-                  __html: description,
+                  __html: descriptionMarkup,
                 }}
               ></p>
             </div>
