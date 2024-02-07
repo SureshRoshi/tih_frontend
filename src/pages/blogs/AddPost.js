@@ -43,7 +43,7 @@ function AddPost() {
                     className="form-control"
                     id="title"
                     name="title"
-                    placeholder="Enter the title of your post"
+                    placeholder="Enter the title of your post... Let your creativity shine!"
                     required
                   />
                 </div>
@@ -56,7 +56,7 @@ function AddPost() {
                     id="image"
                     type="url"
                     name="image"
-                    placeholder="Enter image url of your post"
+                    placeholder="Enter the image URL for your post... because every post needs a bit of visual flair!"
                     required
                   />
                   {/* <ImagePicker label={"Post Image"} name={"image"} /> */}
@@ -70,7 +70,7 @@ function AddPost() {
                     className="form-control"
                     id="tag"
                     name="tag"
-                    placeholder="Enter tag of your post"
+                    placeholder="One epic tag to rule them all... Enter here!"
                     required
                   />
                 </div>
@@ -86,7 +86,7 @@ function AddPost() {
                         id="summary"
                         cols="30"
                         rows="5"
-                        placeholder="Write your post summary here..."
+                        placeholder="<p>Write your 'brilliant' blog summary here using HTML tags... because we know you're just dying to unleash your inner HTML wizardry. Don't forget to sprinkle in some <em>emphasis</em> and <strong>bold statements</strong> for good measure!</p>"
                       ></textarea>
                     </div>
                   </div>
@@ -103,7 +103,7 @@ function AddPost() {
                         id="description"
                         cols="30"
                         rows="9"
-                        placeholder="Write your post content here..."
+                        placeholder="<p>Here's your canvas! Use HTML to craft your epic post description. Feel the power as you unleash your creativity. Add <strong>bold statements</strong> and <em>captivating phrases</em>. Ready, set, dazzle the world!</p>"
                       ></textarea>
                     </div>
                   </div>
@@ -164,7 +164,6 @@ export async function action({ request, params }) {
       if (!response.ok) {
         throw json({ message: "could not authenticate user" });
       }
-      const resData = await response.json();
 
       return redirect("/blogs");
     } catch (err) {
