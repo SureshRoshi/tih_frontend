@@ -184,7 +184,6 @@ export async function action({ request, params }) {
       if (!response.ok) {
         throw json({ message: "could not authenticate user" });
       }
-      const resData = await response.json();
 
       return redirect(`/your-profile`);
     } catch (err) {
