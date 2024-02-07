@@ -48,7 +48,7 @@ function EditPost() {
                     className="form-control"
                     id="title"
                     name="title"
-                    placeholder="Enter the title of your post"
+                    placeholder="Enter the title of your post... Let your creativity shine!"
                     defaultValue={blog ? blog.title : ""}
                   />
                 </div>
@@ -61,7 +61,7 @@ function EditPost() {
                     id="image"
                     type="url"
                     name="image"
-                    placeholder="Enter image url of your post"
+                    placeholder="Enter the image URL for your post... because every post needs a bit of visual flair!"
                     defaultValue={blog ? blog.main_image : ""}
                   />
                 </div>
@@ -74,7 +74,7 @@ function EditPost() {
                     className="form-control"
                     id="tag"
                     name="tag"
-                    placeholder="Enter tag of your post"
+                    placeholder="One epic tag to rule them all... Enter here!"
                     defaultValue={blog ? blog.tags : ""}
                   />
                 </div>
@@ -90,7 +90,7 @@ function EditPost() {
                         id="summary"
                         cols="30"
                         rows="5"
-                        placeholder="Write your post summary here..."
+                        placeholder="<p>Write your 'brilliant' blog summary here using HTML tags... because we know you're just dying to unleash your inner HTML wizardry. Don't forget to sprinkle in some <em>emphasis</em> and <strong>bold statements</strong> for good measure!</p>"
                         defaultValue={blog ? blog.summary : ""}
                       ></textarea>
                     </div>
@@ -108,7 +108,7 @@ function EditPost() {
                         id="description"
                         cols="30"
                         rows="9"
-                        placeholder="Write your post content here..."
+                        placeholder="<p>Here's your canvas! Use HTML to craft your epic post description. Feel the power as you unleash your creativity. Add <strong>bold statements</strong> and <em>captivating phrases</em>. Ready, set, dazzle the world!</p>"
                         defaultValue={blog ? blog.description : ""}
                       ></textarea>
                     </div>
