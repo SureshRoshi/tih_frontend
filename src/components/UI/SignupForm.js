@@ -7,7 +7,6 @@ import {
   useNavigation,
 } from "react-router-dom";
 import { isEmail, isEqualsToOtherValue, isPassword } from "../util/validation";
-import config from "../util/config";
 
 function SignupForm() {
   const data = useActionData();
@@ -154,7 +153,7 @@ export async function action({ request, params }) {
       password: formPassword,
     };
 
-    const url = `http://${config.backend_url}/accounts/register/`;
+    const url = `http://${process.env.REACT_APP_API_URL}/accounts/register/`;
 
     try {
       const response = await fetch(url, {

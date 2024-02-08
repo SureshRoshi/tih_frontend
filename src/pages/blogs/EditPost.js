@@ -7,7 +7,6 @@ import {
   useNavigation,
   useRouteLoaderData,
 } from "react-router-dom";
-import config from "../../components/util/config";
 import { getAuthToken } from "../../components/util/auth";
 import Loader from "../../components/Layout/Loader";
 
@@ -166,7 +165,7 @@ export async function action({ request, params }) {
     };
     try {
       const response = await fetch(
-        `http://${config.backend_url}/api/blog/${blogId}/`,
+        `http://${process.env.REACT_APP_API_URL}/api/blog/${blogId}/`,
         {
           method: method,
           body: JSON.stringify(updatedData),

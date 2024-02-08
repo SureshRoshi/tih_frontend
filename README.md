@@ -34,38 +34,19 @@ cd tih_frontend
 npm install
 ```
 
-3. Start the development server:
+3. Before starting the development server, create a `.env` file in the root folder and add the following KEY-VALUE:
+
+```bash
+REACT_APP_API_URL = 'backend-ip:port'
+```
+
+4. Start the development server
 
 ```bash
 npm start
 ```
 
-```
-Your React App
-│
-└── src
-    │
-    └── util
-        │
-        └── config.js
-```
-
-In the `config.js` file, find and update the `backend_url`:
-
-```javascript
-// config.js
-
-module.exports = {
-  backend_url: "http://your_backend_server_ip:port",
-  // Other settings...
-};
-
-export default config;
-```
-
-Replace `'http://your_backend_server_ip:port'` with your actual backend server's IP and port.
-
-4. Open your browser and navigate to http://localhost:3000 to access Torry Insight Hub.
+5. Open your browser and navigate to http://localhost:3000 to access Torry Insight Hub.
 
 ### Usage
 

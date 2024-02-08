@@ -6,10 +6,9 @@ import {
   useActionData,
   useNavigation,
 } from "react-router-dom";
-import config from "../../components/util/config";
 import { getAuthToken } from "../../components/util/auth";
 import Loader from "../../components/Layout/Loader";
-import ImagePicker from "../../components/Section/ImagePicker";
+// import ImagePicker from "../../components/Section/ImagePicker";
 
 function AddPost() {
   const data = useActionData();
@@ -148,14 +147,17 @@ export async function action({ request, params }) {
       description: description,
     };
     try {
-      const response = await fetch(`http://${config.backend_url}/api/blog/`, {
-        method: method,
-        body: JSON.stringify(newPostData),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `http://${process.env.REACT_APP_API_URL}/api/blog/`,
+        {
+          method: method,
+          body: JSON.stringify(newPostData),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.status === 400) {
         return response;
@@ -198,7 +200,7 @@ export async function action({ request, params }) {
 //     formData.append("description", description);
 
 //     try {
-//       const response = await fetch(`http://${config.backend_url}/api/blog/`, {
+//       const response = await fetch(`http://${process.env.REACT_APP_API_URL}/api/blog/`, {
 //         method: method,
 //         body: formData,
 //         headers: {

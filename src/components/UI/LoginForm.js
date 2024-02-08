@@ -7,7 +7,6 @@ import {
   useNavigation,
 } from "react-router-dom";
 import { isEmpId, isPassword } from "../util/validation";
-import config from "../util/config";
 
 function LoginForm() {
   const data = useActionData();
@@ -124,7 +123,7 @@ export async function action({ request, params }) {
       password: formPassword,
     };
 
-    const url = `http://${config.backend_url}/accounts/Login/`;
+    const url = `http://${process.env.REACT_APP_API_URL}/accounts/Login/`;
 
     try {
       const response = await fetch(url, {

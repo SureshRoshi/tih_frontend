@@ -7,7 +7,6 @@ import {
   useNavigation,
 } from "react-router-dom";
 import { getAuthToken } from "../../components/util/auth";
-import config from "../../components/util/config";
 import Loader from "../../components/Layout/Loader";
 
 export default function CategoryPage() {
@@ -115,7 +114,7 @@ async function tagLoader(id) {
 
   try {
     const response = await fetch(
-      `http://${config.backend_url}/api/blog/tag/${id}`,
+      `http://${process.env.REACT_APP_API_URL}/api/blog/tag/${id}`,
       {
         method: "GET",
         headers: {

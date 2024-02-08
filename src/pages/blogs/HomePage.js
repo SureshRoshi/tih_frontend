@@ -13,7 +13,6 @@ import LatestPosts from "../../components/Section/LatestPosts";
 import Loader from "../../components/Layout/Loader";
 
 import { getAuthToken } from "../../components/util/auth";
-import config from "../../components/util/config";
 
 function HomePage() {
   useEffect(() => {
@@ -62,7 +61,7 @@ async function loadFeatureBlogs() {
   const token = getAuthToken();
   try {
     const response = await fetch(
-      `http://${config.backend_url}/api/blog/is_featured`,
+      `http://${process.env.REACT_APP_API_URL}/api/blog/is_featured`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -87,11 +86,14 @@ async function loadLatestBlogs() {
   const token = getAuthToken();
 
   try {
-    const response = await fetch(`http://${config.backend_url}/api/blog/`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      `http://${process.env.REACT_APP_API_URL}/api/blog/`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     if (!response.ok) {
       throw json({ message: "Could not fetch posts." }, { status: 500 });

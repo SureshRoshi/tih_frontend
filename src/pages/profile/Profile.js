@@ -8,7 +8,6 @@ import {
   useSubmit,
 } from "react-router-dom";
 import { getAuthToken } from "../../components/util/auth";
-import config from "../../components/util/config";
 import { formatDate } from "../../components/util/formatDate";
 import Loader from "../../components/Layout/Loader";
 
@@ -81,7 +80,7 @@ export default function ProfilePage() {
                   <strong className="text-muted">Follow: </strong>
                   <ul className="header-social-network d-inline-block list-inline color-white mb-20 ml-5">
                     <li className="list-inline-item">
-                      <a className="gh" href="" target="_blank" title="GitHub">
+                      <a className="gh" href="/" target="_blank" title="GitHub">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -225,11 +224,14 @@ async function profileLoader() {
   const token = getAuthToken();
 
   try {
-    const response = await fetch(`http://${config.backend_url}/api/MyBlogs`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      `http://${process.env.REACT_APP_API_URL}/api/MyBlogs`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     if (!response.ok) {
       throw json({ message: "Could not fetch posts." }, { status: 500 });
@@ -259,12 +261,15 @@ export async function action({ request }) {
   const blogId = await request.formData();
   const id = blogId.get("blogId");
 
-  const response = await fetch(`http://${config.backend_url}/api/blog/${id}`, {
-    method: method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const response = await fetch(
+    `http://${process.env.REACT_APP_API_URL}/api/blog/${id}`,
+    {
+      method: method,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   if (!response.ok) {
     throw json({ message: "Could not delete blog" }, { status: 500 });

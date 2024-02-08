@@ -1,6 +1,5 @@
 import { Link, defer, json, useLoaderData } from "react-router-dom";
 import { getAuthToken } from "../../components/util/auth";
-import config from "../../components/util/config";
 
 export default function AuthorPage() {
   const { author } = useLoaderData();
@@ -56,7 +55,7 @@ export default function AuthorPage() {
                   <strong className="text-muted">Follow: </strong>
                   <ul className="header-social-network d-inline-block list-inline color-white mb-20 ml-5">
                     <li className="list-inline-item">
-                      <a className="gh" href="" target="_blank" title="GitHub">
+                      <a className="gh" href="/" target="_blank" title="GitHub">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"
@@ -141,7 +140,7 @@ async function authorLoader(name) {
 
   try {
     const response = await fetch(
-      `http://${config.backend_url}/api/blog/${name}`,
+      `http://${process.env.REACT_APP_API_URL}/api/blog/${name}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
